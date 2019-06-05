@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>一个简易server | 是刘快啊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tim Berners-Lee写出了第一个网页、第一个浏览器和第一个服务器。网页我们见过，浏览器我们见过，但我们还没见过服务器。了解服务器的原理是非常重要的。 我们可以自己搞一个服务器，然后提供HTTP服务。  我们已经有一个服务器了，我们所使用的电脑就是服务器。（相对我们的电脑，服务器有更好的CPU，更高的内存，不需要显卡和显示器等） 但是我们还没有提供HTTP服务的程序。  用脚本就可以提供H">
+<meta name="keywords" content="Node.js server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个简易server">
+<meta property="og:url" content="http://yoursite.com/2018/04/27/一个简易server/index.html">
+<meta property="og:site_name" content="是刘快啊">
+<meta property="og:description" content="Tim Berners-Lee写出了第一个网页、第一个浏览器和第一个服务器。网页我们见过，浏览器我们见过，但我们还没见过服务器。了解服务器的原理是非常重要的。 我们可以自己搞一个服务器，然后提供HTTP服务。  我们已经有一个服务器了，我们所使用的电脑就是服务器。（相对我们的电脑，服务器有更好的CPU，更高的内存，不需要显卡和显示器等） 但是我们还没有提供HTTP服务的程序。  用脚本就可以提供H">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-05T03:53:25.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个简易server">
+<meta name="twitter:description" content="Tim Berners-Lee写出了第一个网页、第一个浏览器和第一个服务器。网页我们见过，浏览器我们见过，但我们还没见过服务器。了解服务器的原理是非常重要的。 我们可以自己搞一个服务器，然后提供HTTP服务。  我们已经有一个服务器了，我们所使用的电脑就是服务器。（相对我们的电脑，服务器有更好的CPU，更高的内存，不需要显卡和显示器等） 但是我们还没有提供HTTP服务的程序。  用脚本就可以提供H">
+  
+    <link rel="alternate" href="/atom.xml" title="是刘快啊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">是刘快啊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-一个简易server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/27/一个简易server/" class="article-date">
+  <time datetime="2018-04-27T07:01:45.000Z" itemprop="datePublished">2018-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一个简易server
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tim Berners-Lee写出了第一个网页、第一个浏览器和第一个服务器。<br>网页我们见过，浏览器我们见过，但我们还没见过服务器。<br>了解服务器的原理是非常重要的。</p>
+<p>我们可以自己搞一个服务器，然后提供HTTP服务。</p>
+<ol>
+<li>我们已经有一个服务器了，我们所使用的电脑就是服务器。（相对我们的电脑，服务器有更好的CPU，更高的内存，不需要显卡和显示器等）</li>
+<li>但是我们还没有提供HTTP服务的程序。</li>
+</ol>
+<p>用脚本就可以提供HTTP服务，我们就用Node.js脚本试试吧。</p>
+<h4 id="接收请求"><a href="#接收请求" class="headerlink" title="接收请求"></a>接收请求</h4><p>用一个文件就可以实现：</p>
+<ol>
+<li>新建一个安全目录，进入目录<code>cd ~/Desktop; mkdir node-demo; cd node-demo</code></li>
+<li><code>touch server.js</code></li>
+<li>编辑它，<a href="https://github.com/Luke19950111/node-demo/blob/master/server-before.js" target="_blank" rel="noopener">内容</a></li>
+<li>运行<code>node server</code>或<code>node server.js</code>(会看到提示要加端口号)</li>
+<li>根据提示调整命令</li>
+<li>成功以后，这个server保持运行(ctrl+c可中断)</li>
+</ol>
+<p>服务器完成。<br>这个服务器目前只有一个功能，就是打印出路径和查询字符串。<br>还缺少一个重要功能，发出HTTP响应。</p>
+<p>打开一个新的bash窗口，运行<code>curl http://localhost:你指定的端口号/xxx</code>或<code>crul http://127.0.0.1:你指定的端口号/xxx</code>（或者直接用浏览器访问）<br>你会发现server打印出了路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ node server-before.js 8888</span><br><span class="line">监听 8888 成功</span><br><span class="line">请用在空中转体720度然后用电饭煲打开 http://localhost:8888</span><br><span class="line">得到 HTTP 路径</span><br><span class="line">/xxx</span><br><span class="line">查询字符串为</span><br><span class="line"></span><br><span class="line">不含查询字符串的路径为</span><br><span class="line">/xxx</span><br></pre></td></tr></table></figure>
+
+<p>（如果你的手机和你的电脑在同一个内网中，你可以试试用手机来访问这个server，同样会打印出路径）</p>
+<ol>
+<li>这说明server收到了我们用curl发出的请求；</li>
+<li>但是由于server没有发出响应，curl就一直等在那里，无法退出（ctrl+c中断这个傻curl吧）。</li>
+</ol>
+<h4 id="发出响应"><a href="#发出响应" class="headerlink" title="发出响应"></a>发出响应</h4><p>接下来我们让server发出响应。</p>
+<ol>
+<li><p>便捷server.js</p>
+</li>
+<li><p>在中间标注区间添加两行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.write(&apos;Hi&apos;)</span><br><span class="line">response.end()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>中断之前的server，重新运行<code>node server 8888</code></p>
+</li>
+<li><p>运行<code>curl http://localhost:8888/xxx</code>,结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi% //%表示结尾，不想看到它可以把&apos;Hi&apos;换成&apos;Hi\n&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>好了，响应添加成功</p>
+</li>
+<li><p>使用<code>curl -s -v -- &quot;http://localhost:8888/xxx&quot;</code>可以查看完整的请求和响应</p>
+</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>后缀是没有用的，文件内容是由HTTP头中的Content-Type保证的；</li>
+<li>HTTP路径不是文件路径，/xxx.html不一定对应xxx.html文件。<br>这个脚本返回一个页面（ <a href="https://github.com/Luke19950111/node-demo/blob/master/server.js" target="_blank" rel="noopener">代码</a> ）。注意路径中的后缀都是混乱的，返回的内容根据Content-Type而定。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/27/一个简易server/" data-id="cjwir1c0x000whwo6lyo1k2jz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js-server/">Node.js server</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/29/JSONP是什么/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JSONP是什么
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/23/visibilitychange/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">visibilitychange</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/">AJAX CORS 请求与响应 解构赋值 Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cache-Control-Expires-Etag/">Cache-Control Expires Etag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM事件模型-浮层/">DOM事件模型 浮层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-请求-响应/">HTTP 请求 响应</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSONP-SRJ-数据库/">JSONP SRJ 数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js-server/">Node.js server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-nextSibling-nodeType/">Node.nextSibling nodeType</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a-form/">a form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-sizing/">box-sizing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-API/">jQuery API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setInterval-setTimeout/">setInterval() setTimeout()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-relative-absolute-fixed-sticky/">static relative absolute fixed sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-call-apply-bind/">this call apply bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport-媒体查询-动态REM-响应式/">viewport 媒体查询 动态REM 响应式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibilitychange-自动播放轮播/">visibilitychange 自动播放轮播</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/固定比例缩放/">固定比例缩放</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本文介绍TCP-IP简要常识/">本文介绍TCP/IP简要常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/注册-登录-cookies/">注册 登录 cookies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第二篇博客，用于测试/">第二篇博客，用于测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/罗列HTML中的空元素/">罗列HTML中的空元素</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重新部署/">重新部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/" style="font-size: 10px;">AJAX CORS 请求与响应 解构赋值 Promise</a> <a href="/tags/Cache-Control-Expires-Etag/" style="font-size: 10px;">Cache-Control Expires Etag</a> <a href="/tags/DOM事件模型-浮层/" style="font-size: 10px;">DOM事件模型 浮层</a> <a href="/tags/HTTP-请求-响应/" style="font-size: 10px;">HTTP 请求 响应</a> <a href="/tags/JSONP-SRJ-数据库/" style="font-size: 10px;">JSONP SRJ 数据库</a> <a href="/tags/Node-js-server/" style="font-size: 10px;">Node.js server</a> <a href="/tags/Node-nextSibling-nodeType/" style="font-size: 10px;">Node.nextSibling nodeType</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/a-form/" style="font-size: 10px;">a form</a> <a href="/tags/box-sizing/" style="font-size: 10px;">box-sizing</a> <a href="/tags/css属性/" style="font-size: 10px;">css属性</a> <a href="/tags/jQuery-API/" style="font-size: 10px;">jQuery API</a> <a href="/tags/setInterval-setTimeout/" style="font-size: 10px;">setInterval() setTimeout()</a> <a href="/tags/static-relative-absolute-fixed-sticky/" style="font-size: 10px;">static relative absolute fixed sticky</a> <a href="/tags/this-call-apply-bind/" style="font-size: 10px;">this call apply bind</a> <a href="/tags/viewport-媒体查询-动态REM-响应式/" style="font-size: 10px;">viewport 媒体查询 动态REM 响应式</a> <a href="/tags/visibilitychange-自动播放轮播/" style="font-size: 10px;">visibilitychange 自动播放轮播</a> <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" style="font-size: 10px;">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a> <a href="/tags/固定比例缩放/" style="font-size: 10px;">固定比例缩放</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/本文介绍TCP-IP简要常识/" style="font-size: 10px;">本文介绍TCP/IP简要常识</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/注册-登录-cookies/" style="font-size: 10px;">注册 登录 cookies</a> <a href="/tags/第二篇博客，用于测试/" style="font-size: 10px;">第二篇博客，用于测试</a> <a href="/tags/罗列HTML中的空元素/" style="font-size: 10px;">罗列HTML中的空元素</a> <a href="/tags/重新部署/" style="font-size: 10px;">重新部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/05/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/换电脑重新部署hexo/">换电脑重新部署hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/02/HTTP缓存/">HTTP缓存</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/Session/">Session</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 刘快<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

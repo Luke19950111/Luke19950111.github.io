@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>是刘快啊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="是刘快啊">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="是刘快啊">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="是刘快啊">
+  
+    <link rel="alternate" href="/atom.xml" title="是刘快啊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">是刘快啊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-一个简易server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/27/一个简易server/" class="article-date">
+  <time datetime="2018-04-27T07:01:45.000Z" itemprop="datePublished">2018-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/27/一个简易server/">一个简易server</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tim Berners-Lee写出了第一个网页、第一个浏览器和第一个服务器。<br>网页我们见过，浏览器我们见过，但我们还没见过服务器。<br>了解服务器的原理是非常重要的。</p>
+<p>我们可以自己搞一个服务器，然后提供HTTP服务。</p>
+<ol>
+<li>我们已经有一个服务器了，我们所使用的电脑就是服务器。（相对我们的电脑，服务器有更好的CPU，更高的内存，不需要显卡和显示器等）</li>
+<li>但是我们还没有提供HTTP服务的程序。</li>
+</ol>
+<p>用脚本就可以提供HTTP服务，我们就用Node.js脚本试试吧。</p>
+<h4 id="接收请求"><a href="#接收请求" class="headerlink" title="接收请求"></a>接收请求</h4><p>用一个文件就可以实现：</p>
+<ol>
+<li>新建一个安全目录，进入目录<code>cd ~/Desktop; mkdir node-demo; cd node-demo</code></li>
+<li><code>touch server.js</code></li>
+<li>编辑它，<a href="https://github.com/Luke19950111/node-demo/blob/master/server-before.js" target="_blank" rel="noopener">内容</a></li>
+<li>运行<code>node server</code>或<code>node server.js</code>(会看到提示要加端口号)</li>
+<li>根据提示调整命令</li>
+<li>成功以后，这个server保持运行(ctrl+c可中断)</li>
+</ol>
+<p>服务器完成。<br>这个服务器目前只有一个功能，就是打印出路径和查询字符串。<br>还缺少一个重要功能，发出HTTP响应。</p>
+<p>打开一个新的bash窗口，运行<code>curl http://localhost:你指定的端口号/xxx</code>或<code>crul http://127.0.0.1:你指定的端口号/xxx</code>（或者直接用浏览器访问）<br>你会发现server打印出了路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ node server-before.js 8888</span><br><span class="line">监听 8888 成功</span><br><span class="line">请用在空中转体720度然后用电饭煲打开 http://localhost:8888</span><br><span class="line">得到 HTTP 路径</span><br><span class="line">/xxx</span><br><span class="line">查询字符串为</span><br><span class="line"></span><br><span class="line">不含查询字符串的路径为</span><br><span class="line">/xxx</span><br></pre></td></tr></table></figure>
+
+<p>（如果你的手机和你的电脑在同一个内网中，你可以试试用手机来访问这个server，同样会打印出路径）</p>
+<ol>
+<li>这说明server收到了我们用curl发出的请求；</li>
+<li>但是由于server没有发出响应，curl就一直等在那里，无法退出（ctrl+c中断这个傻curl吧）。</li>
+</ol>
+<h4 id="发出响应"><a href="#发出响应" class="headerlink" title="发出响应"></a>发出响应</h4><p>接下来我们让server发出响应。</p>
+<ol>
+<li><p>便捷server.js</p>
+</li>
+<li><p>在中间标注区间添加两行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.write(&apos;Hi&apos;)</span><br><span class="line">response.end()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>中断之前的server，重新运行<code>node server 8888</code></p>
+</li>
+<li><p>运行<code>curl http://localhost:8888/xxx</code>,结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi% //%表示结尾，不想看到它可以把&apos;Hi&apos;换成&apos;Hi\n&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>好了，响应添加成功</p>
+</li>
+<li><p>使用<code>curl -s -v -- &quot;http://localhost:8888/xxx&quot;</code>可以查看完整的请求和响应</p>
+</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>后缀是没有用的，文件内容是由HTTP头中的Content-Type保证的；</li>
+<li>HTTP路径不是文件路径，/xxx.html不一定对应xxx.html文件。<br>这个脚本返回一个页面（ <a href="https://github.com/Luke19950111/node-demo/blob/master/server.js" target="_blank" rel="noopener">代码</a> ）。注意路径中的后缀都是混乱的，返回的内容根据Content-Type而定。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/27/一个简易server/" data-id="cjwir1c0x000whwo6lyo1k2jz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js-server/">Node.js server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-visibilitychange" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/23/visibilitychange/" class="article-date">
+  <time datetime="2018-04-23T15:42:41.000Z" itemprop="datePublished">2018-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/23/visibilitychange/">visibilitychange</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我制作了一个自动播放的无缝轮播：<br><a href="https://luke19950111.github.io/sliders-demo-1/index.html" target="_blank" rel="noopener">自动播放</a><br><a href="https://github.com/Luke19950111/sliders-demo-1" target="_blank" rel="noopener">代码</a><br>现在我发现它有一个bug：每次切换到其他标签的网页，再切换回来时，播放出现了混乱。</p>
+<p>我尝试写如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function()&#123;</span><br><span class="line">  console.log(new Date())</span><br><span class="line">&#125;,500)</span><br></pre></td></tr></table></figure>
+
+<p>也就是每秒打印两次当前事件。<br>它确实在执行，<a href="https://jsbin.com/buzilisowi/edit?js,output" target="_blank" rel="noopener">每秒打印两次</a>。(请在控制台中查看)<br>但是，当我切换到其他页面再切回来时，发现在我离开页面的时候它每秒只会打印一次（可点击以上链接尝试），浏览器在我的视线离开它时偷懒了。<br>这是因为浏览器要节省性能，当发现用户不看当前页面时，setInterval的频率变慢了。<br>同理，我的自动轮播也是每秒切换一次状态( <a href="https://github.com/Luke19950111/sliders-demo-1/blob/master/main.js" target="_blank" rel="noopener">代码</a> )，当我切花到其他页面时，频率变慢，切回来时恢复，导致播放混乱。</p>
+<p>要避免这个bug，干脆在我切出页面的时候让自动轮播停下来，也就是只有用户观看轮播的时候，才会自动展示下一张幻灯片。<br>这里我学到了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Page_Visibility_API" target="_blank" rel="noopener">Page Visibility API</a>。</p>
+<blockquote>
+<p>当一个网页是可见或点击选中的状态时 Page Visibility API 可以让你获取到这种状态。在用户使用切换标签的方式来浏览网页时,非常合理的情况是任何在后台页面都不会展示给用户。 当用户最小化网页或者浏览到其他标签的网页时，API将发送一个关于当前页面的可见信息的事件<code>visibilitychange</code> 。你可以检测该事件然后执行一些活动或是展示不同的效果。——MDN</p>
+</blockquote>
+<p>好处：节约资源。<br><code>document.hidden</code>：页面隐藏时返回true，否则返回false；</p>
+<p>代码改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(&apos;visibilitychange&apos;,function()&#123;</span><br><span class="line">    if(document.hidden)&#123;</span><br><span class="line">        //停止播放</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        //恢复播放</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/23/visibilitychange/" data-id="cjwir1c0u000shwo690c95n1x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/visibilitychange-自动播放轮播/">visibilitychange 自动播放轮播</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-点击别处关闭浮层" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/22/点击别处关闭浮层/" class="article-date">
+  <time datetime="2018-04-22T15:22:02.000Z" itemprop="datePublished">2018-04-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/22/点击别处关闭浮层/">点击别处关闭浮层</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需求：点击button出现浮层，点击别处关闭浮层。<br>我们有一个按钮和一个浮层，浮层内为一个checkbox，浮层默认不显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;wrapper&quot; class=&quot;wrapper&quot;&gt;</span><br><span class="line">    &lt;button id=&quot;clickMe&quot;&gt;点我&lt;/button&gt;</span><br><span class="line">    &lt;div id=&quot;popover&quot; class=&quot;popover&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;checkbox&quot;&gt;浮层</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.wrapper&#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line">.popover&#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  margin-left: 1px;</span><br><span class="line">  left: 100%;</span><br><span class="line">  top: 0;</span><br><span class="line">  white-space: nowrap;</span><br><span class="line">  background: white;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方案一：</strong> 监听button和document，button被点击时浮层显示，document除button和浮层以外的地方被点击是，浮层隐藏。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clickMe.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">  popover.style.display = &apos;block&apos;</span><br><span class="line">&#125;)</span><br><span class="line">wrapper.addEventListener(&apos;click&apos;, function(e)&#123;</span><br><span class="line">  e.stopPropagation()</span><br><span class="line">&#125;) //阻止冒泡</span><br><span class="line">document.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">  popover.style.display = &apos;none&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>阻止冒泡：在冒泡阶段执行函数，即先执行clickMe中的函数，给浮层添加block，如果不阻止冒泡，会继续向上，到document中时再执行其中的函数，使浮层又变为display: none；</li>
+<li>监听document或监听html都是可以的，（<code>document.documentElement.addEventListener()</code>），但是如果监听body要注意body的高度。</li>
+<li>每次点击document都会被监听，浪费内存。</li>
+</ul>
+<p><strong>方案二：</strong> 用jQuery 只有在浮层显示的时候监听一次document。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(clickMe).on(&apos;click&apos;, function()&#123;</span><br><span class="line">  $(popover).show()</span><br><span class="line">  console.log(&apos;block&apos;)</span><br><span class="line">  $(document).one(&apos;click&apos;, function()&#123;</span><br><span class="line">    $(popover).hide()</span><br><span class="line">  &#125;) //只在浮层show的时候监听一次document</span><br><span class="line">&#125;)</span><br><span class="line">$(wrapper).on(&apos;click&apos;, function(e)&#123;</span><br><span class="line">  e.stopPropagation()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只有在浮层show的时候监听一次document，也就是：<strong>点击button，浮层显示 =&gt; 监听document =&gt; 点击别处，浮层隐藏 =&gt; 不再监听document</strong>，节省内存；</li>
+<li>注意不能写成<code>$(wrapper).on(&#39;click&#39;, false)</code>,因为这样写会同时阻止冒泡和阻止默认事件，导致checkbox无法选中。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/22/点击别处关闭浮层/" data-id="cjwir1c160019hwo6lh9d6pzv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM事件模型-浮层/">DOM事件模型 浮层</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-call、apply、bind的用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/20/call、apply、bind的用法/" class="article-date">
+  <time datetime="2018-04-20T12:50:31.000Z" itemprop="datePublished">2018-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/20/call、apply、bind的用法/">call、apply、bind的用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>call、apply、bind都可以用来切换/固定 this 的指向；</li>
+<li>call<br>（1）call方法可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定作用域中调用函数；<br>（2）call方法的第一个参数就是this所要指的对象（如果没有参数，或者第一个参数是undefined或null，则指向全局对象）；<br>（3）后面的参数是函数调用时所需的参数。</li>
+<li>apply<br>（1）apply方法与call方法类似，也是改变this指向，唯一区别是它接受一个数组作为函数执行时参数；<br>（2）apply方法的第一个参数也是this所要指的那个对象，如果设为null或undefined，就指向全局对象；<br>（3）第二个参数是一个数组，数组成员依次作为参数传入原函数。</li>
+<li>bind<br>（1）bind方法用于将函数体内this绑定到某个对象，然后返回一个新的函数；（apply方法和call方法都会立即执行函数）<br>（2）bind方法的参数就是所要绑定this的对象，如果第一个参数是null或undefined，绑定全局对象；<br>（3）bind方法还可以接受更多参数，将这些参数绑定原函数的参数。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/20/call、apply、bind的用法/" data-id="cjwir1c0p000mhwo6fz2zvbq8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this-call-apply-bind/">this call apply bind</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-移动端适配（响应式）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/19/移动端适配（响应式）/" class="article-date">
+  <time datetime="2018-04-19T14:45:32.000Z" itemprop="datePublished">2018-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/19/移动端适配（响应式）/">移动端适配（响应式）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-viewport元标签"><a href="#1-viewport元标签" class="headerlink" title="1. viewport元标签"></a>1. viewport元标签</h2><p>移动端浏览器在一个比屏幕更宽的虚拟视口（通常为980px）中渲染页面，用户通过平移和缩放来浏览页面不同区域。引入viewport元标签可以让web开发者控制视口尺寸及比例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0; maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>width</code>属性控制视口宽度。可以设置确切像素数，或者<code>device-width</code>这一特殊值表示页面宽度为屏幕宽度。（相应有<code>height</code>及<code>device-height</code>属性。）</li>
+<li><code>initial-scale</code>属性控制页面初始缩放等级。</li>
+<li><code>user-scalable</code>，<code>maximum-scale</code>及<code>minimum-scale</code>属性表示允许用户以怎样的方式缩放页面。<h2 id="2-媒体查询"><a href="#2-媒体查询" class="headerlink" title="2. 媒体查询"></a>2. 媒体查询</h2><code>@media</code>基于媒体类型、媒体特性来应用样式。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media(max-width: 800px)&#123;</span><br><span class="line">    body&#123;</span><br><span class="line">        background: red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>上面代码表示当满足最大宽度为800px时，使用其中的样式。</p>
+<h4 id="媒体类型"><a href="#媒体类型" class="headerlink" title="媒体类型"></a>媒体类型</h4><p>媒体类型描述设备的一般类别。除非使用<code>not</code>或<code>only</code>逻辑运算符，否则媒体类型是可选的，隐含使用<code>all</code>类型。</p>
+<ul>
+<li><code>all</code> 适用于所有设备</li>
+<li><code>print</code> 打印时生效</li>
+<li><code>screen</code> 主要适用于彩色电脑屏幕</li>
+</ul>
+<p>媒体查询也可以应用于HTML<code>&lt;link&gt;</code>标签来将样式表应用于某个特定媒体。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (min-width: 900px)&quot; href=&quot;widescreen-styles.css&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示屏幕宽度不小于900px时widescreen-styles.css才会生效。注意这个css始终会下载，只是不满足条件是不生效。</p>
+<h2 id="3-动态REM"><a href="#3-动态REM" class="headerlink" title="3. 动态REM"></a>3. 动态REM</h2><p>动态REM是手机专用的自适应方案。</p>
+<p>####什么是REM<br>rem是一个相对字体大小单位，代表根元素的<code>font-size</code>大小（例如<code>&lt;html&gt;</code>元素的font-size）。</p>
+<h4 id="常用长度单位-rem和em的区别"><a href="#常用长度单位-rem和em的区别" class="headerlink" title="常用长度单位(rem和em的区别)"></a>常用长度单位(rem和em的区别)</h4><ul>
+<li><code>em</code>等于自己的font-size；一个M的宽度，或者说一个汉字的宽度；</li>
+<li><code>rem</code>是根元素的font-size；</li>
+<li><code>px</code>像素</li>
+<li><code>vh</code>viewport height 视口高度，100vh==视口高度</li>
+<li><code>vw</code>viewport width 视口宽度，100vw==视口宽度（兼容性差）<br>####手机端方案的特点</li>
+<li>手机类型太多，屏幕宽度不一，很难使用响应式。</li>
+<li>如果使用百分比定宽度，因为宽度不确定导致高度无法与宽度有关联，无法保证宽高比例。</li>
+<li>要实现完美还原页面设计，需要使宽高成比例整体缩放。<br>####使用JS动态调整REM<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var pageWidth = window.innerWidth</span><br><span class="line">    document.write(&apos;&lt;style&gt;html&#123;font-size: &apos; + pageWidth + &apos;px;&#125;&lt;/style&gt;&apos;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>上面代码将根元素<code>&lt;html&gt;</code>的<code>font-size</code>设为视口宽度，即 <strong>1rem == (html font-size) == (1page width)</strong><br>如此，我们便可以都用rem为单位，以视口的宽度为基准，动态调整REM，确定宽高比例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.child&#123;</span><br><span class="line">    width: 0.4rem;</span><br><span class="line">    height: 0.2rem;</span><br><span class="line">    margin: 0.05rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码便使用了rem动态调整宽高比例。但是因为1rem就等于一个视口的宽度，所以会用到很多位小数。可以将JS代码中的 pageWidth/10,这样1rem==1/10pageWidth。<br>如果写为 pageWidth/00，即1rem==1/100pageWidth，此时的rem就模拟了vw。但是由于chrome浏览器默认最小font-size为12px，因此可能会导致页面错乱。</p>
+<p>####REM可以和其他单位同时存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">font-size: 16px;</span><br><span class="line">border: 1px solid red;</span><br><span class="line">width: 0.5rem;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-其他移动端适配方案"><a href="#4-其他移动端适配方案" class="headerlink" title="4.其他移动端适配方案"></a>4.其他移动端适配方案</h2><ul>
+<li>再给移动端写一套HTML和CSS，判断是移动设备，直接使用另一套HTML和CSS；</li>
+<li>专为移动端新建一个站点，判断是移动设备，直接跳转。</li>
+</ul>
+<p>一般只有简单的新闻站点、博客才会用到响应式。</p>
+<p><a href="https://www.smashingmagazine.com/" target="_blank" rel="noopener">响应式典型</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/19/移动端适配（响应式）/" data-id="cjwir1c18001dhwo6os882u6g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/viewport-媒体查询-动态REM-响应式/">viewport 媒体查询 动态REM 响应式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS中的闭包是什么" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/17/JS中的闭包是什么/" class="article-date">
+  <time datetime="2018-04-17T14:36:34.000Z" itemprop="datePublished">2018-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/JS中的闭包是什么/">JS中的闭包是什么</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>为了便于理解我在代码中使用了中文：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">!function()&#123;</span><br><span class="line">  var a = &apos;局部变量a&apos;</span><br><span class="line">  function fn()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  return fn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，在一个立即执行函数中有一个局部变量a，有一个函数fn，在函数fn中可以访问到局部变量a，这就是一个闭包：<br>如果一个函数使用了它范围外的变量，<strong>这个函数+这个变量</strong>就叫做闭包。</p>
+<h5 id="闭包需要函数嵌套函数，再return一个函数吗？"><a href="#闭包需要函数嵌套函数，再return一个函数吗？" class="headerlink" title="闭包需要函数嵌套函数，再return一个函数吗？"></a>闭包需要函数嵌套函数，再return一个函数吗？</h5><ul>
+<li>把a嵌套在一个立即执行函数里是为了获得一个局部变量，如果不把a放在函数里，a就是一个全局变量，无法达到闭包的目的——隐藏变量。<br>所以嵌套函数是为了获得一个局部变量，与闭包无关。</li>
+<li>return fn 相当于 window.fn = fn ,这是为了让外面可以访问到fn这个函数。<br>所以 return 是为了fn能被使用，也与闭包无关。<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3>闭包用来<strong>间接访问</strong>一个变量，也就是<strong>隐藏变量</strong>。
+例如，不想让人直接访问一个变量a，可以将变量a作为局部变量，在一个立即执行函数里声明变量a，但是局部变量别人又访问不到，所以需要暴露一个访问器（函数），让别人可以间接访问。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">!function()&#123;</span><br><span class="line">    var a = &apos;局部变量a&apos;</span><br><span class="line">    window.间接访问a = function()&#123;</span><br><span class="line">        console.log(a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>所谓闭包的作用，我们在写代码时并没有刻意地去用闭包，写完以后发现满足了闭包的定义。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="noopener">原文 方应杭：JS中的闭包是什么</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/17/JS中的闭包是什么/" data-id="cjwir1c0f000bhwo6fu3xe3ay" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTTP请求与响应" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/16/HTTP请求与响应/" class="article-date">
+  <time datetime="2018-04-16T13:56:47.000Z" itemprop="datePublished">2018-04-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/16/HTTP请求与响应/">HTTP请求与响应</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-服务器与浏览器的交互"><a href="#1-服务器与浏览器的交互" class="headerlink" title="1.服务器与浏览器的交互"></a>1.服务器与浏览器的交互</h2><p>HTTP请求与响应通过Server+Client+HTTP实现：</p>
+<ul>
+<li>客户端（ 浏览器）负责发起请求</li>
+<li>服务器在80端口接受请求</li>
+<li>服务器负责返回内容（响应）</li>
+<li>浏览器负责下载响应内容</li>
+</ul>
+<p>HTTP的作用就是指导浏览器和服务器如何进行沟通。</p>
+<h2 id="2-请求的格式"><a href="#2-请求的格式" class="headerlink" title="2. 请求的格式"></a>2. 请求的格式</h2><p>可以把请求看作四个部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1 动词 路径 协议/版本</span><br><span class="line">2 key1: value1</span><br><span class="line">2 key2: value2</span><br><span class="line">2 Host: baidu.com //希望访问</span><br><span class="line">2 Accept: text/html //希望接受</span><br><span class="line">2 Content-Type: application/x-www-form-urlencoded</span><br><span class="line">3</span><br><span class="line">4 要上传的数据</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>请求最多包含以上四个部分，最少包含三部分，第四部分可以为空；</p>
+</li>
+<li><p>第三部分永远都是一个回车（用于分开第二部分和第四部分）；</p>
+</li>
+<li><p>动词有GET（获取），POST（上传），PUT（整体更新），PATCH（局部更新），DELETE（删除），HEAD，OPTIONS等；</p>
+</li>
+<li><p>这里的路径包括<strong>查询参数</strong>，但不包括<strong>锚点</strong>；</p>
+</li>
+<li><p>如果没有写路径，那么路径默认为/；</p>
+</li>
+<li><p>第2部分中的Content-Type决定了第4部分的格式。</p>
+<h2 id="3-响应的格式"><a href="#3-响应的格式" class="headerlink" title="3. 响应的格式"></a>3. 响应的格式</h2><p>响应同样看作四个部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 协议/版本号 状态码 状态解释</span><br><span class="line">2 key1: value1</span><br><span class="line">2 key2: value2</span><br><span class="line">2 Content-Type: text/html;charset=utf-8 //特殊，字符集为utf-8编码方式</span><br><span class="line">2 Content-Length: 1000</span><br><span class="line">3</span><br><span class="line">4 要下载的内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>状态码：2xx 成功；3xx 重定向；4xx 客户端错误；5xx 服务器错误；</p>
+</li>
+<li><p>第2部分中的Content-Type 标注了第4部分的格式。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/16/HTTP请求与响应/" data-id="cjwir1c0c0008hwo6unqvqvxp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP-请求-响应/">HTTP 请求 响应</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-实现一个jQueryAPI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/12/实现一个jQueryAPI/" class="article-date">
+  <time datetime="2018-04-11T17:29:26.000Z" itemprop="datePublished">2018-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/12/实现一个jQueryAPI/">实现一个jQueryAPI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="通过以下四步实现jQuery："><a href="#通过以下四步实现jQuery：" class="headerlink" title="通过以下四步实现jQuery："></a>通过以下四步实现jQuery：</h2><ol>
+<li>接受一个node或选择器</li>
+<li>封装成一个伪数组</li>
+<li>在这个伪数组上加上几个API</li>
+<li>把这个伪数组送出去</li>
+</ol>
+<h2 id="本文通过这四步实现两个jQuery-API："><a href="#本文通过这四步实现两个jQuery-API：" class="headerlink" title="本文通过这四步实现两个jQuery API："></a>本文通过这四步实现两个jQuery API：</h2><pre><code>$div.addClass(&apos;red&apos;) // 可将所有div的class添加一个red
+$div.setText(&apos;hi&apos;) // 可将所有div的textContent变为hi</code></pre><h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><p>根据以上四步，代码结构为：</p>
+<pre><code>window.jQuery = function(nodeOrSelector){
+    let nodes = {0: nodeOrSelector, length: 1}
+
+    node.addClass = function(classes){}
+    node.text = function(text){}
+
+    return nodes
+}</code></pre><p>jQuery拿到一个参数后，首先分析它是节点还是选择器：<br>如果是选择器（字符串），找到对应的元素，放到一个伪数组里；<br>如果是节点，为了<strong>保证返回结果一致</strong>，也要放到一个伪数组里：</p>
+<pre><code>let nodes
+if(typeof nodeOrSelector === &apos;string&apos;){
+    nodes = document.querySelectorAll(nodeOrSelector) //querySlelctorAll返回伪数组
+}else if(nodeOrSelector){
+    nodes = {0: nodeOrSelector, length: 1} //返回伪数组，保证返回结果一致
+}</code></pre><p>要使选择器返回的伪数组是一个<strong>纯净的伪数组</strong>（原型链直指object.prorotype,中间不再引入其他原型),可以使用一个临时变量存querySelectorAll返回的伪数组，再从中取出需要的值：</p>
+<pre><code>if(typeof nodeOrSelector === &apos;string&apos;){
+    let temp = document.querySelectorAll(nodeOrSelector);
+    for(let i=0; i&lt;temp.length; i++){
+        nodes[i] = temp[i]; //需要初始化一个伪数组,将上方nodes声明改为let nodes = {}
+    }
+    nodes.length = temp.length
+}</code></pre><p>此时我们已经接受了一个node或选择器，并将其封装成了一个伪数组，接下来我们在这个伪数组上加两个API：<br>.addClass</p>
+<pre><code>nodes.addClass = function(oneClass){
+    for(let i=0; i&lt;nodes.length; i++){
+        nodes[i].classList.add(oneClass)
+    }
+}</code></pre><p>.setText</p>
+<pre><code>nodes.setText = function(text){
+    for(let i=0; i&lt;nodes.length; i++){
+        nodes[i].textContent = text;
+    }
+}</code></pre><p>return伪数组nodes，最后给个缩写，实现两个jQuery API：</p>
+<pre><code>window.$ = jQuery
+var $div = $(&apos;div&apos;)
+
+$div.addClass(&apos;red&apos;) // 可将所有div的class添加一个red
+$div.setText(&apos;hi&apos;) // 可将所有div的textContent变为hi</code></pre><p>完整代码：<a href="https://github.com/Luke19950111/acquirejQueryAPI" target="_blank" rel="noopener">https://github.com/Luke19950111/acquirejQueryAPI</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/12/实现一个jQueryAPI/" data-id="cjwir1c100010hwo6bp2j5pjr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery-API/">jQuery API</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS函数（阮一峰）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/09/JS函数（阮一峰）/" class="article-date">
+  <time datetime="2018-04-09T15:01:30.000Z" itemprop="datePublished">2018-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/09/JS函数（阮一峰）/">JS函数（阮一峰）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数是一段可反复调用的代码块。<br>函数能接受输入参数，不同参数返回不同的值。</p>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><h3 id="1-1-声明"><a href="#1-1-声明" class="headerlink" title="1.1 声明"></a>1.1 声明</h3><ul>
+<li>function命令</li>
+<li>函数表达式 </li>
+<li>Function构造函数<h3 id="1-2-函数的重复声明"><a href="#1-2-函数的重复声明" class="headerlink" title="1.2 函数的重复声明"></a>1.2 函数的重复声明</h3>一个函数被多次声明，后面覆盖前面。<br>由于函数名提升，前面任何时候都是无效的。<h3 id="1-3-圆括号运算符、return语句和递归"><a href="#1-3-圆括号运算符、return语句和递归" class="headerlink" title="1.3 圆括号运算符、return语句和递归"></a>1.3 圆括号运算符、return语句和递归</h3></li>
+<li>圆括号运算符：圆括号中可加入函数参数</li>
+<li>return语句</li>
+<li>递归（recursion）：函数可以调用自身<h3 id="1-4-第一等公民"><a href="#1-4-第一等公民" class="headerlink" title="1.4 第一等公民"></a>1.4 第一等公民</h3>将函数看作一种值，与其他值地位相同。<h3 id="1-5-函数名的提升"><a href="#1-5-函数名的提升" class="headerlink" title="1.5 函数名的提升"></a>1.5 函数名的提升</h3></li>
+<li>用<strong>function命令</strong>声明函数，提升到代码头部。</li>
+<li>同时采用<strong>function命令</strong>和<strong>赋值语句</strong>声明一个函数，最后总是采用赋值语句定义。<h3 id="1-6-不能在条件语句中声明函数"><a href="#1-6-不能在条件语句中声明函数" class="headerlink" title="1.6 不能在条件语句中声明函数"></a>1.6 不能在条件语句中声明函数</h3>由于函数名提升，条件语句中声明函数可能是无效的。<br>要达到在条件语句中声明函数的目的，只有使用函数表达式。<h2 id="2-函数的属性和方法"><a href="#2-函数的属性和方法" class="headerlink" title="2. 函数的属性和方法"></a>2. 函数的属性和方法</h2><h3 id="2-1-name属性"><a href="#2-1-name属性" class="headerlink" title="2.1 name属性"></a>2.1 name属性</h3>返回函数的名字。<h3 id="2-2-length属性"><a href="#2-2-length属性" class="headerlink" title="2.2 length属性"></a>2.2 length属性</h3>返回函数预期传入的参数个数。<h3 id="2-3-toStrion"><a href="#2-3-toStrion" class="headerlink" title="2.3 toStrion()"></a>2.3 toStrion()</h3>返回一个字符串，内部是函数的源码（包括函数内部注释）。<h2 id="3-函数的作用域"><a href="#3-函数的作用域" class="headerlink" title="3. 函数的作用域"></a>3. 函数的作用域</h2><h3 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义"></a>3.1 定义</h3>ES5规范，JS只有两种作用域：</li>
+<li>全局作用域：函数外部声明的变量就是全局变量（global variable），可在函数内读取。</li>
+<li>函数作用域：函数内部定义的变量就是局部变量（local variable）,外部无法读取。</li>
+<li>局部变量会在该作用域内覆盖同名全局变量。</li>
+</ul>
+<p>ES6新增块级作用域。</p>
+<h3 id="3-2-函数内部变量提升"><a href="#3-2-函数内部变量提升" class="headerlink" title="3.2 函数内部变量提升"></a>3.2 函数内部变量提升</h3><p>函数内部var声明的变量，变量声明会被提升到函数体头部。</p>
+<h3 id="3-3-函数本身的作用域"><a href="#3-3-函数本身的作用域" class="headerlink" title="3.3 函数本身的作用域"></a>3.3 函数本身的作用域</h3><p>函数执行时的作用域是定义时的作用域，不是调用时的作用域。</p>
+<h2 id="4-参数"><a href="#4-参数" class="headerlink" title="4. 参数"></a>4. 参数</h2><h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>函数运行需要提供的外部数据。</p>
+<h3 id="4-2-参数的省略"><a href="#4-2-参数的省略" class="headerlink" title="4.2 参数的省略"></a>4.2 参数的省略</h3><ul>
+<li>JS允许省略参数。</li>
+<li>函数length属性只反映预期传入参数个数。</li>
+<li>要省略靠前的参数，显示传入undefined。<h3 id="4-3-传递方式"><a href="#4-3-传递方式" class="headerlink" title="4.3 传递方式"></a>4.3 传递方式</h3></li>
+<li>传值传递（passes by value）传拷贝<br>参数是原始类型的值（数值、字符串、布尔值）。<br>函数体内部修改参数不影响外部。</li>
+<li>传址传递（pass by reference）传地址<br>参数是复合类型的值（数组，对象，其他函数）。<br>函数内部修改会影响原始值。<h3 id="4-4-同名参数"><a href="#4-4-同名参数" class="headerlink" title="4.4 同名参数"></a>4.4 同名参数</h3>如果有同名参数，取后出现的那个值。<h3 id="4-5-arguements对象"><a href="#4-5-arguements对象" class="headerlink" title="4.5 arguements对象"></a>4.5 arguements对象</h3></li>
+<li>arguments对象包含函数运行时的所有参数。</li>
+<li>只有在函数体内部才能使用。</li>
+<li>正常模式可修改，严格模式修改无效但不报错。</li>
+<li>arguments.length 判断函数调用时到底带几个参数。</li>
+<li>是伪数组，数组专有的方法不能在arguments对象上直接使用。</li>
+<li>callee属性，返回它所对应的原函数。（这个属性严格模式禁用）<h2 id="5-函数其他知识点"><a href="#5-函数其他知识点" class="headerlink" title="5. 函数其他知识点"></a>5. 函数其他知识点</h2><h3 id="5-1-闭包"><a href="#5-1-闭包" class="headerlink" title="5.1 闭包"></a>5.1 闭包</h3>如果一个函数使用了它范围外面的变量，那么<strong>这个函数+这个变量</strong>就叫做闭包。<br>闭包：<a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22486908</a><h3 id="5-2-立即调用的函数表达式"><a href="#5-2-立即调用的函数表达式" class="headerlink" title="5.2 立即调用的函数表达式"></a>5.2 立即调用的函数表达式</h3><h2 id="6-eval命令"><a href="#6-eval命令" class="headerlink" title="6. eval命令"></a>6. eval命令</h2>eval 命令的作用是，将字符串当作语句执行。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/09/JS函数（阮一峰）/" data-id="cjwir1c0g000dhwo6kc72uy17" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-节点创建API（JavaScript操作DOM）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/07/节点创建API（JavaScript操作DOM）/" class="article-date">
+  <time datetime="2018-04-07T15:34:04.000Z" itemprop="datePublished">2018-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/07/节点创建API（JavaScript操作DOM）/">节点创建API（JavaScript操作DOM）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-createElement"><a href="#1-createElement" class="headerlink" title="1. createElement"></a>1. createElement</h2><p>createElement通过传入标签名创建元素。用法如下：</p>
+<pre><code>var div = document.createElement(&quot;div&quot;);</code></pre><h2 id="2-createTextNode"><a href="#2-createTextNode" class="headerlink" title="2. createTextNode"></a>2. createTextNode</h2><p>createTextNode用来创建一个文本节点，用法如下：</p>
+<pre><code>var textNode = document.createTextNode(&quot;这是一个textNode&quot;);</code></pre><p>createTextNode接收一个参数，这个参数就是文本节点中的文本。</p>
+<h2 id="3-cloneNode"><a href="#3-cloneNode" class="headerlink" title="3. cloneNode"></a>3. cloneNode</h2><p>cloneNode用来复制调用方法的节点。它接收一个boolean参数，表示是否复制子元素，用法如下：</p>
+<pre><code>var parent = document.getElementById(&quot;parentElement&quot;);
+var parent2 = parent.cloneNode(true);// 传入true
+parent2.id = &quot;parent2&quot;;</code></pre><p>这段代码通过cloneNode复制了一份parent元素，其中cloneNode的参数为true，表示parent的子节点也被复制，如果传入false，则表示只复制了parent节点。</p>
+<p>注意：如果被复制的元素有id，则副本也会复制id，由于id的唯一性，复制节点后必须修改其id。</p>
+<h2 id="4-createDocumentFragment"><a href="#4-createDocumentFragment" class="headerlink" title="4. createDocumentFragment"></a>4. createDocumentFragment</h2><p>createDocumentFragment方法用来创建一个DocumentFragment。DocumentFragment表示一种轻量级的文档，它的作用主要是存储临时的节点用来准备添加到文档中，添加大量节点到文档中时会使用到。</p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><ol>
+<li>以上四种API创建的节点都是孤立的节点，需要使用appendChild添加到文档中；</li>
+<li>cloneNode要注意被复制的节点是否包含子节点以及事件绑定等问题；</li>
+<li>使用createDocumentFragment来解决添加大量节点时的性能问题。</li>
+</ol>
+<p>原文地址：<a href="http://luopq.com/2015/11/30/javascript-dom/" target="_blank" rel="noopener">http://luopq.com/2015/11/30/javascript-dom/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/07/节点创建API（JavaScript操作DOM）/" data-id="cjwir1c1b001hhwo6421j9y35" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/">AJAX CORS 请求与响应 解构赋值 Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cache-Control-Expires-Etag/">Cache-Control Expires Etag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM事件模型-浮层/">DOM事件模型 浮层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-请求-响应/">HTTP 请求 响应</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSONP-SRJ-数据库/">JSONP SRJ 数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js-server/">Node.js server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-nextSibling-nodeType/">Node.nextSibling nodeType</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a-form/">a form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-sizing/">box-sizing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-API/">jQuery API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setInterval-setTimeout/">setInterval() setTimeout()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-relative-absolute-fixed-sticky/">static relative absolute fixed sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-call-apply-bind/">this call apply bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport-媒体查询-动态REM-响应式/">viewport 媒体查询 动态REM 响应式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibilitychange-自动播放轮播/">visibilitychange 自动播放轮播</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/固定比例缩放/">固定比例缩放</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本文介绍TCP-IP简要常识/">本文介绍TCP/IP简要常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/注册-登录-cookies/">注册 登录 cookies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第二篇博客，用于测试/">第二篇博客，用于测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/罗列HTML中的空元素/">罗列HTML中的空元素</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重新部署/">重新部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/" style="font-size: 10px;">AJAX CORS 请求与响应 解构赋值 Promise</a> <a href="/tags/Cache-Control-Expires-Etag/" style="font-size: 10px;">Cache-Control Expires Etag</a> <a href="/tags/DOM事件模型-浮层/" style="font-size: 10px;">DOM事件模型 浮层</a> <a href="/tags/HTTP-请求-响应/" style="font-size: 10px;">HTTP 请求 响应</a> <a href="/tags/JSONP-SRJ-数据库/" style="font-size: 10px;">JSONP SRJ 数据库</a> <a href="/tags/Node-js-server/" style="font-size: 10px;">Node.js server</a> <a href="/tags/Node-nextSibling-nodeType/" style="font-size: 10px;">Node.nextSibling nodeType</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/a-form/" style="font-size: 10px;">a form</a> <a href="/tags/box-sizing/" style="font-size: 10px;">box-sizing</a> <a href="/tags/css属性/" style="font-size: 10px;">css属性</a> <a href="/tags/jQuery-API/" style="font-size: 10px;">jQuery API</a> <a href="/tags/setInterval-setTimeout/" style="font-size: 10px;">setInterval() setTimeout()</a> <a href="/tags/static-relative-absolute-fixed-sticky/" style="font-size: 10px;">static relative absolute fixed sticky</a> <a href="/tags/this-call-apply-bind/" style="font-size: 10px;">this call apply bind</a> <a href="/tags/viewport-媒体查询-动态REM-响应式/" style="font-size: 10px;">viewport 媒体查询 动态REM 响应式</a> <a href="/tags/visibilitychange-自动播放轮播/" style="font-size: 10px;">visibilitychange 自动播放轮播</a> <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" style="font-size: 10px;">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a> <a href="/tags/固定比例缩放/" style="font-size: 10px;">固定比例缩放</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/本文介绍TCP-IP简要常识/" style="font-size: 10px;">本文介绍TCP/IP简要常识</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/注册-登录-cookies/" style="font-size: 10px;">注册 登录 cookies</a> <a href="/tags/第二篇博客，用于测试/" style="font-size: 10px;">第二篇博客，用于测试</a> <a href="/tags/罗列HTML中的空元素/" style="font-size: 10px;">罗列HTML中的空元素</a> <a href="/tags/重新部署/" style="font-size: 10px;">重新部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/05/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/换电脑重新部署hexo/">换电脑重新部署hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/02/HTTP缓存/">HTTP缓存</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/Session/">Session</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 刘快<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

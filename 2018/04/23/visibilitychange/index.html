@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>visibilitychange | 是刘快啊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我制作了一个自动播放的无缝轮播：自动播放代码现在我发现它有一个bug：每次切换到其他标签的网页，再切换回来时，播放出现了混乱。 我尝试写如下代码： 123setInterval(function()&amp;#123;  console.log(new Date())&amp;#125;,500)  也就是每秒打印两次当前事件。它确实在执行，每秒打印两次。(请在控制台中查看)但是，当我切换到其他页面再切回来时，发">
+<meta name="keywords" content="visibilitychange 自动播放轮播">
+<meta property="og:type" content="article">
+<meta property="og:title" content="visibilitychange">
+<meta property="og:url" content="http://yoursite.com/2018/04/23/visibilitychange/index.html">
+<meta property="og:site_name" content="是刘快啊">
+<meta property="og:description" content="我制作了一个自动播放的无缝轮播：自动播放代码现在我发现它有一个bug：每次切换到其他标签的网页，再切换回来时，播放出现了混乱。 我尝试写如下代码： 123setInterval(function()&amp;#123;  console.log(new Date())&amp;#125;,500)  也就是每秒打印两次当前事件。它确实在执行，每秒打印两次。(请在控制台中查看)但是，当我切换到其他页面再切回来时，发">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-05T03:53:25.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="visibilitychange">
+<meta name="twitter:description" content="我制作了一个自动播放的无缝轮播：自动播放代码现在我发现它有一个bug：每次切换到其他标签的网页，再切换回来时，播放出现了混乱。 我尝试写如下代码： 123setInterval(function()&amp;#123;  console.log(new Date())&amp;#125;,500)  也就是每秒打印两次当前事件。它确实在执行，每秒打印两次。(请在控制台中查看)但是，当我切换到其他页面再切回来时，发">
+  
+    <link rel="alternate" href="/atom.xml" title="是刘快啊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">是刘快啊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-visibilitychange" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/23/visibilitychange/" class="article-date">
+  <time datetime="2018-04-23T15:42:41.000Z" itemprop="datePublished">2018-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      visibilitychange
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我制作了一个自动播放的无缝轮播：<br><a href="https://luke19950111.github.io/sliders-demo-1/index.html" target="_blank" rel="noopener">自动播放</a><br><a href="https://github.com/Luke19950111/sliders-demo-1" target="_blank" rel="noopener">代码</a><br>现在我发现它有一个bug：每次切换到其他标签的网页，再切换回来时，播放出现了混乱。</p>
+<p>我尝试写如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function()&#123;</span><br><span class="line">  console.log(new Date())</span><br><span class="line">&#125;,500)</span><br></pre></td></tr></table></figure>
+
+<p>也就是每秒打印两次当前事件。<br>它确实在执行，<a href="https://jsbin.com/buzilisowi/edit?js,output" target="_blank" rel="noopener">每秒打印两次</a>。(请在控制台中查看)<br>但是，当我切换到其他页面再切回来时，发现在我离开页面的时候它每秒只会打印一次（可点击以上链接尝试），浏览器在我的视线离开它时偷懒了。<br>这是因为浏览器要节省性能，当发现用户不看当前页面时，setInterval的频率变慢了。<br>同理，我的自动轮播也是每秒切换一次状态( <a href="https://github.com/Luke19950111/sliders-demo-1/blob/master/main.js" target="_blank" rel="noopener">代码</a> )，当我切花到其他页面时，频率变慢，切回来时恢复，导致播放混乱。</p>
+<p>要避免这个bug，干脆在我切出页面的时候让自动轮播停下来，也就是只有用户观看轮播的时候，才会自动展示下一张幻灯片。<br>这里我学到了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Page_Visibility_API" target="_blank" rel="noopener">Page Visibility API</a>。</p>
+<blockquote>
+<p>当一个网页是可见或点击选中的状态时 Page Visibility API 可以让你获取到这种状态。在用户使用切换标签的方式来浏览网页时,非常合理的情况是任何在后台页面都不会展示给用户。 当用户最小化网页或者浏览到其他标签的网页时，API将发送一个关于当前页面的可见信息的事件<code>visibilitychange</code> 。你可以检测该事件然后执行一些活动或是展示不同的效果。——MDN</p>
+</blockquote>
+<p>好处：节约资源。<br><code>document.hidden</code>：页面隐藏时返回true，否则返回false；</p>
+<p>代码改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(&apos;visibilitychange&apos;,function()&#123;</span><br><span class="line">    if(document.hidden)&#123;</span><br><span class="line">        //停止播放</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        //恢复播放</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/23/visibilitychange/" data-id="cjwir1c0u000shwo690c95n1x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/visibilitychange-自动播放轮播/">visibilitychange 自动播放轮播</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/27/一个简易server/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一个简易server
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/22/点击别处关闭浮层/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">点击别处关闭浮层</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/">AJAX CORS 请求与响应 解构赋值 Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cache-Control-Expires-Etag/">Cache-Control Expires Etag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM事件模型-浮层/">DOM事件模型 浮层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-请求-响应/">HTTP 请求 响应</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSONP-SRJ-数据库/">JSONP SRJ 数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js-server/">Node.js server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-nextSibling-nodeType/">Node.nextSibling nodeType</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a-form/">a form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-sizing/">box-sizing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-API/">jQuery API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setInterval-setTimeout/">setInterval() setTimeout()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-relative-absolute-fixed-sticky/">static relative absolute fixed sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-call-apply-bind/">this call apply bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport-媒体查询-动态REM-响应式/">viewport 媒体查询 动态REM 响应式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibilitychange-自动播放轮播/">visibilitychange 自动播放轮播</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/固定比例缩放/">固定比例缩放</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本文介绍TCP-IP简要常识/">本文介绍TCP/IP简要常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/注册-登录-cookies/">注册 登录 cookies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第二篇博客，用于测试/">第二篇博客，用于测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/罗列HTML中的空元素/">罗列HTML中的空元素</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重新部署/">重新部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/" style="font-size: 10px;">AJAX CORS 请求与响应 解构赋值 Promise</a> <a href="/tags/Cache-Control-Expires-Etag/" style="font-size: 10px;">Cache-Control Expires Etag</a> <a href="/tags/DOM事件模型-浮层/" style="font-size: 10px;">DOM事件模型 浮层</a> <a href="/tags/HTTP-请求-响应/" style="font-size: 10px;">HTTP 请求 响应</a> <a href="/tags/JSONP-SRJ-数据库/" style="font-size: 10px;">JSONP SRJ 数据库</a> <a href="/tags/Node-js-server/" style="font-size: 10px;">Node.js server</a> <a href="/tags/Node-nextSibling-nodeType/" style="font-size: 10px;">Node.nextSibling nodeType</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/a-form/" style="font-size: 10px;">a form</a> <a href="/tags/box-sizing/" style="font-size: 10px;">box-sizing</a> <a href="/tags/css属性/" style="font-size: 10px;">css属性</a> <a href="/tags/jQuery-API/" style="font-size: 10px;">jQuery API</a> <a href="/tags/setInterval-setTimeout/" style="font-size: 10px;">setInterval() setTimeout()</a> <a href="/tags/static-relative-absolute-fixed-sticky/" style="font-size: 10px;">static relative absolute fixed sticky</a> <a href="/tags/this-call-apply-bind/" style="font-size: 10px;">this call apply bind</a> <a href="/tags/viewport-媒体查询-动态REM-响应式/" style="font-size: 10px;">viewport 媒体查询 动态REM 响应式</a> <a href="/tags/visibilitychange-自动播放轮播/" style="font-size: 10px;">visibilitychange 自动播放轮播</a> <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" style="font-size: 10px;">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a> <a href="/tags/固定比例缩放/" style="font-size: 10px;">固定比例缩放</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/本文介绍TCP-IP简要常识/" style="font-size: 10px;">本文介绍TCP/IP简要常识</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/注册-登录-cookies/" style="font-size: 10px;">注册 登录 cookies</a> <a href="/tags/第二篇博客，用于测试/" style="font-size: 10px;">第二篇博客，用于测试</a> <a href="/tags/罗列HTML中的空元素/" style="font-size: 10px;">罗列HTML中的空元素</a> <a href="/tags/重新部署/" style="font-size: 10px;">重新部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/05/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/换电脑重新部署hexo/">换电脑重新部署hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/02/HTTP缓存/">HTTP缓存</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/Session/">Session</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 刘快<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

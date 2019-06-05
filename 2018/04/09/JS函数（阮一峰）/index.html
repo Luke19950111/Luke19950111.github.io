@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JS函数（阮一峰） | 是刘快啊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="函数是一段可反复调用的代码块。函数能接受输入参数，不同参数返回不同的值。 1. 概述1.1 声明 function命令 函数表达式  Function构造函数1.2 函数的重复声明一个函数被多次声明，后面覆盖前面。由于函数名提升，前面任何时候都是无效的。1.3 圆括号运算符、return语句和递归 圆括号运算符：圆括号中可加入函数参数 return语句 递归（recursion）：函数可以调用自身">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS函数（阮一峰）">
+<meta property="og:url" content="http://yoursite.com/2018/04/09/JS函数（阮一峰）/index.html">
+<meta property="og:site_name" content="是刘快啊">
+<meta property="og:description" content="函数是一段可反复调用的代码块。函数能接受输入参数，不同参数返回不同的值。 1. 概述1.1 声明 function命令 函数表达式  Function构造函数1.2 函数的重复声明一个函数被多次声明，后面覆盖前面。由于函数名提升，前面任何时候都是无效的。1.3 圆括号运算符、return语句和递归 圆括号运算符：圆括号中可加入函数参数 return语句 递归（recursion）：函数可以调用自身">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-05T03:53:25.322Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS函数（阮一峰）">
+<meta name="twitter:description" content="函数是一段可反复调用的代码块。函数能接受输入参数，不同参数返回不同的值。 1. 概述1.1 声明 function命令 函数表达式  Function构造函数1.2 函数的重复声明一个函数被多次声明，后面覆盖前面。由于函数名提升，前面任何时候都是无效的。1.3 圆括号运算符、return语句和递归 圆括号运算符：圆括号中可加入函数参数 return语句 递归（recursion）：函数可以调用自身">
+  
+    <link rel="alternate" href="/atom.xml" title="是刘快啊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">是刘快啊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JS函数（阮一峰）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/09/JS函数（阮一峰）/" class="article-date">
+  <time datetime="2018-04-09T15:01:30.000Z" itemprop="datePublished">2018-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS函数（阮一峰）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数是一段可反复调用的代码块。<br>函数能接受输入参数，不同参数返回不同的值。</p>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><h3 id="1-1-声明"><a href="#1-1-声明" class="headerlink" title="1.1 声明"></a>1.1 声明</h3><ul>
+<li>function命令</li>
+<li>函数表达式 </li>
+<li>Function构造函数<h3 id="1-2-函数的重复声明"><a href="#1-2-函数的重复声明" class="headerlink" title="1.2 函数的重复声明"></a>1.2 函数的重复声明</h3>一个函数被多次声明，后面覆盖前面。<br>由于函数名提升，前面任何时候都是无效的。<h3 id="1-3-圆括号运算符、return语句和递归"><a href="#1-3-圆括号运算符、return语句和递归" class="headerlink" title="1.3 圆括号运算符、return语句和递归"></a>1.3 圆括号运算符、return语句和递归</h3></li>
+<li>圆括号运算符：圆括号中可加入函数参数</li>
+<li>return语句</li>
+<li>递归（recursion）：函数可以调用自身<h3 id="1-4-第一等公民"><a href="#1-4-第一等公民" class="headerlink" title="1.4 第一等公民"></a>1.4 第一等公民</h3>将函数看作一种值，与其他值地位相同。<h3 id="1-5-函数名的提升"><a href="#1-5-函数名的提升" class="headerlink" title="1.5 函数名的提升"></a>1.5 函数名的提升</h3></li>
+<li>用<strong>function命令</strong>声明函数，提升到代码头部。</li>
+<li>同时采用<strong>function命令</strong>和<strong>赋值语句</strong>声明一个函数，最后总是采用赋值语句定义。<h3 id="1-6-不能在条件语句中声明函数"><a href="#1-6-不能在条件语句中声明函数" class="headerlink" title="1.6 不能在条件语句中声明函数"></a>1.6 不能在条件语句中声明函数</h3>由于函数名提升，条件语句中声明函数可能是无效的。<br>要达到在条件语句中声明函数的目的，只有使用函数表达式。<h2 id="2-函数的属性和方法"><a href="#2-函数的属性和方法" class="headerlink" title="2. 函数的属性和方法"></a>2. 函数的属性和方法</h2><h3 id="2-1-name属性"><a href="#2-1-name属性" class="headerlink" title="2.1 name属性"></a>2.1 name属性</h3>返回函数的名字。<h3 id="2-2-length属性"><a href="#2-2-length属性" class="headerlink" title="2.2 length属性"></a>2.2 length属性</h3>返回函数预期传入的参数个数。<h3 id="2-3-toStrion"><a href="#2-3-toStrion" class="headerlink" title="2.3 toStrion()"></a>2.3 toStrion()</h3>返回一个字符串，内部是函数的源码（包括函数内部注释）。<h2 id="3-函数的作用域"><a href="#3-函数的作用域" class="headerlink" title="3. 函数的作用域"></a>3. 函数的作用域</h2><h3 id="3-1-定义"><a href="#3-1-定义" class="headerlink" title="3.1 定义"></a>3.1 定义</h3>ES5规范，JS只有两种作用域：</li>
+<li>全局作用域：函数外部声明的变量就是全局变量（global variable），可在函数内读取。</li>
+<li>函数作用域：函数内部定义的变量就是局部变量（local variable）,外部无法读取。</li>
+<li>局部变量会在该作用域内覆盖同名全局变量。</li>
+</ul>
+<p>ES6新增块级作用域。</p>
+<h3 id="3-2-函数内部变量提升"><a href="#3-2-函数内部变量提升" class="headerlink" title="3.2 函数内部变量提升"></a>3.2 函数内部变量提升</h3><p>函数内部var声明的变量，变量声明会被提升到函数体头部。</p>
+<h3 id="3-3-函数本身的作用域"><a href="#3-3-函数本身的作用域" class="headerlink" title="3.3 函数本身的作用域"></a>3.3 函数本身的作用域</h3><p>函数执行时的作用域是定义时的作用域，不是调用时的作用域。</p>
+<h2 id="4-参数"><a href="#4-参数" class="headerlink" title="4. 参数"></a>4. 参数</h2><h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>函数运行需要提供的外部数据。</p>
+<h3 id="4-2-参数的省略"><a href="#4-2-参数的省略" class="headerlink" title="4.2 参数的省略"></a>4.2 参数的省略</h3><ul>
+<li>JS允许省略参数。</li>
+<li>函数length属性只反映预期传入参数个数。</li>
+<li>要省略靠前的参数，显示传入undefined。<h3 id="4-3-传递方式"><a href="#4-3-传递方式" class="headerlink" title="4.3 传递方式"></a>4.3 传递方式</h3></li>
+<li>传值传递（passes by value）传拷贝<br>参数是原始类型的值（数值、字符串、布尔值）。<br>函数体内部修改参数不影响外部。</li>
+<li>传址传递（pass by reference）传地址<br>参数是复合类型的值（数组，对象，其他函数）。<br>函数内部修改会影响原始值。<h3 id="4-4-同名参数"><a href="#4-4-同名参数" class="headerlink" title="4.4 同名参数"></a>4.4 同名参数</h3>如果有同名参数，取后出现的那个值。<h3 id="4-5-arguements对象"><a href="#4-5-arguements对象" class="headerlink" title="4.5 arguements对象"></a>4.5 arguements对象</h3></li>
+<li>arguments对象包含函数运行时的所有参数。</li>
+<li>只有在函数体内部才能使用。</li>
+<li>正常模式可修改，严格模式修改无效但不报错。</li>
+<li>arguments.length 判断函数调用时到底带几个参数。</li>
+<li>是伪数组，数组专有的方法不能在arguments对象上直接使用。</li>
+<li>callee属性，返回它所对应的原函数。（这个属性严格模式禁用）<h2 id="5-函数其他知识点"><a href="#5-函数其他知识点" class="headerlink" title="5. 函数其他知识点"></a>5. 函数其他知识点</h2><h3 id="5-1-闭包"><a href="#5-1-闭包" class="headerlink" title="5.1 闭包"></a>5.1 闭包</h3>如果一个函数使用了它范围外面的变量，那么<strong>这个函数+这个变量</strong>就叫做闭包。<br>闭包：<a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22486908</a><h3 id="5-2-立即调用的函数表达式"><a href="#5-2-立即调用的函数表达式" class="headerlink" title="5.2 立即调用的函数表达式"></a>5.2 立即调用的函数表达式</h3><h2 id="6-eval命令"><a href="#6-eval命令" class="headerlink" title="6. eval命令"></a>6. eval命令</h2>eval 命令的作用是，将字符串当作语句执行。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/09/JS函数（阮一峰）/" data-id="cjwir1c0g000dhwo6kc72uy17" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/12/实现一个jQueryAPI/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          实现一个jQueryAPI
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/07/节点创建API（JavaScript操作DOM）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">节点创建API（JavaScript操作DOM）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/">AJAX CORS 请求与响应 解构赋值 Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cache-Control-Expires-Etag/">Cache-Control Expires Etag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM事件模型-浮层/">DOM事件模型 浮层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-请求-响应/">HTTP 请求 响应</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSONP-SRJ-数据库/">JSONP SRJ 数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js-server/">Node.js server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-nextSibling-nodeType/">Node.nextSibling nodeType</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a-form/">a form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-sizing/">box-sizing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-API/">jQuery API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setInterval-setTimeout/">setInterval() setTimeout()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-relative-absolute-fixed-sticky/">static relative absolute fixed sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-call-apply-bind/">this call apply bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport-媒体查询-动态REM-响应式/">viewport 媒体查询 动态REM 响应式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibilitychange-自动播放轮播/">visibilitychange 自动播放轮播</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/固定比例缩放/">固定比例缩放</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本文介绍TCP-IP简要常识/">本文介绍TCP/IP简要常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/注册-登录-cookies/">注册 登录 cookies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第二篇博客，用于测试/">第二篇博客，用于测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/罗列HTML中的空元素/">罗列HTML中的空元素</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重新部署/">重新部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/" style="font-size: 10px;">AJAX CORS 请求与响应 解构赋值 Promise</a> <a href="/tags/Cache-Control-Expires-Etag/" style="font-size: 10px;">Cache-Control Expires Etag</a> <a href="/tags/DOM事件模型-浮层/" style="font-size: 10px;">DOM事件模型 浮层</a> <a href="/tags/HTTP-请求-响应/" style="font-size: 10px;">HTTP 请求 响应</a> <a href="/tags/JSONP-SRJ-数据库/" style="font-size: 10px;">JSONP SRJ 数据库</a> <a href="/tags/Node-js-server/" style="font-size: 10px;">Node.js server</a> <a href="/tags/Node-nextSibling-nodeType/" style="font-size: 10px;">Node.nextSibling nodeType</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/a-form/" style="font-size: 10px;">a form</a> <a href="/tags/box-sizing/" style="font-size: 10px;">box-sizing</a> <a href="/tags/css属性/" style="font-size: 10px;">css属性</a> <a href="/tags/jQuery-API/" style="font-size: 10px;">jQuery API</a> <a href="/tags/setInterval-setTimeout/" style="font-size: 10px;">setInterval() setTimeout()</a> <a href="/tags/static-relative-absolute-fixed-sticky/" style="font-size: 10px;">static relative absolute fixed sticky</a> <a href="/tags/this-call-apply-bind/" style="font-size: 10px;">this call apply bind</a> <a href="/tags/viewport-媒体查询-动态REM-响应式/" style="font-size: 10px;">viewport 媒体查询 动态REM 响应式</a> <a href="/tags/visibilitychange-自动播放轮播/" style="font-size: 10px;">visibilitychange 自动播放轮播</a> <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" style="font-size: 10px;">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a> <a href="/tags/固定比例缩放/" style="font-size: 10px;">固定比例缩放</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/本文介绍TCP-IP简要常识/" style="font-size: 10px;">本文介绍TCP/IP简要常识</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/注册-登录-cookies/" style="font-size: 10px;">注册 登录 cookies</a> <a href="/tags/第二篇博客，用于测试/" style="font-size: 10px;">第二篇博客，用于测试</a> <a href="/tags/罗列HTML中的空元素/" style="font-size: 10px;">罗列HTML中的空元素</a> <a href="/tags/重新部署/" style="font-size: 10px;">重新部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/05/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/换电脑重新部署hexo/">换电脑重新部署hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/02/HTTP缓存/">HTTP缓存</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/Session/">Session</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 刘快<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

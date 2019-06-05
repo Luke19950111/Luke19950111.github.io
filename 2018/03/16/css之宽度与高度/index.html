@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>css之宽度与高度 | 是刘快啊</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。在CSS中：1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。  ##内联元素之宽高 ###1.通过JS Bin调试观察分别给div和span加一个红色、绿色的border，便于观察：给span加一个100px的margin，可以看">
+<meta name="keywords" content="内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css之宽度与高度">
+<meta property="og:url" content="http://yoursite.com/2018/03/16/css之宽度与高度/index.html">
+<meta property="og:site_name" content="是刘快啊">
+<meta property="og:description" content="使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。在CSS中：1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。  ##内联元素之宽高 ###1.通过JS Bin调试观察分别给div和span加一个红色、绿色的border，便于观察：给span加一个100px的margin，可以看">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-eb475cec32b481ec.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-ebeab594202bcc36.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-12ed6231052813f9.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-57e53016f8eed19d.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-506d09bd2634fbd3.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-b22d953a9ca0d153.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-9c4b7c851f19f336.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-89849ff5bbc6d05c.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-001a418f6f72fd44.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-06-05T03:53:25.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css之宽度与高度">
+<meta name="twitter:description" content="使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。在CSS中：1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。  ##内联元素之宽高 ###1.通过JS Bin调试观察分别给div和span加一个红色、绿色的border，便于观察：给span加一个100px的margin，可以看">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="是刘快啊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">是刘快啊</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-css之宽度与高度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/16/css之宽度与高度/" class="article-date">
+  <time datetime="2018-03-15T17:08:22.000Z" itemprop="datePublished">2018-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css之宽度与高度
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。<br>在CSS中：<br><strong>1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；</strong><br><strong>2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。</strong></p>
+<hr>
+<p>##内联元素之宽高</p>
+<p>###1.通过JS Bin调试观察<br>分别给div和span加一个红色、绿色的border，便于观察：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="border.JPG"><br>给span加一个100px的margin，可以看到span左右各增加了100px的margin，宽度增加200px；上下没有变化，高度不变：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-eb475cec32b481ec.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="margin.JPG"><br>给span增加一个100px的padding，可以看到span宽度增加200px，高度依然没有变化（红框没有变高）：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-ebeab594202bcc36.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="padding.JPG"><br>我们注意到两个span之间有一个空格，这是因为代码中两个span之间并不是没有东西的，而是有回车和空格，即下图中选中部分，显示为一个空格：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-12ed6231052813f9.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="space.JPG"><br>将span的border加到10px，可以弹道span的宽度增加了20px，行高依然没有改变：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-57e53016f8eed19d.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="border2.JPG"><br>给span设置width和height，宽度和高度没有任何变化：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-506d09bd2634fbd3.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="wh.JPG"><br>综上，内联元素宽度受padding和margin影响，高度不受其影响；内联元素不接受指定宽高。<br>内联元素高度由行高决定，宽度由内容、padding、border、margin决定。</p>
+<p>###2.字体与行高<br>我们给到文本的font-size就是行高吗？答案是否定的。这是因为font-size是字体的最高点到最低点的高度，不同的font-size有不同的<strong>建议行高</strong>。字体设计师在设计字体时，会考虑到如果这种字体要写两行，行与行之间要有空隙，于是设计了建议行高。例如，给定<code>font-size：20px；</code>，如果这种字体的建议行高为1.2倍，则行高为24px。如果要明确行高为20px，那么应该写上<code>line-height: 20px;</code>。
+line-height可以确定内联元素高度，line-height的值是多少像素，内联元素所占的高度就是多少。</p>
+<hr>
+<p>##块级元素之宽高</p>
+<p>###1.文档流（Normal Flow）<br>W3C规范中是没有<code>docuement flow</code>这个概念的，只有Normal Flow,即普通流，文档流是多数中文翻译者的翻译方式问题。<br>文档流中内联元素默认从左到右排列，宽度不够则自动换行；<br>文档流中块级元素从上到下排列，每个元素占一行。<br>一个子元素脱离文档流后计算父元素高度不再算它的高度，脱离文档流的方式：<br><code>float：left；</code><br><code>position：absolute；</code><br><code>position：fixed;</code><br>相对定位<code>position: relative;</code>不脱离文档流，不管位置怎样移动，父元素计算高度仍要算上它的高度。</p>
+<p>###2.margin合并<br>给父元素一个border，给子元素一个100px的margin，可以看到子元素的margin仍在父元素内：<img src="https://upload-images.jianshu.io/upload_images/11014353-b22d953a9ca0d153.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="son.JPG"><br>将父元素的border变为outline，发现子元素上下margin与父元素合并：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-9c4b7c851f19f336.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dad.JPG"><br>如果父元素没有border，那么子元素的margin上下方向会与父元素margin合并。如果不想让margin合并，可以给父元素加上<code>border-top</code>和<code>border-bottom</code>(不一定是border，也可以是别的东西，如padding，只要可以挡着子元素margin就可以)。<br><em>在CSS中，即使只给到<code>border-top：0.1px；</code>，依然会出现一个1px的border-top。</em><br>其他阻止margin合并方法：<br>1.给父元素加上<code>overflow: hidden;</code>,一般不用这种方法，所有东西都不能超出，例如要加悬浮层会遇到问题；<br><img src="https://upload-images.jianshu.io/upload_images/11014353-89849ff5bbc6d05c.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="overflow.JPG"><br>2.内联元素也可以挡住，写个字，一般不用，没必要无故写个字。<br><img src="https://upload-images.jianshu.io/upload_images/11014353-001a418f6f72fd44.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dang.JPG"></p>
+<p>所以子元素的margin能否使父元素变高，取决于是否有东西挡着它。<br>一个div里还有div，这个div的高度就是里面div的<strong>高度+padding+border+(sometimes)margin</strong>。
+一个div里有span，把span的行高加起来就是div的高度。<br>综上，块级元素宽度自适应父元素，高度是由其内部文档流元素的高度总和决定的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/16/css之宽度与高度/" data-id="cjwir1c0r000phwo6admt5z1a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/23/数值-JavaScript标准参考教程（阮一峰）读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数值-JavaScript标准参考教程（阮一峰）读书笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/13/box-sizing-css/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">box-sizing -css</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/">AJAX CORS 请求与响应 解构赋值 Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cache-Control-Expires-Etag/">Cache-Control Expires Etag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM事件模型-浮层/">DOM事件模型 浮层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-请求-响应/">HTTP 请求 响应</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSONP-SRJ-数据库/">JSONP SRJ 数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js-server/">Node.js server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-nextSibling-nodeType/">Node.nextSibling nodeType</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a-form/">a form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-sizing/">box-sizing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-API/">jQuery API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setInterval-setTimeout/">setInterval() setTimeout()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static-relative-absolute-fixed-sticky/">static relative absolute fixed sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-call-apply-bind/">this call apply bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/viewport-媒体查询-动态REM-响应式/">viewport 媒体查询 动态REM 响应式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/visibilitychange-自动播放轮播/">visibilitychange 自动播放轮播</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/固定比例缩放/">固定比例缩放</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本文介绍TCP-IP简要常识/">本文介绍TCP/IP简要常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标签/">标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/注册-登录-cookies/">注册 登录 cookies</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/第二篇博客，用于测试/">第二篇博客，用于测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/罗列HTML中的空元素/">罗列HTML中的空元素</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重新部署/">重新部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX-CORS-请求与响应-解构赋值-Promise/" style="font-size: 10px;">AJAX CORS 请求与响应 解构赋值 Promise</a> <a href="/tags/Cache-Control-Expires-Etag/" style="font-size: 10px;">Cache-Control Expires Etag</a> <a href="/tags/DOM事件模型-浮层/" style="font-size: 10px;">DOM事件模型 浮层</a> <a href="/tags/HTTP-请求-响应/" style="font-size: 10px;">HTTP 请求 响应</a> <a href="/tags/JSONP-SRJ-数据库/" style="font-size: 10px;">JSONP SRJ 数据库</a> <a href="/tags/Node-js-server/" style="font-size: 10px;">Node.js server</a> <a href="/tags/Node-nextSibling-nodeType/" style="font-size: 10px;">Node.nextSibling nodeType</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/a-form/" style="font-size: 10px;">a form</a> <a href="/tags/box-sizing/" style="font-size: 10px;">box-sizing</a> <a href="/tags/css属性/" style="font-size: 10px;">css属性</a> <a href="/tags/jQuery-API/" style="font-size: 10px;">jQuery API</a> <a href="/tags/setInterval-setTimeout/" style="font-size: 10px;">setInterval() setTimeout()</a> <a href="/tags/static-relative-absolute-fixed-sticky/" style="font-size: 10px;">static relative absolute fixed sticky</a> <a href="/tags/this-call-apply-bind/" style="font-size: 10px;">this call apply bind</a> <a href="/tags/viewport-媒体查询-动态REM-响应式/" style="font-size: 10px;">viewport 媒体查询 动态REM 响应式</a> <a href="/tags/visibilitychange-自动播放轮播/" style="font-size: 10px;">visibilitychange 自动播放轮播</a> <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" style="font-size: 10px;">内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a> <a href="/tags/固定比例缩放/" style="font-size: 10px;">固定比例缩放</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/本文介绍TCP-IP简要常识/" style="font-size: 10px;">本文介绍TCP/IP简要常识</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/注册-登录-cookies/" style="font-size: 10px;">注册 登录 cookies</a> <a href="/tags/第二篇博客，用于测试/" style="font-size: 10px;">第二篇博客，用于测试</a> <a href="/tags/罗列HTML中的空元素/" style="font-size: 10px;">罗列HTML中的空元素</a> <a href="/tags/重新部署/" style="font-size: 10px;">重新部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/05/README/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/换电脑重新部署hexo/">换电脑重新部署hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/02/HTTP缓存/">HTTP缓存</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/30/Session/">Session</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 刘快<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
