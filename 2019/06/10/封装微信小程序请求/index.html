@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="DOM事件模型 浮层,">
+  <meta name="keywords" content="小程序 wx-request,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="需求：点击button出现浮层，点击别处关闭浮层。我们有一个按钮和一个浮层，浮层内为一个checkbox，浮层默认不显示： 123456&amp;lt;div id=&amp;quot;wrapper&amp;quot; class=&amp;quot;wrapper&amp;quot;&amp;gt;    &amp;lt;button id=&amp;quot;clickMe&amp;quot;&amp;gt;点我&amp;lt;/button&amp;gt;    &amp;lt;div id">
-<meta name="keywords" content="DOM事件模型 浮层">
+<meta name="description" content="微信小程序提供了原生的请求API wx.request  微信小程序的开发中往往需要发送大量请求，使用原生API写法复杂。 将其封装为更简单的写法在小程序开发中使用。 1.封装可以写在utils目录下的http.js文件中  123456789101112131415161718192021222324252627282930313233343536function getPromise(url,">
+<meta name="keywords" content="小程序 wx-request">
 <meta property="og:type" content="article">
-<meta property="og:title" content="点击别处关闭浮层">
-<meta property="og:url" content="http://yoursite.com/2018/04/22/点击别处关闭浮层/index.html">
+<meta property="og:title" content="封装微信小程序请求">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/封装微信小程序请求/index.html">
 <meta property="og:site_name" content="是刘快啊">
-<meta property="og:description" content="需求：点击button出现浮层，点击别处关闭浮层。我们有一个按钮和一个浮层，浮层内为一个checkbox，浮层默认不显示： 123456&amp;lt;div id=&amp;quot;wrapper&amp;quot; class=&amp;quot;wrapper&amp;quot;&amp;gt;    &amp;lt;button id=&amp;quot;clickMe&amp;quot;&amp;gt;点我&amp;lt;/button&amp;gt;    &amp;lt;div id">
+<meta property="og:description" content="微信小程序提供了原生的请求API wx.request  微信小程序的开发中往往需要发送大量请求，使用原生API写法复杂。 将其封装为更简单的写法在小程序开发中使用。 1.封装可以写在utils目录下的http.js文件中  123456789101112131415161718192021222324252627282930313233343536function getPromise(url,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T03:53:25.332Z">
+<meta property="og:updated_time" content="2019-06-10T00:49:23.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="点击别处关闭浮层">
-<meta name="twitter:description" content="需求：点击button出现浮层，点击别处关闭浮层。我们有一个按钮和一个浮层，浮层内为一个checkbox，浮层默认不显示： 123456&amp;lt;div id=&amp;quot;wrapper&amp;quot; class=&amp;quot;wrapper&amp;quot;&amp;gt;    &amp;lt;button id=&amp;quot;clickMe&amp;quot;&amp;gt;点我&amp;lt;/button&amp;gt;    &amp;lt;div id">
+<meta name="twitter:title" content="封装微信小程序请求">
+<meta name="twitter:description" content="微信小程序提供了原生的请求API wx.request  微信小程序的开发中往往需要发送大量请求，使用原生API写法复杂。 将其封装为更简单的写法在小程序开发中使用。 1.封装可以写在utils目录下的http.js文件中  123456789101112131415161718192021222324252627282930313233343536function getPromise(url,">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/22/点击别处关闭浮层/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/10/封装微信小程序请求/">
 
 
 
 
 
-  <title>点击别处关闭浮层 | 是刘快啊</title>
+  <title>封装微信小程序请求 | 是刘快啊</title>
   
 
 
@@ -235,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/点击别处关闭浮层/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/封装微信小程序请求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘快大大">
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">点击别处关闭浮层</h1>
+          <h1 class="post-title" itemprop="name headline">封装微信小程序请求</h1>
         
 
         <div class="post-meta">
@@ -264,8 +264,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T23:22:02+08:00">
-                2018-04-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-10T08:24:16+08:00">
+                2019-06-10
               </time>
             
 
@@ -302,27 +302,14 @@
       
 
       
-        <p>需求：点击button出现浮层，点击别处关闭浮层。<br>我们有一个按钮和一个浮层，浮层内为一个checkbox，浮层默认不显示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;wrapper&quot; class=&quot;wrapper&quot;&gt;</span><br><span class="line">    &lt;button id=&quot;clickMe&quot;&gt;点我&lt;/button&gt;</span><br><span class="line">    &lt;div id=&quot;popover&quot; class=&quot;popover&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;checkbox&quot;&gt;浮层</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+        <p>微信小程序提供了原生的请求API <code>wx.request</code> </p>
+<p>微信小程序的开发中往往需要发送大量请求，使用原生API写法复杂。</p>
+<p>将其封装为更简单的写法在小程序开发中使用。</p>
+<h2 id="1-封装"><a href="#1-封装" class="headerlink" title="1.封装"></a>1.封装</h2><p>可以写在utils目录下的http.js文件中 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">function getPromise(url, data, method)&#123;</span><br><span class="line">    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        wx.request(&#123;</span><br><span class="line">            url: url,</span><br><span class="line">            data: data,</span><br><span class="line">            method: method,</span><br><span class="line">            //header: &#123;&#125;, //设置请求的header</span><br><span class="line">            success: function(res)&#123;</span><br><span class="line">                resolve res.data</span><br><span class="line">            &#125;,</span><br><span class="line">            fail: function(err)&#123;</span><br><span class="line">                reject err</span><br><span class="line">            &#125;,</span><br><span class="line">            complete: function()&#123;</span><br><span class="line">                //complete</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const http = &#123;</span><br><span class="line">    get: function(url, data)&#123;</span><br><span class="line">        return getPromise(url, data, &apos;GET&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    post: function(url, data)&#123;</span><br><span class="line">        return getPromise(url, data, &apos;POST&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    put: function(url, data)&#123;</span><br><span class="line">        return getPromise(url, data, &apos;PUT&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    delete: function(url, data)&#123;</span><br><span class="line">        return getPromise(url, data, &apos;DELETE)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default http</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.wrapper&#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  display: inline-block;</span><br><span class="line">&#125;</span><br><span class="line">.popover&#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  border: 1px solid red;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  margin-left: 1px;</span><br><span class="line">  left: 100%;</span><br><span class="line">  top: 0;</span><br><span class="line">  white-space: nowrap;</span><br><span class="line">  background: white;</span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>方案一：</strong> 监听button和document，button被点击时浮层显示，document除button和浮层以外的地方被点击是，浮层隐藏。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clickMe.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">  popover.style.display = &apos;block&apos;</span><br><span class="line">&#125;)</span><br><span class="line">wrapper.addEventListener(&apos;click&apos;, function(e)&#123;</span><br><span class="line">  e.stopPropagation()</span><br><span class="line">&#125;) //阻止冒泡</span><br><span class="line">document.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">  popover.style.display = &apos;none&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>阻止冒泡：在冒泡阶段执行函数，即先执行clickMe中的函数，给浮层添加block，如果不阻止冒泡，会继续向上，到document中时再执行其中的函数，使浮层又变为display: none；</li>
-<li>监听document或监听html都是可以的，（<code>document.documentElement.addEventListener()</code>），但是如果监听body要注意body的高度。</li>
-<li>每次点击document都会被监听，浪费内存。</li>
-</ul>
-<p><strong>方案二：</strong> 用jQuery 只有在浮层显示的时候监听一次document。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$(clickMe).on(&apos;click&apos;, function()&#123;</span><br><span class="line">  $(popover).show()</span><br><span class="line">  console.log(&apos;block&apos;)</span><br><span class="line">  $(document).one(&apos;click&apos;, function()&#123;</span><br><span class="line">    $(popover).hide()</span><br><span class="line">  &#125;) //只在浮层show的时候监听一次document</span><br><span class="line">&#125;)</span><br><span class="line">$(wrapper).on(&apos;click&apos;, function(e)&#123;</span><br><span class="line">  e.stopPropagation()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>只有在浮层show的时候监听一次document，也就是：<strong>点击button，浮层显示 =&gt; 监听document =&gt; 点击别处，浮层隐藏 =&gt; 不再监听document</strong>，节省内存；</li>
-<li>注意不能写成<code>$(wrapper).on(&#39;click&#39;, false)</code>,因为这样写会同时阻止冒泡和阻止默认事件，导致checkbox无法选中。</li>
-</ul>
-
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h2><p>在每个page的js文件中引入http，每次发请求只需把请求路径<code>url</code>和请求参数<code>data</code>作为参数传入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http.get(url, data).then()</span><br><span class="line">http.post(url, data).then()</span><br><span class="line">http.put(url, data).then()</span><br><span class="line">http.delete(url, data).then()</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -339,7 +326,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DOM事件模型-浮层/" rel="tag"># DOM事件模型 浮层</a>
+            <a href="/tags/小程序-wx-request/" rel="tag"># 小程序 wx-request</a>
           
         </div>
       
@@ -352,8 +339,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/20/call、apply、bind的用法/" rel="next" title="call、apply、bind的用法">
-                <i class="fa fa-chevron-left"></i> call、apply、bind的用法
+              <a href="/2019/06/05/换电脑重新部署hexo/" rel="next" title="换电脑重新部署hexo">
+                <i class="fa fa-chevron-left"></i> 换电脑重新部署hexo
               </a>
             
           </div>
@@ -362,8 +349,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/23/visibilitychange/" rel="prev" title="visibilitychange">
-                visibilitychange <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/14/README/" rel="prev" title="README">
+                README <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -416,8 +403,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,6 +502,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-封装"><span class="nav-number">1.</span> <span class="nav-text">1.封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用"><span class="nav-number">2.</span> <span class="nav-text">2.使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
