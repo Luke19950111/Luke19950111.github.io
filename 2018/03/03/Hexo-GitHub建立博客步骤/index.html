@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="hexo,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="-以下是步骤  1.进入一个安全的目录，比如 cd~/Desktop  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到不可描述的问题，亲测  3.npm install -g hexo-cli，安装Hexo  4.hexo init myBlog  5.cd myBlog  6.npm i  7.he">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo+GitHub建立博客步骤">
 <meta property="og:url" content="http://yoursite.com/2018/03/03/Hexo-GitHub建立博客步骤/index.html">
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="-以下是步骤  1.进入一个安全的目录，比如 cd~/Desktop  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到不可描述的问题，亲测  3.npm install -g hexo-cli，安装Hexo  4.hexo init myBlog  5.cd myBlog  6.npm i  7.he">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T03:53:25.322Z">
+<meta property="og:updated_time" content="2019-06-10T01:38:15.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+GitHub建立博客步骤">
 <meta name="twitter:description" content="-以下是步骤  1.进入一个安全的目录，比如 cd~/Desktop  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到不可描述的问题，亲测  3.npm install -g hexo-cli，安装Hexo  4.hexo init myBlog  5.cd myBlog  6.npm i  7.he">
@@ -192,12 +193,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
           </a>
         </li>
       
@@ -274,6 +315,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -316,6 +379,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          
+        </div>
       
 
       
@@ -417,15 +486,24 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">27</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -690,3 +768,6 @@
 
 </body>
 </html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

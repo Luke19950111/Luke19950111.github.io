@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="需求：寻找a元素的“弟弟”，即a元素同一级的下一个元素节点。方法： let brother = a.nextSibling; while(brother.nodeType !== 1){     brother = brother.nextSibling }解释：  Node.nextSibling返回其父节点的childNodes列表中紧跟在其后的节点，如果指定节点是最后一个节点，则返回null">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T03:53:25.322Z">
+<meta property="og:updated_time" content="2019-06-10T01:41:18.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.nextSibling+nodeType递归">
 <meta name="twitter:description" content="需求：寻找a元素的“弟弟”，即a元素同一级的下一个元素节点。方法： let brother = a.nextSibling; while(brother.nodeType !== 1){     brother = brother.nextSibling }解释：  Node.nextSibling返回其父节点的childNodes列表中紧跟在其后的节点，如果指定节点是最后一个节点，则返回null">
@@ -193,12 +193,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
           </a>
         </li>
       
@@ -275,6 +315,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -328,7 +390,7 @@ while(brother.nodeType !== 1){
       
         <div class="post-tags">
           
-            <a href="/tags/Node-nextSibling-nodeType/" rel="tag"># Node.nextSibling nodeType</a>
+            <a href="/tags/Node-nextSibling-nodeType/" rel="tag"><i class="fa fa-tag"></i> Node.nextSibling nodeType</a>
           
         </div>
       
@@ -432,15 +494,24 @@ while(brother.nodeType !== 1){
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">27</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -705,3 +776,6 @@ while(brother.nodeType !== 1){
 
 </body>
 </html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

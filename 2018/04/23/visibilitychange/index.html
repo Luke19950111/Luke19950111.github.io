@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="我制作了一个自动播放的无缝轮播：自动播放代码现在我发现它有一个bug：每次切换到其他标签的网页，再切换回来时，播放出现了混乱。 我尝试写如下代码： 123setInterval(function()&amp;#123;  console.log(new Date())&amp;#125;,500)  也就是每秒打印两次当前事件。它确实在执行，每秒打印两次。(请在控制台中查看)但是，当我切换到其他页面再切回来时，发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T03:53:25.332Z">
+<meta property="og:updated_time" content="2019-06-10T01:43:39.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="visibilitychange">
 <meta name="twitter:description" content="我制作了一个自动播放的无缝轮播：自动播放代码现在我发现它有一个bug：每次切换到其他标签的网页，再切换回来时，播放出现了混乱。 我尝试写如下代码： 123setInterval(function()&amp;#123;  console.log(new Date())&amp;#125;,500)  也就是每秒打印两次当前事件。它确实在执行，每秒打印两次。(请在控制台中查看)但是，当我切换到其他页面再切回来时，发">
@@ -193,12 +193,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
           </a>
         </li>
       
@@ -275,6 +315,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -332,7 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/visibilitychange-自动播放轮播/" rel="tag"># visibilitychange 自动播放轮播</a>
+            <a href="/tags/visibilitychange-自动播放轮播/" rel="tag"><i class="fa fa-tag"></i> visibilitychange 自动播放轮播</a>
           
         </div>
       
@@ -436,15 +498,24 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">27</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -709,3 +780,6 @@
 
 </body>
 </html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

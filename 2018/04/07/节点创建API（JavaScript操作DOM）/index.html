@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="节点创建,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="1. createElementcreateElement通过传入标签名创建元素。用法如下： var div = document.createElement(&amp;quot;div&amp;quot;);2. createTextNodecreateTextNode用来创建一个文本节点，用法如下： var textNode = document.createTextNode(&amp;quot;这是一个textNo">
+<meta name="keywords" content="节点创建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="节点创建API（JavaScript操作DOM）">
 <meta property="og:url" content="http://yoursite.com/2018/04/07/节点创建API（JavaScript操作DOM）/index.html">
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="1. createElementcreateElement通过传入标签名创建元素。用法如下： var div = document.createElement(&amp;quot;div&amp;quot;);2. createTextNodecreateTextNode用来创建一个文本节点，用法如下： var textNode = document.createTextNode(&amp;quot;这是一个textNo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T03:53:25.332Z">
+<meta property="og:updated_time" content="2019-06-10T01:50:19.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="节点创建API（JavaScript操作DOM）">
 <meta name="twitter:description" content="1. createElementcreateElement通过传入标签名创建元素。用法如下： var div = document.createElement(&amp;quot;div&amp;quot;);2. createTextNodecreateTextNode用来创建一个文本节点，用法如下： var textNode = document.createTextNode(&amp;quot;这是一个textNo">
@@ -192,12 +193,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
           </a>
         </li>
       
@@ -274,6 +315,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,6 +393,12 @@ parent2.id = &quot;parent2&quot;;</code></pre><p>这段代码通过cloneNode复�
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/节点创建/" rel="tag"><i class="fa fa-tag"></i> 节点创建</a>
+          
+        </div>
       
 
       
@@ -440,15 +509,24 @@ parent2.id = &quot;parent2&quot;;</code></pre><p>这段代码通过cloneNode复�
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">27</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -729,3 +807,6 @@ parent2.id = &quot;parent2&quot;;</code></pre><p>这段代码通过cloneNode复�
 
 </body>
 </html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

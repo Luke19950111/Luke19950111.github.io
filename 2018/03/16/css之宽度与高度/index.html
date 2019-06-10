@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-9c4b7c851f19f336.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-89849ff5bbc6d05c.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-001a418f6f72fd44.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-06-05T03:53:25.332Z">
+<meta property="og:updated_time" content="2019-06-10T01:37:24.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css之宽度与高度">
 <meta name="twitter:description" content="使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。在CSS中：1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。  ##内联元素之宽高 ###1.通过JS Bin调试观察分别给div和span加一个红色、绿色的border，便于观察：给span加一个100px的margin，可以看">
@@ -204,12 +204,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
           </a>
         </li>
       
@@ -286,6 +326,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -342,7 +404,7 @@ line-height可以确定内联元素高度，line-height的值是多少像素，�
       
         <div class="post-tags">
           
-            <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" rel="tag"># 内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a>
+            <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" rel="tag"><i class="fa fa-tag"></i> 内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a>
           
         </div>
       
@@ -446,15 +508,24 @@ line-height可以确定内联元素高度，line-height的值是多少像素，�
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">27</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -719,3 +790,6 @@ line-height可以确定内联元素高度，line-height的值是多少像素，�
 
 </body>
 </html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

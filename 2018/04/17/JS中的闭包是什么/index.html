@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="闭包,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="什么是闭包为了便于理解我在代码中使用了中文： 1234567!function()&amp;#123;  var a = &amp;apos;局部变量a&amp;apos;  function fn()&amp;#123;    console.log(a)  &amp;#125;  return fn&amp;#125;  在上面的代码中，在一个立即执行函数中有一个局部变量a，有一个函数fn，在函数fn中可以访问到局部变量a，这就是一个闭包：">
+<meta name="keywords" content="闭包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS中的闭包是什么">
 <meta property="og:url" content="http://yoursite.com/2018/04/17/JS中的闭包是什么/index.html">
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="什么是闭包为了便于理解我在代码中使用了中文： 1234567!function()&amp;#123;  var a = &amp;apos;局部变量a&amp;apos;  function fn()&amp;#123;    console.log(a)  &amp;#125;  return fn&amp;#125;  在上面的代码中，在一个立即执行函数中有一个局部变量a，有一个函数fn，在函数fn中可以访问到局部变量a，这就是一个闭包：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T03:53:25.322Z">
+<meta property="og:updated_time" content="2019-06-10T01:40:43.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中的闭包是什么">
 <meta name="twitter:description" content="什么是闭包为了便于理解我在代码中使用了中文： 1234567!function()&amp;#123;  var a = &amp;apos;局部变量a&amp;apos;  function fn()&amp;#123;    console.log(a)  &amp;#125;  return fn&amp;#125;  在上面的代码中，在一个立即执行函数中有一个局部变量a，有一个函数fn，在函数fn中可以访问到局部变量a，这就是一个闭包：">
@@ -192,12 +193,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
           </a>
         </li>
       
@@ -274,6 +315,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -328,6 +391,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/闭包/" rel="tag"><i class="fa fa-tag"></i> 闭包</a>
+          
+        </div>
       
 
       
@@ -438,15 +507,24 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">27</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -727,3 +805,6 @@
 
 </body>
 </html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>
