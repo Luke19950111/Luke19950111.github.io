@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="a form,">
+  <meta name="keywords" content="a,form,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="&amp;lt;a&amp;gt;元素&amp;lt;a&amp;gt;元素（锚元素），可以创建一个到其他网页、文件、同一页面内的位置或任何其他URL的超链接。   一、&amp;lt;a&amp;gt;元素中target用法    1.&amp;lt;a href=&amp;quot;http://qq.com&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;blank QQ&amp;lt;/a&amp;gt; 在空白页面中打开链接    2.&amp;lt;">
-<meta name="keywords" content="a form">
+<meta name="description" content="a标签和form标签">
+<meta name="keywords" content="a,form">
 <meta property="og:type" content="article">
 <meta property="og:title" content="a标签、form标签简介">
 <meta property="og:url" content="http://yoursite.com/2018/03/08/a标签、form标签简介/index.html">
 <meta property="og:site_name" content="是刘快啊">
-<meta property="og:description" content="&amp;lt;a&amp;gt;元素&amp;lt;a&amp;gt;元素（锚元素），可以创建一个到其他网页、文件、同一页面内的位置或任何其他URL的超链接。   一、&amp;lt;a&amp;gt;元素中target用法    1.&amp;lt;a href=&amp;quot;http://qq.com&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;blank QQ&amp;lt;/a&amp;gt; 在空白页面中打开链接    2.&amp;lt;">
+<meta property="og:description" content="a标签和form标签">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-10T01:34:49.302Z">
+<meta property="og:updated_time" content="2019-06-11T06:58:35.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="a标签、form标签简介">
-<meta name="twitter:description" content="&amp;lt;a&amp;gt;元素&amp;lt;a&amp;gt;元素（锚元素），可以创建一个到其他网页、文件、同一页面内的位置或任何其他URL的超链接。   一、&amp;lt;a&amp;gt;元素中target用法    1.&amp;lt;a href=&amp;quot;http://qq.com&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;blank QQ&amp;lt;/a&amp;gt; 在空白页面中打开链接    2.&amp;lt;">
+<meta name="twitter:description" content="a标签和form标签">
 
 
 
@@ -364,15 +364,21 @@
       
 
       
-        <p><strong><code>&lt;a&gt;</code>元素</strong><br><br><code>&lt;a&gt;</code>元素（锚元素），可以创建一个到其他网页、文件、同一页面内的位置或任何其他URL的超链接。</p>
+        <center>a标签和form标签</center>
+<a id="more"></a>
+
+<h2 id="lt-a-gt-元素"><a href="#lt-a-gt-元素" class="headerlink" title="&lt;a&gt;元素"></a><code>&lt;a&gt;</code>元素<br></h2><p><code>&lt;a&gt;</code>元素（锚元素），可以创建一个到其他网页、文件、同一页面内的位置或任何其他URL的超链接。</p>
 <p>  一、<code>&lt;a&gt;</code>元素中target用法<br>    1.<code>&lt;a href=&quot;http://qq.com&quot; target=&quot;_blank&quot;&gt;blank QQ&lt;/a&gt;</code> 在空白页面中打开链接<br>    2.<code>&lt;a href=&quot;http://qq.com&quot; target=&quot;_self&quot;&gt;self QQ&lt;/a&gt;</code> 在当前页面打开链接<br>    3.<code>&lt;a href=&quot;http://qq.com&quot; target=&quot;_parent&quot;&gt;parent QQ&lt;/a&gt;</code> 在父级页面打开链接<br>    4.<code>&lt;a href=&quot;http://qq.com&quot; target=&quot;_top&quot;&gt;top QQ&lt;/a&gt;</code> 在顶层窗口打开链接</p>
 <p>  二、<code>&lt;a&gt;</code>元素中download的用法<br>    1.<code>&lt;a href=&quot;http://qq.com&quot; download&gt;下载&lt;/a&gt;</code><br>    2.若HTTP响应中Content-type为<em>Content-type：application/octet-stream</em>,同为下载。否则就要在<code>&lt;a&gt;</code>元素中写入download强制下载。</p>
 <p>  三、<code>&lt;a&gt;</code>元素中href的用法<br>    1.无协议绝对地址<br>      <code>&lt;a href=&quot;//qq.com&quot;&gt;QQ&lt;/a&gt;</code>不写协议，则自动继承当前协议，即浏览器会根据当前协议，补全无协议链接的协议。<br>    2.伪协议<br>      <code>&lt;a href=&quot;javascript:alert(1);&quot;&gt;QQ&lt;/a&gt;</code>可以在用户点击链接时执行一段javascript代码<br>      用法：<code>&lt;a href=&quot;javascript:;&quot;&gt;QQ&lt;/a&gt;</code>可以实现<strong>点击之后没有任何动作的a元素</strong><br>      不可行写法：<code>&lt;a href=&quot;#&quot;&gt;QQ&lt;/a&gt;</code> 页面会滚动到顶部，不可接受<br>                 <code>&lt;a&gt;QQ&lt;a&gt;</code>没有链接，<code>&lt;a&gt;</code>元素变成<code>&lt;span&gt;</code>元素的效果。<code>&lt;a&gt;</code>必须要有href<br>                 <code>&lt;a href=&quot;&quot;&gt;QQ&lt;/a&gt;</code>会刷新页面，跳转自身页面，发送请求<br>    3.其他用法<br>      <code>&lt;a href=&quot;xxx.html&quot;&gt;QQ&lt;/a&gt;</code>可以接一个路径，跳转到/xxx.html<br>      <code>&lt;a href=&quot;#aabc&quot;&gt;QQ&lt;/a&gt;</code>锚点直接加到地址后面，不发起请求<br>      <code>&lt;a href=&quot;?name=lk&quot;&gt;QQ&lt;/a&gt;</code>发起一个get请求</p>
 <hr>
-<p><strong><code>&lt;form&gt;</code>元素</strong><br><br><code>&lt;form&gt;</code>元素表示文档中的一块区域，这块区域包含有交互控制元件，用来向web服务器提交信息。</p>
-<p>  一、<code>&lt;form&gt;</code>元素是HTML提供的可以上传内容的方法，可用于发起POST请求<br>    1.<code>&lt;form&gt;</code>跳转页面与<code>&lt;a&gt;</code>的区别<br>      <code>&lt;a&gt;</code>跳转时发起HTTP get请求，<code>&lt;form&gt;</code>跳转时发起HTTP post请求<br>    2.<code>&lt;form action=&quot;users&quot; method=&quot;post&quot;&gt;</code><br>         <code>&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</code><br>         <code>&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;</code><br>         <code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</code><br>      <code>&lt;/form&gt;</code><br>      <em><code>&lt;form&gt;</code>action属性用来指定请求路径</em><br>      <em><code>&lt;form&gt;</code>默认也是发送HTTP get请求，method属性用来指定请求动词，所以要加参数<code>method=&quot;post&quot;</code></em><br>      <em>HTTP请求有了第四部分：username=”xxx”&amp;password=”222”。如果input不加name，那么在表单提交时，input的值就不会出现在请求里</em><br>      <em><code>&lt;form&gt;</code>必须要有提交按钮</em></p>
-<p>  二、<code>&lt;form&gt;</code>元素也可以用来发送GET请求<br>    1.<code>&lt;form action=&quot;users&quot; method=&quot;get&quot;&gt;</code> 不会将input的参数作为<em>HTTP请求的第四部分</em>，而是将参数写到<em>查询参数</em>里
-    这样写没有意义，发送get请求直接用<code>&lt;a&gt;</code>就可以<br>    2.<code>&lt;form action=&quot;users?xxx=1&quot; method=&quot;post&quot;&gt;</code>这样写可以让post也有查询参数<br>    3.以上，在<code>&lt;form&gt;</code>元素中<br>      get默认把参数放在查询参数里<br>      post默认把参数放在请求的第四部分<br>      可以让post也有查询参数<br>      不能让get有请求的第四部分</p>
+<h2 id="lt-form-gt-元素"><a href="#lt-form-gt-元素" class="headerlink" title="&lt;form&gt;元素"></a><code>&lt;form&gt;</code>元素<br></h2><p><code>&lt;form&gt;</code>元素表示文档中的一块区域，这块区域包含有交互控制元件，用来向web服务器提交信息。</p>
+<p>  一、<code>&lt;form&gt;</code>元素是HTML提供的可以上传内容的方法，可用于发起POST请求<br>    1.<code>&lt;form&gt;</code>跳转页面与<code>&lt;a&gt;</code>的区别<br>      <code>&lt;a&gt;</code>跳转时发起HTTP get请求，<code>&lt;form&gt;</code>跳转时发起HTTP post请求<br>    2.<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;users&quot; method=&quot;post&quot;&gt;</span><br><span class="line">   &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</span><br><span class="line">   &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;</span><br><span class="line">   &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
+<pre><code>`&lt;form&gt;`action属性用来指定请求路径
+`&lt;form&gt;`默认也是发送HTTP get请求，method属性用来指定请求动词，所以要加参数`method=&quot;post&quot;`
+HTTP请求有了第四部分：username=&quot;xxx&quot;&amp;password=&quot;222&quot;。如果input不加name，那么在表单提交时，input的值就不会出现在请求里
+`&lt;form&gt;`必须要有提交按钮</code></pre><p>  二、<code>&lt;form&gt;</code>元素也可以用来发送GET请求<br>    1.<code>&lt;form action=&quot;users&quot; method=&quot;get&quot;&gt;</code> 不会将input的参数作为<em>HTTP请求的第四部分</em>，而是将参数写到<em>查询参数</em>里
+      这样写没有意义，发送get请求直接用<code>&lt;a&gt;</code>就可以<br>    2.<code>&lt;form action=&quot;users?xxx=1&quot; method=&quot;post&quot;&gt;</code>这样写可以让post也有查询参数<br>    3.以上，在<code>&lt;form&gt;</code>元素中<br>      get默认把参数放在查询参数里<br>      post默认把参数放在请求的第四部分<br>      可以让post也有查询参数<br>      不能让get有请求的第四部分</p>
 <p>  三、<code>&lt;form&gt;</code>元素中target的用法<br>    <code>&lt;form&gt;</code>元素也有target，用法和<code>&lt;a&gt;</code>完全相同</p>
 
       
@@ -391,7 +397,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/a-form/" rel="tag"><i class="fa fa-tag"></i> a form</a>
+            <a href="/tags/a/" rel="tag"><i class="fa fa-tag"></i> a</a>
+          
+            <a href="/tags/form/" rel="tag"><i class="fa fa-tag"></i> form</a>
           
         </div>
       
@@ -468,8 +476,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,7 +527,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -567,6 +584,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-a-gt-元素"><span class="nav-number">1.</span> <span class="nav-text">&lt;a&gt;元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-form-gt-元素"><span class="nav-number">2.</span> <span class="nav-text">&lt;form&gt;元素</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

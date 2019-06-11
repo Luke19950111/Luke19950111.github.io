@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="jQuery API,">
+  <meta name="keywords" content="jQuery,API,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="通过以下四步实现jQuery： 接受一个node或选择器 封装成一个伪数组 在这个伪数组上加上几个API 把这个伪数组送出去  本文通过这四步实现两个jQuery API：$div.addClass(&amp;apos;red&amp;apos;) // 可将所有div的class添加一个red $div.setText(&amp;apos;hi&amp;apos;) // 可将所有div的textContent变为hi实现过程">
-<meta name="keywords" content="jQuery API">
+<meta name="description" content="jQuery原来是这么回事">
+<meta name="keywords" content="jQuery,API">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现一个jQueryAPI">
 <meta property="og:url" content="http://yoursite.com/2018/04/12/实现一个jQueryAPI/index.html">
 <meta property="og:site_name" content="是刘快啊">
-<meta property="og:description" content="通过以下四步实现jQuery： 接受一个node或选择器 封装成一个伪数组 在这个伪数组上加上几个API 把这个伪数组送出去  本文通过这四步实现两个jQuery API：$div.addClass(&amp;apos;red&amp;apos;) // 可将所有div的class添加一个red $div.setText(&amp;apos;hi&amp;apos;) // 可将所有div的textContent变为hi实现过程">
+<meta property="og:description" content="jQuery原来是这么回事">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-10T01:44:29.845Z">
+<meta property="og:updated_time" content="2019-06-11T08:08:08.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现一个jQueryAPI">
-<meta name="twitter:description" content="通过以下四步实现jQuery： 接受一个node或选择器 封装成一个伪数组 在这个伪数组上加上几个API 把这个伪数组送出去  本文通过这四步实现两个jQuery API：$div.addClass(&amp;apos;red&amp;apos;) // 可将所有div的class添加一个red $div.setText(&amp;apos;hi&amp;apos;) // 可将所有div的textContent变为hi实现过程">
+<meta name="twitter:description" content="jQuery原来是这么回事">
 
 
 
@@ -364,7 +364,10 @@
       
 
       
-        <h2 id="通过以下四步实现jQuery："><a href="#通过以下四步实现jQuery：" class="headerlink" title="通过以下四步实现jQuery："></a>通过以下四步实现jQuery：</h2><ol>
+        <center>jQuery原来是这么回事</center>
+<a id="more"></a>
+
+<h2 id="通过以下四步实现jQuery："><a href="#通过以下四步实现jQuery：" class="headerlink" title="通过以下四步实现jQuery："></a>通过以下四步实现jQuery：</h2><ol>
 <li>接受一个node或选择器</li>
 <li>封装成一个伪数组</li>
 <li>在这个伪数组上加上几个API</li>
@@ -372,42 +375,12 @@
 </ol>
 <h2 id="本文通过这四步实现两个jQuery-API："><a href="#本文通过这四步实现两个jQuery-API：" class="headerlink" title="本文通过这四步实现两个jQuery API："></a>本文通过这四步实现两个jQuery API：</h2><pre><code>$div.addClass(&apos;red&apos;) // 可将所有div的class添加一个red
 $div.setText(&apos;hi&apos;) // 可将所有div的textContent变为hi</code></pre><h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><p>根据以上四步，代码结构为：</p>
-<pre><code>window.jQuery = function(nodeOrSelector){
-    let nodes = {0: nodeOrSelector, length: 1}
-
-    node.addClass = function(classes){}
-    node.text = function(text){}
-
-    return nodes
-}</code></pre><p>jQuery拿到一个参数后，首先分析它是节点还是选择器：<br>如果是选择器（字符串），找到对应的元素，放到一个伪数组里；<br>如果是节点，为了<strong>保证返回结果一致</strong>，也要放到一个伪数组里：</p>
-<pre><code>let nodes
-if(typeof nodeOrSelector === &apos;string&apos;){
-    nodes = document.querySelectorAll(nodeOrSelector) //querySlelctorAll返回伪数组
-}else if(nodeOrSelector){
-    nodes = {0: nodeOrSelector, length: 1} //返回伪数组，保证返回结果一致
-}</code></pre><p>要使选择器返回的伪数组是一个<strong>纯净的伪数组</strong>（原型链直指object.prorotype,中间不再引入其他原型),可以使用一个临时变量存querySelectorAll返回的伪数组，再从中取出需要的值：</p>
-<pre><code>if(typeof nodeOrSelector === &apos;string&apos;){
-    let temp = document.querySelectorAll(nodeOrSelector);
-    for(let i=0; i&lt;temp.length; i++){
-        nodes[i] = temp[i]; //需要初始化一个伪数组,将上方nodes声明改为let nodes = {}
-    }
-    nodes.length = temp.length
-}</code></pre><p>此时我们已经接受了一个node或选择器，并将其封装成了一个伪数组，接下来我们在这个伪数组上加两个API：<br>.addClass</p>
-<pre><code>nodes.addClass = function(oneClass){
-    for(let i=0; i&lt;nodes.length; i++){
-        nodes[i].classList.add(oneClass)
-    }
-}</code></pre><p>.setText</p>
-<pre><code>nodes.setText = function(text){
-    for(let i=0; i&lt;nodes.length; i++){
-        nodes[i].textContent = text;
-    }
-}</code></pre><p>return伪数组nodes，最后给个缩写，实现两个jQuery API：</p>
-<pre><code>window.$ = jQuery
-var $div = $(&apos;div&apos;)
-
-$div.addClass(&apos;red&apos;) // 可将所有div的class添加一个red
-$div.setText(&apos;hi&apos;) // 可将所有div的textContent变为hi</code></pre><p>完整代码：<a href="https://github.com/Luke19950111/acquirejQueryAPI" target="_blank" rel="noopener">https://github.com/Luke19950111/acquirejQueryAPI</a></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function(nodeOrSelector)&#123;</span><br><span class="line">    let nodes = &#123;0: nodeOrSelector, length: 1&#125;</span><br><span class="line">    </span><br><span class="line">    node.addClass = function(classes)&#123;&#125;</span><br><span class="line">    node.text = function(text)&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    return nodes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>jQuery拿到一个参数后，首先分析它是节点还是选择器：<br>如果是选择器（字符串），找到对应的元素，放到一个伪数组里；<br>如果是节点，为了<strong>保证返回结果一致</strong>，也要放到一个伪数组里：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let nodes</span><br><span class="line">if(typeof nodeOrSelector === &apos;string&apos;)&#123;</span><br><span class="line">    nodes = document.querySelectorAll(nodeOrSelector) //querySlelctorAll返回伪数组</span><br><span class="line">&#125;else if(nodeOrSelector)&#123;</span><br><span class="line">    nodes = &#123;0: nodeOrSelector, length: 1&#125; //返回伪数组，保证返回结果一致</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>要使选择器返回的伪数组是一个<strong>纯净的伪数组</strong>（原型链直指object.prorotype,中间不再引入其他原型),可以使用一个临时变量存querySelectorAll返回的伪数组，再从中取出需要的值：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(typeof nodeOrSelector === &apos;string&apos;)&#123;</span><br><span class="line">    let temp = document.querySelectorAll(nodeOrSelector);</span><br><span class="line">    for(let i=0; i&lt;temp.length; i++)&#123;</span><br><span class="line">        nodes[i] = temp[i]; //需要初始化一个伪数组,将上方nodes声明改为let nodes = &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.length = temp.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>此时我们已经接受了一个node或选择器，并将其封装成了一个伪数组，接下来我们在这个伪数组上加两个API：<br>.addClass</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nodes.addClass = function(oneClass)&#123;</span><br><span class="line">    for(let i=0; i&lt;nodes.length; i++)&#123;</span><br><span class="line">        nodes[i].classList.add(oneClass)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>.setText</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nodes.setText = function(text)&#123;</span><br><span class="line">    for(let i=0; i&lt;nodes.length; i++)&#123;</span><br><span class="line">        nodes[i].textContent = text;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p>return伪数组nodes，最后给个缩写，实现两个jQuery API：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.$ = jQuery</span><br><span class="line">var $div = $(&apos;div&apos;)</span><br><span class="line"></span><br><span class="line">$div.addClass(&apos;red&apos;) // 可将所有div的class添加一个red</span><br><span class="line">$div.setText(&apos;hi&apos;) // 可将所有div的textContent变为hi</span><br></pre></td></tr></table></figure></code></pre><p>完整代码：<a href="https://github.com/Luke19950111/acquirejQueryAPI" target="_blank" rel="noopener">https://github.com/Luke19950111/acquirejQueryAPI</a></p>
 
       
     </div>
@@ -425,7 +398,9 @@ $div.setText(&apos;hi&apos;) // 可将所有div的textContent变为hi</code></pr
       
         <div class="post-tags">
           
-            <a href="/tags/jQuery-API/" rel="tag"><i class="fa fa-tag"></i> jQuery API</a>
+            <a href="/tags/jQuery/" rel="tag"><i class="fa fa-tag"></i> jQuery</a>
+          
+            <a href="/tags/API/" rel="tag"><i class="fa fa-tag"></i> API</a>
           
         </div>
       
@@ -553,7 +528,7 @@ $div.setText(&apos;hi&apos;) // 可将所有div的textContent变为hi</code></pr
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

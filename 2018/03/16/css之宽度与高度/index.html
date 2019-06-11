@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并,">
+  <meta name="keywords" content="内联元素宽高,块级元素宽高,建议行高,脱离文档流,margin合并,">
 
 
 
@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。在CSS中：1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。  ##内联元素之宽高 ###1.通过JS Bin调试观察分别给div和span加一个红色、绿色的border，便于观察：给span加一个100px的margin，可以看">
-<meta name="keywords" content="内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并">
+<meta name="description" content="CSS宽度与高度">
+<meta name="keywords" content="内联元素宽高,块级元素宽高,建议行高,脱离文档流,margin合并">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css之宽度与高度">
 <meta property="og:url" content="http://yoursite.com/2018/03/16/css之宽度与高度/index.html">
 <meta property="og:site_name" content="是刘快啊">
-<meta property="og:description" content="使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。在CSS中：1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。  ##内联元素之宽高 ###1.通过JS Bin调试观察分别给div和span加一个红色、绿色的border，便于观察：给span加一个100px的margin，可以看">
+<meta property="og:description" content="CSS宽度与高度">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-eb475cec32b481ec.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-9c4b7c851f19f336.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-89849ff5bbc6d05c.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-001a418f6f72fd44.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-06-10T01:37:24.556Z">
+<meta property="og:updated_time" content="2019-06-11T07:02:17.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css之宽度与高度">
-<meta name="twitter:description" content="使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。在CSS中：1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。  ##内联元素之宽高 ###1.通过JS Bin调试观察分别给div和span加一个红色、绿色的border，便于观察：给span加一个100px的margin，可以看">
+<meta name="twitter:description" content="CSS宽度与高度">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -375,7 +375,10 @@
       
 
       
-        <p>使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。<br>在CSS中：<br><strong>1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；</strong><br><strong>2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。</strong></p>
+        <center>CSS宽度与高度</center>
+<a id="more"></a>
+
+<p>使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。<br>在CSS中：<br><strong>1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；</strong><br><strong>2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。</strong></p>
 <hr>
 <p>##内联元素之宽高</p>
 <p>###1.通过JS Bin调试观察<br>分别给div和span加一个红色、绿色的border，便于观察：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="border.JPG"><br>给span加一个100px的margin，可以看到span左右各增加了100px的margin，宽度增加200px；上下没有变化，高度不变：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-eb475cec32b481ec.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="margin.JPG"><br>给span增加一个100px的padding，可以看到span宽度增加200px，高度依然没有变化（红框没有变高）：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-ebeab594202bcc36.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="padding.JPG"><br>我们注意到两个span之间有一个空格，这是因为代码中两个span之间并不是没有东西的，而是有回车和空格，即下图中选中部分，显示为一个空格：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-12ed6231052813f9.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="space.JPG"><br>将span的border加到10px，可以弹道span的宽度增加了20px，行高依然没有改变：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-57e53016f8eed19d.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="border2.JPG"><br>给span设置width和height，宽度和高度没有任何变化：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-506d09bd2634fbd3.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="wh.JPG"><br>综上，内联元素宽度受padding和margin影响，高度不受其影响；内联元素不接受指定宽高。<br>内联元素高度由行高决定，宽度由内容、padding、border、margin决定。</p>
@@ -404,7 +407,15 @@ line-height可以确定内联元素高度，line-height的值是多少像素，�
       
         <div class="post-tags">
           
-            <a href="/tags/内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并/" rel="tag"><i class="fa fa-tag"></i> 内联元素宽高，块级元素宽高，建议行高，脱离文档流，margin合并</a>
+            <a href="/tags/内联元素宽高/" rel="tag"><i class="fa fa-tag"></i> 内联元素宽高</a>
+          
+            <a href="/tags/块级元素宽高/" rel="tag"><i class="fa fa-tag"></i> 块级元素宽高</a>
+          
+            <a href="/tags/建议行高/" rel="tag"><i class="fa fa-tag"></i> 建议行高</a>
+          
+            <a href="/tags/脱离文档流/" rel="tag"><i class="fa fa-tag"></i> 脱离文档流</a>
+          
+            <a href="/tags/margin合并/" rel="tag"><i class="fa fa-tag"></i> margin合并</a>
           
         </div>
       
@@ -523,7 +534,7 @@ line-height可以确定内联元素高度，line-height的值是多少像素，�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="-以下是步骤  1.进入一个安全的目录，比如 cd~/Desktop  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到不可描述的问题，亲测  3.npm install -g hexo-cli，安装Hexo  4.hexo init myBlog  5.cd myBlog  6.npm i  7.he">
+<meta name="description" content="搭建此博客">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo+GitHub建立博客步骤">
 <meta property="og:url" content="http://yoursite.com/2018/03/03/Hexo-GitHub建立博客步骤/index.html">
 <meta property="og:site_name" content="是刘快啊">
-<meta property="og:description" content="-以下是步骤  1.进入一个安全的目录，比如 cd~/Desktop  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到不可描述的问题，亲测  3.npm install -g hexo-cli，安装Hexo  4.hexo init myBlog  5.cd myBlog  6.npm i  7.he">
+<meta property="og:description" content="搭建此博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-10T01:38:15.345Z">
+<meta property="og:updated_time" content="2019-06-11T07:17:19.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+GitHub建立博客步骤">
-<meta name="twitter:description" content="-以下是步骤  1.进入一个安全的目录，比如 cd~/Desktop  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到不可描述的问题，亲测  3.npm install -g hexo-cli，安装Hexo  4.hexo init myBlog  5.cd myBlog  6.npm i  7.he">
+<meta name="twitter:description" content="搭建此博客">
 
 
 
@@ -364,7 +364,12 @@
       
 
       
-        <p>-以下是步骤<br>  1.进入一个安全的目录，比如 cd~/Desktop<br>  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到不可描述的问题，亲测<br>  3.npm install -g hexo-cli，安装Hexo<br>  4.hexo init myBlog<br>  5.cd myBlog<br>  6.npm i<br>  7.hexo new 开博大吉，出现一个md文件路径<br>  8.start xxx.md，编辑这个md文件，Windows的路径中\需要变成/<br>  9.start _config.yml，编辑网站配置<br>    -第6行title改成博客名字<br>    -第9行author改成作者名字<br>    -最后一行 type 后加 git，注意冒号后空格<br>    -最后一行后新增一行，左边与 type 平齐，加上一行 repo：仓库地址，注意冒号后空格<br>  10.npm install hexo-deployer-git –save,安装git部署插件<br>  11.hexo deploy<br>  12.进入【你的用户名.github.io】对应的repo，打开GitHub Pages功能，点击预览链接<br>  13.你现在应该看到了你的博客！<br>-更换主题<br>  1.<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">https://github.com/hexojs/hexo/wiki/Themes</a> 上面有主题合集<br>  2.选择主题，进入主题的GitHub首页，复制SSH或HTTPS地址，假设地址为<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:iissnan/hexo-theme-next<br>  3.cd themes<br>  4.git clone  <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:iissnan/hexo-theme-next.git<br>  5.cd ..<br>  6.将_config.yml的第75行改为主题名<br>  7.hexo generate<br>  8.hexo deploy<br>  9.刷新博客页面，看到新的主题<br>-上传源代码<br>  1.【你的用户名.github.io】中只保存了博客，并没有【生成博客的程序代码】，需要再创建一个名为blog-generator的空仓库用来保存myBlog里的【生成博客的程序代码】。<br>  2.这样博客发布在【你的用户名.github.io】，而【生成博客的程序代码】发布在blog-generator，避免误删myBlog目录造成的损失。每次hexo deploy之后博客更新，再add/commit/push一下【生成博客的程序代码】。</p>
+        <center>搭建此博客</center>
+<a id="more"></a>
+
+<h2 id="以下是步骤"><a href="#以下是步骤" class="headerlink" title="以下是步骤"></a>以下是步骤</h2><p>  1.进入一个安全的目录，比如 cd~/Desktop<br>  2.在GitHub上新建一个空repo，repo名称为【你的用户名.github.io】，注意用户名一定要用真正的GitHub用户名，否则会遇到问题，亲测<br>  3.npm install -g hexo-cli，安装Hexo<br>  4.hexo init myBlog<br>  5.cd myBlog<br>  6.npm i<br>  7.hexo new 开博大吉，出现一个md文件路径<br>  8.start xxx.md，编辑这个md文件，Windows的路径中\需要变成/<br>  9.start _config.yml，编辑网站配置<br>    -第6行title改成博客名字<br>    -第9行author改成作者名字<br>    -最后一行 type 后加 git，注意冒号后空格<br>    -最后一行后新增一行，左边与 type 平齐，加上一行 repo：仓库地址，注意冒号后空格<br>  10.npm install hexo-deployer-git –save,安装git部署插件<br>  11.hexo deploy<br>  12.进入【你的用户名.github.io】对应的repo，打开GitHub Pages功能，点击预览链接<br>  13.你现在应该看到了你的博客！</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>  1.<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">https://github.com/hexojs/hexo/wiki/Themes</a> 上面有主题合集<br>  2.选择主题，进入主题的GitHub首页，复制SSH或HTTPS地址，假设地址为<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:iissnan/hexo-theme-next<br>  3.cd themes<br>  4.git clone  <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:iissnan/hexo-theme-next.git<br>  5.cd ..<br>  6.将_config.yml的第75行改为主题名<br>  7.hexo generate<br>  8.hexo deploy<br>  9.刷新博客页面，看到新的主题</p>
+<h2 id="上传源代码"><a href="#上传源代码" class="headerlink" title="上传源代码"></a>上传源代码</h2><p>  1.【你的用户名.github.io】中只保存了博客，并没有【生成博客的程序代码】，需要再创建一个名为blog-generator的空仓库用来保存myBlog里的【生成博客的程序代码】。<br>  2.这样博客发布在【你的用户名.github.io】，而【生成博客的程序代码】发布在blog-generator，避免误删myBlog目录造成的损失。每次hexo deploy之后博客更新，再add/commit/push一下【生成博客的程序代码】。</p>
 
       
     </div>
@@ -459,8 +464,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -501,7 +515,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -558,6 +572,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以下是步骤"><span class="nav-number">1.</span> <span class="nav-text">以下是步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换主题"><span class="nav-number">2.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传源代码"><span class="nav-number">3.</span> <span class="nav-text">上传源代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
