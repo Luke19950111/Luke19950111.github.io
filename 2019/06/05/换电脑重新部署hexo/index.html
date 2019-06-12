@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="停更了一年又想写了，以前的本地文件早都不见了，又没有保存源文件...">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-11T08:28:35.278Z">
+<meta property="og:updated_time" content="2019-06-12T04:36:39.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="换电脑重新部署hexo">
 <meta name="twitter:description" content="停更了一年又想写了，以前的本地文件早都不见了，又没有保存源文件...">
@@ -378,6 +378,25 @@
 <li>还好我存了md文件，要不然以前的博客也没了。</li>
 <li>所以搭建好以后最好把源文件也上传到github上。</li>
 </ul>
+<hr>
+<p>补充</p>
+<p>参照 <a href="https://blog.csdn.net/white_idiot/article/details/80685990" target="_blank" rel="noopener">GitHub】创建Git分支将Hexo博客迁移到其它电脑</a> 给我的博客仓库建了一个hexo分支。</p>
+<h2 id="发表文章："><a href="#发表文章：" class="headerlink" title="发表文章："></a>发表文章：</h2><p>新建markdown文章</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new test</span><br></pre></td></tr></table></figure>
+
+<p>将相关更改推送到hexo分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;发表文章test&quot;</span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+
+<p>将静态文件推送到master分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #如果配置文件没有更改，忽略该命令</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="更换电脑"><a href="#更换电脑" class="headerlink" title="更换电脑"></a>更换电脑</h2><p>将hexo分支clone下来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b hexo https://github.com/xxx/xxx.github.io</span><br></pre></td></tr></table></figure>
+
+<p>安装hexo依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>迁移成功</p>
 
       
     </div>
@@ -523,7 +542,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -590,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在本地重新创建hexo"><span class="nav-number">1.</span> <span class="nav-text">1. 在本地重新创建hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-把md文件复制过来（所以要保存好源文件，在本项目仓库里新建一个分支或新开一个仓库存放）"><span class="nav-number">2.</span> <span class="nav-text">2. 把md文件复制过来（所以要保存好源文件，在本项目仓库里新建一个分支或新开一个仓库存放）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重新部署-hexo-generate-hexo-deploy"><span class="nav-number">3.</span> <span class="nav-text">3. 重新部署 hexo generate hexo deploy</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在本地重新创建hexo"><span class="nav-number">1.</span> <span class="nav-text">1. 在本地重新创建hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-把md文件复制过来（所以要保存好源文件，在本项目仓库里新建一个分支或新开一个仓库存放）"><span class="nav-number">2.</span> <span class="nav-text">2. 把md文件复制过来（所以要保存好源文件，在本项目仓库里新建一个分支或新开一个仓库存放）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重新部署-hexo-generate-hexo-deploy"><span class="nav-number">3.</span> <span class="nav-text">3. 重新部署 hexo generate hexo deploy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发表文章："><span class="nav-number">4.</span> <span class="nav-text">发表文章：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换电脑"><span class="nav-number">5.</span> <span class="nav-text">更换电脑</span></a></li></ol></div>
             
 
           </div>
