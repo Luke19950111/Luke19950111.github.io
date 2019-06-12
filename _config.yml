@@ -81,3 +81,4 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/Luke19950111/Luke19950111.github.io.git
+  branch: master
