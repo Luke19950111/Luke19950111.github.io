@@ -56,10 +56,12 @@ hexo g -d
 git clone -b hexo https://github.com/xxx/xxx.github.io
 ```
 
-安装hexo依赖
+安装hexo环境和依赖
 
 ```
+npm install hexo
 npm install
+npm install hexo-deployer-git
 ```
 
 迁移成功
