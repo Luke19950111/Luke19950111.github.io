@@ -18,3 +18,48 @@ categories: Hexo
 - 这样搞其实和新搭建了一个博客差不多，主题配置都没有了。
 - 还好我存了md文件，要不然以前的博客也没了。
 - 所以搭建好以后最好把源文件也上传到github上。
+
+***
+
+补充
+
+参照 [GitHub】创建Git分支将Hexo博客迁移到其它电脑](https://blog.csdn.net/white_idiot/article/details/80685990) 给我的博客仓库建了一个hexo分支。
+
+## 发表文章：
+
+新建markdown文章
+
+```
+hexo new test
+```
+
+将相关更改推送到hexo分支
+
+```
+git add .
+git commit -m "发表文章test"
+git push origin hexo
+```
+
+将静态文件推送到master分支
+
+```
+hexo clean #如果配置文件没有更改，忽略该命令
+hexo g -d
+```
+
+## 更换电脑
+
+将hexo分支clone下来
+
+```
+git clone -b hexo https://github.com/xxx/xxx.github.io
+```
+
+安装hexo依赖
+
+```
+npm install
+```
+
+迁移成功
