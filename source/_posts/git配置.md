@@ -62,3 +62,13 @@ remote: fatal: early EOF
 [core]
     compression = -1
 ```
+
+***
+
+作者 .gitconfig里加上
+
+```
+[user]
+	email = 邮箱
+	name = 作者
+```
