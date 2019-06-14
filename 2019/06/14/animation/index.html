@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="Animations change the CSS properties of an element during the sub-intervals of a specific interval of time. CSS properties can be overriden by the new properties in the next upcoming sub-intervals.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-14T09:10:11.702Z">
+<meta property="og:updated_time" content="2019-06-14T10:05:16.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="animation">
 <meta name="twitter:description" content="Animations change the CSS properties of an element during the sub-intervals of a specific interval of time. CSS properties can be overriden by the new properties in the next upcoming sub-intervals.">
@@ -396,18 +396,30 @@
 
 <h2 id="animation-iteration-count-property"><a href="#animation-iteration-count-property" class="headerlink" title="animation-iteration-count property"></a>animation-iteration-count property</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line"> position:relative;</span><br><span class="line"> animation-name:changeBG;</span><br><span class="line"> animation-iteration-count:5; //重复次数</span><br><span class="line">&#125;</span><br><span class="line">@keyframes changeBG&#123;</span><br><span class="line">0%&#123;</span><br><span class="line"> left:0%;</span><br><span class="line">&#125;</span><br><span class="line">100%&#123;</span><br><span class="line"> left:100%;</span><br><span class="line">&#125;	</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
+<h2 id="animation-timing-function"><a href="#animation-timing-function" class="headerlink" title="animation-timing-function"></a>animation-timing-function</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-timing-function" target="_blank" rel="noopener">animation-timing-function MDN</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">animation-timing-function: ease;</span><br><span class="line">animation-timing-function: ease-in;</span><br><span class="line">animation-timing-function: ease-out;</span><br><span class="line">animation-timing-function: ease-in-out;</span><br><span class="line">animation-timing-function: linear;</span><br><span class="line">animation-timing-function: step-start;</span><br><span class="line">animation-timing-function: step-end;</span><br></pre></td></tr></table></figure>
+
 <h2 id="animation-direction"><a href="#animation-direction" class="headerlink" title="animation-direction"></a>animation-direction</h2><p><code>normal</code>, <code>reverse</code>, <code>alternate</code> or <code>alternate-reverse</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line"> position:relative;</span><br><span class="line"> animation-name:changeBG;</span><br><span class="line"> animation-direction:reverse;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes changeBG&#123;</span><br><span class="line">0%&#123;</span><br><span class="line"> left:0%;</span><br><span class="line"> top:0%</span><br><span class="line">&#125;</span><br><span class="line">100%&#123;</span><br><span class="line"> left:80%;</span><br><span class="line"> top:0%;</span><br><span class="line">&#125;	</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="animation-delay"><a href="#animation-delay" class="headerlink" title="animation-delay"></a>animation-delay</h2><p>It sets the offset time before starting the animation.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line"> position:relative;</span><br><span class="line"> animation-name:changeBG;</span><br><span class="line"> animation-delay:2s;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes changeBG&#123;</span><br><span class="line">0%&#123;</span><br><span class="line"> left:0%;</span><br><span class="line"> top:0%</span><br><span class="line">&#125;</span><br><span class="line">100%&#123;</span><br><span class="line"> left:80%;</span><br><span class="line"> top:0%</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">Try &lt;/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line"> position:relative;</span><br><span class="line"> animation-name:changeBG;</span><br><span class="line"> animation-delay:2s;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes changeBG&#123;</span><br><span class="line">0%&#123;</span><br><span class="line"> left:0%;</span><br><span class="line"> top:0%</span><br><span class="line">&#125;</span><br><span class="line">100%&#123;</span><br><span class="line"> left:80%;</span><br><span class="line"> top:0%</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="animation-play-state"><a href="#animation-play-state" class="headerlink" title="animation-play-state"></a>animation-play-state</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">animation-play-state: paused; //规定动画已暂停</span><br><span class="line">animation-play-state: running; //规定动画正在播放</span><br></pre></td></tr></table></figure>
 
 <h2 id="keyframe-rule-keyframes"><a href="#keyframe-rule-keyframes" class="headerlink" title="keyframe rule (@keyframes)"></a>keyframe rule (@keyframes)</h2><p>keyframe rule consists of <strong>@keyframes</strong> keyword followed by the animation-name and percentage values of time. The percentage values represent the intervals of time. The time is obtained by the value of <strong>animation-duration</strong>.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line"> background-color:red;</span><br><span class="line"> animation-name:changeBG;</span><br><span class="line"> animation-duration:2s;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes changeBG&#123;</span><br><span class="line">0%&#123;</span><br><span class="line"> background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">50%&#123;</span><br><span class="line"> background-color:green;</span><br><span class="line">&#125;</span><br><span class="line">100%&#123;</span><br><span class="line"> background-color:blue;</span><br><span class="line">&#125;	</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
 <p>animation-time defines the time during which this animation will occur.</p>
 <p>0% means 0s.<br>50% means 50% of animation-duration i.e. 2s.<br>100% means 100% of animation-duration i.e. 4s.</p>
-<p><a href="https://www.web4college.com/css/web-css-animation.php" target="_blank" rel="noopener">详情</a></p>
+<p><a href="https://www.web4college.com/css/web-css-animation.php" target="_blank" rel="noopener">详情</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations" target="_blank" rel="noopener">Animations MDN</a></p>
+<h2 id="transition-和-animation-区别"><a href="#transition-和-animation-区别" class="headerlink" title="transition 和 animation 区别"></a>transition 和 animation 区别</h2><ul>
+<li>transition 不能自行触发，通过hover等动作，或者结合js进行触发；animation可以自行运行</li>
+<li>transition可控性相对较弱，只能够指定起始和结束的状态，而animation可以定义多个关键帧</li>
+<li>animation通过模拟属性值改变来实现动画，动画结束之后元素的属性没有变化；而Transition确实改变了元素的属性值，动画结束之后元素的属性发生了变化</li>
+<li>动画在运行结束之后，需要回到初始状态</li>
+<li>Transform和width、left一样，定义了元素很多静态样式，只不过通过Transition和Animation指定如何改变不同的属性值，才实现了动画</li>
+</ul>
 
       
     </div>
@@ -449,6 +461,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/14/transition/" rel="prev" title="transition">
+                transition <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -529,7 +545,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -551,7 +567,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -646,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-name-property"><span class="nav-number">1.</span> <span class="nav-text">animation-name property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-time-property"><span class="nav-number">2.</span> <span class="nav-text">animation-time property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-iteration-count-property"><span class="nav-number">3.</span> <span class="nav-text">animation-iteration-count property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-direction"><span class="nav-number">4.</span> <span class="nav-text">animation-direction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-delay"><span class="nav-number">5.</span> <span class="nav-text">animation-delay</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keyframe-rule-keyframes"><span class="nav-number">6.</span> <span class="nav-text">keyframe rule (@keyframes)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-name-property"><span class="nav-number">1.</span> <span class="nav-text">animation-name property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-time-property"><span class="nav-number">2.</span> <span class="nav-text">animation-time property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-iteration-count-property"><span class="nav-number">3.</span> <span class="nav-text">animation-iteration-count property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-timing-function"><span class="nav-number">4.</span> <span class="nav-text">animation-timing-function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-direction"><span class="nav-number">5.</span> <span class="nav-text">animation-direction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-delay"><span class="nav-number">6.</span> <span class="nav-text">animation-delay</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#animation-play-state"><span class="nav-number">7.</span> <span class="nav-text">animation-play-state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keyframe-rule-keyframes"><span class="nav-number">8.</span> <span class="nav-text">keyframe rule (@keyframes)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transition-和-animation-区别"><span class="nav-number">9.</span> <span class="nav-text">transition 和 animation 区别</span></a></li></ol></div>
             
 
           </div>
@@ -698,7 +714,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.4k字</span>
+  <span class="post-count">博客全站共25.1k字</span>
 </div>
         
 <div class="busuanzi-count">
