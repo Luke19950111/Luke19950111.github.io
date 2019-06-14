@@ -45,7 +45,6 @@ body
  background-repeat:no-repeat; //It does not allow the image to repeat
 }
 </style>
-Try </>
 ```
 
 ```
