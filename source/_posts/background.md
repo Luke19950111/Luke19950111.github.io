@@ -6,7 +6,7 @@ categories:
 - CSS笔记
 - css属性
 ---
-<center>css background</center>
+<center>The background can be styled with different colors, images (with repeat or no repeat properties of images).</center>
 <!-- more -->
 
 ## background-color
