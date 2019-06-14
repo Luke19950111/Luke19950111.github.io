@@ -71,6 +71,20 @@ div{
 </style>
 ```
 
+## animation-timing-function
+
+[animation-timing-function MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-timing-function)
+
+```
+animation-timing-function: ease;
+animation-timing-function: ease-in;
+animation-timing-function: ease-out;
+animation-timing-function: ease-in-out;
+animation-timing-function: linear;
+animation-timing-function: step-start;
+animation-timing-function: step-end;
+```
+
 ## animation-direction
 
 `normal`, `reverse`, `alternate` or `alternate-reverse`
@@ -117,7 +131,13 @@ div{
 }
 }
 </style>
-Try </>
+```
+
+## animation-play-state
+
+```
+animation-play-state: paused; //规定动画已暂停
+animation-play-state: running; //规定动画正在播放
 ```
 
 ## keyframe rule (@keyframes)
@@ -152,3 +172,12 @@ animation-time defines the time during which this animation will occur.
 100% means 100% of animation-duration i.e. 4s.
 
 [详情](https://www.web4college.com/css/web-css-animation.php)
+[Animations MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations)
+
+## transition 和 animation 区别
+
+- transition 不能自行触发，通过hover等动作，或者结合js进行触发；animation可以自行运行
+- transition可控性相对较弱，只能够指定起始和结束的状态，而animation可以定义多个关键帧
+- animation通过模拟属性值改变来实现动画，动画结束之后元素的属性没有变化；而Transition确实改变了元素的属性值，动画结束之后元素的属性发生了变化
+- 动画在运行结束之后，需要回到初始状态
+- Transform和width、left一样，定义了元素很多静态样式，只不过通过Transition和Animation指定如何改变不同的属性值，才实现了动画
