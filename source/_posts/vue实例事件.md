@@ -2,7 +2,7 @@
 title: vue实例事件
 date: 2019-06-17 14:47:25
 tags: [vue, 实例事件, $on, $once, $off, $emit]
-categoried: vue
+categories: vue
 ---
 <center>$on, $once, $off, $emit</center>
 <!-- more -->
