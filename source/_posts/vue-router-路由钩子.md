@@ -2,6 +2,9 @@
 title: vue-router：路由钩子
 date: 2019-06-19 11:27:30
 tags: [vue-router, 路由钩子]
+categories:
+- vue
+- vue-router
 ---
 <center>路由拦截器</center>
 <!-- more --><br/>

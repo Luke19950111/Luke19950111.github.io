@@ -1,5 +1,5 @@
 ---
-title: vue-router-路由传递参数
+title: vue-router：路由传递参数
 date: 2019-06-18 14:57:57
 tags: [vue-router, vue-cli, 参数]
 categories:
