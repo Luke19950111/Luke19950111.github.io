@@ -133,7 +133,7 @@ scheme: Pisces
 social:
   GitHub: https://github.com/luke19950111 || github
   E-Mail: mailto:lukelovenoney@gmail.com || envelope
-  简书: https://www.jianshu.com/u/b293f4ffc5fc || book
+  简书: https://www.jianshu.com/u/b293f4ffc5fc || edit
   微博: https://weibo.com/3699074360/profile?topnav=1&wvr=6&is_all=1 || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -157,11 +157,12 @@ links_layout: block
 links:
   #Title: http://example.com/
   Web前端导航: http://www.alloyteam.com/nav/
-  阮一峰JS参考教程: https://wangdoc.com/javascript/
-  阮一峰ES6教程: http://es6.ruanyifeng.com/
-  张鑫旭: http://www.zhangxinxu.com/
+  npm中文文档: https://www.npmjs.cn/
+  vue文档: https://cn.vuejs.org/v2/guide/
   google前端开发基础: http://wf.uisdc.com/cn/
   百度前端技术学院: http://ife.baidu.com/
+  阮一峰JS参考教程: https://wangdoc.com/javascript/
+  阮一峰ES6教程: http://es6.ruanyifeng.com/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
