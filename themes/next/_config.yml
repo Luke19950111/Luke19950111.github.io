@@ -156,6 +156,7 @@ links_layout: block
 #links_layout: inline
 links:
   #Title: http://example.com/
+  What makes a good front end engineer: https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/
   Web前端导航: http://www.alloyteam.com/nav/
   npm中文文档: https://www.npmjs.cn/
   node.js中文: https://www.nodeapp.cn/
