@@ -158,14 +158,15 @@ links:
   #Title: http://example.com/
   What makes a good front end engineer: https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/
   Web前端导航: http://www.alloyteam.com/nav/
+  Three.js入门指南（张雯莉）: https://read.douban.com/reader/ebook/7412854/
   npm中文文档: https://www.npmjs.cn/
   node.js中文: https://www.nodeapp.cn/
   webpack: https://webpack.js.org/
   vue文档: https://cn.vuejs.org/v2/guide/
   # google前端开发基础: http://wf.uisdc.com/cn/
   # 百度前端技术学院: http://ife.baidu.com/
-  阮一峰JS参考教程: https://wangdoc.com/javascript/
-  阮一峰ES6教程: http://es6.ruanyifeng.com/
+  JS参考教程（阮一峰）: https://wangdoc.com/javascript/
+  ES6教程（阮一峰）: http://es6.ruanyifeng.com/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
