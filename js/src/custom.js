@@ -82,8 +82,14 @@ if(window.console) {
 		cons.group("O(∩_∩)O哈喽！");
 		cons.info("这位看代码的童鞋，欢迎欢迎！"); 
         cons.info("如果有发现什么bug，还请帮忙提醒，或者到我的GitHub项目里提交issue哦~ %c(https://github.com/Luke19950111/Luke19950111.github.io)","color:#a517ef;font-weight:bold;");
-        cons.info("微信：kuai01110")
-        cons.info("qq：937613925")
+        cons.log(
+            '%c微信：kuai01110',
+            'color: #ffffff; background: #222222; font-size: 14px; padding: 5px 10px; border-radius:5px;'
+        )
+        cons.log(
+            '%cqq：937613925',
+            'color: #ffffff; background: #222222; font-size: 14px; padding: 5px 10px; border-radius:5px;'
+        )
         cons.info(string.getMultiLine())
         // cons.info("此处参考了这位大佬：https://github.com/lewky/lewky.github.io/blob/dev/themes/next/source/js/src/custom.js")
 		cons.log("%cluke's Blog", "background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:transparent;-webkit-background-clip: text;font-size:5em;");
