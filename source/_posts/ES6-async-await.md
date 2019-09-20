@@ -1,8 +1,10 @@
 ---
-title: 【ES6】async&await
+title: async&await
 date: 2019-06-27 10:26:23
 tags: [ES6, async, await, promise]
-categories: JavaScript
+categories: 
+- JavaScript
+- ES6
 ---
 <center>ECMAScript 2017 ES8</center>
 <!-- more --><br/>
