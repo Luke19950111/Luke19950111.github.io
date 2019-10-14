@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="获取每个子模型的坐标">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T08:21:54.185Z">
+<meta property="og:updated_time" content="2019-10-14T09:35:32.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="three.js导入obj模型子模型位置为{0,0,0}之处理">
 <meta name="twitter:description" content="获取每个子模型的坐标">
@@ -380,11 +380,22 @@
 <a id="more"></a>
 
 <hr>
-<p>代码：</p>
+<h2 id="获得子模型坐标"><a href="#获得子模型坐标" class="headerlink" title="获得子模型坐标"></a>获得子模型坐标</h2><p>代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子模型为 obj</span></span><br><span class="line"></span><br><span class="line">obj.geometry.computeBoundingBox();</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> centroid = <span class="keyword">new</span> THREE.Vector3();</span><br><span class="line">centroid.addVectors( obj.geometry.boundingBox.min, obj.geometry.boundingBox.max );</span><br><span class="line">centroid.multiplyScalar( <span class="number">0.5</span> );</span><br><span class="line"> </span><br><span class="line">centroid.applyMatrix4( obj.matrixWorld );</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sphere = <span class="keyword">new</span> THREE.Mesh(<span class="keyword">new</span> THREE.SphereGeometry(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">  <span class="keyword">new</span> THREE.MeshBasicMaterial(&#123;</span><br><span class="line">    color: <span class="number">0xffffff</span>,</span><br><span class="line">    wireframe: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">);</span><br><span class="line">sphere.position.set(centroid.x, centroid.y, centroid.z)</span><br></pre></td></tr></table></figure>
 
-<p>通过获取obj子模型最小值和最大值来计算其质心位置,在其质心位置画个球。<br><code>sphere.position</code>可以看做是子模型的位置。</p>
+<p>通过获取obj子模型最小值和最大值来计算其质心位置,在其质心位置画个球。<br>子模型 obj 的坐标可以看做是 <code>centroid.x, centroid.y, centroid.z</code></p>
 <p><a href="https://blog.csdn.net/yuanben_wuxin/article/details/79274808" target="_blank" rel="noopener">参考</a></p>
+<h2 id="改变控制中心"><a href="#改变控制中心" class="headerlink" title="改变控制中心"></a>改变控制中心</h2><p>当场景中只显示一个子模型时，可以把子模型的坐标作为中心点。<br>把相机视角指向子模型：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">camera.lookAt(<span class="keyword">new</span> THREE.Vector3(centroid.x, centroid.y, centroid.z))</span><br></pre></td></tr></table></figure>
+
+<p>结果视角并没有变化。原因是受到 <code>OrbitControls</code> 控件的影响<br>改变<code>OrbitControls.target</code>即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">controls.target = <span class="keyword">new</span> THREE.Vector3(centroid.x, centroid.y, centroid.z);</span><br></pre></td></tr></table></figure>
+
+<p>再调整相机位置，使子模型显示在场景中间：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接移动相机位置</span></span><br><span class="line">camera.position.set(centroid.x, centroid.y+<span class="number">200</span>, centroid.z+<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用 TweenMax 动画库</span></span><br><span class="line">TweenMax.to(camera.position, <span class="number">1</span>, &#123;</span><br><span class="line">  x: centroid.x,</span><br><span class="line">  y: centroid.y+<span class="number">200</span>,</span><br><span class="line">  z: centroid.z+<span class="number">200</span>,</span><br><span class="line">  ease: Expo.easeInOut,</span><br><span class="line">  onComplete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>恢复显示整个模型时，只需<code>controls.reset()</code>，即可将相机位置及视角还原。</p>
+<p><a href="https://blog.csdn.net/unirrrrr/article/details/80692267" target="_blank" rel="noopener">参考</a></p>
 
       
     </div>
@@ -483,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -623,6 +643,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#获得子模型坐标"><span class="nav-number">1.</span> <span class="nav-text">获得子模型坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变控制中心"><span class="nav-number">2.</span> <span class="nav-text">改变控制中心</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -668,7 +704,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共36.4k字</span>
+  <span class="post-count">博客全站共36.6k字</span>
 </div>
         
 <div class="busuanzi-count">
