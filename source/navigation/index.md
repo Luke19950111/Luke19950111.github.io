@@ -13,6 +13,10 @@ type: navigation
 - [vue文档](https://cn.vuejs.org/v2/guide/)
 - [elementUi文档](https://element.eleme.cn/#/zh-CN/component/installation)
 - [微信小程序文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+- [丰富的png图片网站](http://pngimg.com/)
+- [线上PDF工具](https://smallpdf.com/cn)
+- [中国数字科技馆](https://www.cdstm.cn/)
+- [临时邮箱](https://linshiyouxiang.net/)
 
 ### 博客社区
 
