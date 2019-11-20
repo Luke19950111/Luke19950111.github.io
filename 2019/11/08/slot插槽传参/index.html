@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="插槽,slot,组件,props,scope,">
+  <meta name="keywords" content="插槽,slot,scope,组件,props,">
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="向插槽中传参">
-<meta name="keywords" content="插槽,slot,组件,props,scope">
+<meta name="keywords" content="插槽,slot,scope,组件,props">
 <meta property="og:type" content="article">
 <meta property="og:title" content="slot插槽传递值">
 <meta property="og:url" content="http://yoursite.com/2019/11/08/slot插槽传参/index.html">
@@ -395,7 +395,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">full-page</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">scope</span>=<span class="string">"props"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">page1</span> <span class="attr">:state</span>=<span class="string">"props.state"</span>&gt;</span><span class="tag">&lt;<span class="name">page1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">full-page</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在组件<code>page1</code>中获取值</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    export default&#123;</span><br><span class="line">        props: ['state']</span><br><span class="line">        data()&#123;</span><br><span class="line">            return&#123;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        props: [<span class="string">'state'</span>]</span></span><br><span class="line">        data()&#123;</span><br><span class="line"><span class="javascript">            <span class="keyword">return</span>&#123;</span></span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -421,11 +421,11 @@
           
             <a href="/tags/slot/" rel="tag"><i class="fa fa-tag"></i> slot</a>
           
+            <a href="/tags/scope/" rel="tag"><i class="fa fa-tag"></i> scope</a>
+          
             <a href="/tags/组件/" rel="tag"><i class="fa fa-tag"></i> 组件</a>
           
             <a href="/tags/props/" rel="tag"><i class="fa fa-tag"></i> props</a>
-          
-            <a href="/tags/scope/" rel="tag"><i class="fa fa-tag"></i> scope</a>
           
         </div>
       
@@ -447,6 +447,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/20/WeUI-tab选项卡组件/" rel="prev" title="WeUI-tab选项卡组件">
+                WeUI-tab选项卡组件 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -527,7 +531,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -538,7 +542,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -549,7 +553,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">125</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -708,7 +712,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共36.8k字</span>
+  <span class="post-count">博客全站共37.1k字</span>
 </div>
         
 <div class="busuanzi-count">
