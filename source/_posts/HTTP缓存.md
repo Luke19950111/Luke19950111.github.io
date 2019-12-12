@@ -7,11 +7,13 @@ categories: HTTP
 <center>Cache-Control, Expires, Etag</center>
 <!-- more -->
 
+***
+
 ## 缓存控制Cache-Control
 Cache-Control是Web性能优化的一种，能加速HTTP请求与响应。
 
 服务器中设置响应头：
-```
+```javascript
 response.setHeader('Cache-Control', 'max-age=30')
 ```
 30秒内不会再次请求浏览器从内存中把请求的内容拿给你。
@@ -28,7 +30,7 @@ response.setHeader('Cache-Control', 'max-age=30')
 而留着入口不用缓存，每次请求首页都向服务器发起请求，如果其他文件有更新，就在入口处把URL变一下（不改变请求路径，例如加一个查询参数），这样浏览器就不会使用缓存，而是下载最新的版本，再把新版本缓存下来。
 
 改变URL，例如，加一个查询参数：
-```
+```html
 <link rel="stylesheet" href="./css/default.css">
 //更新，变成
 <link rel="stylesheet" href="./css/default.css/?v=2">
@@ -56,14 +58,14 @@ MD5是一种摘要算法，用于确保信息传输完整一致。
 
 ETag HTTP响应头是资源特定版本标识符。
 把文件的MD5放到ETag里设置响应头：
-```
+```javascript
 let fileMd5 = md5(string)
 response.setHeader('ETag', fileMd5)
 ```
 在请求这个文件时，响应头里有了`ETag: Md5的值`，
-再次请求同意个文件时，请求头里带着`If-None-Match: Md5值`，
+再次请求同一个文件时，请求头里带着`If-None-Match: Md5值`，
 也就是再次请求时带着一个版本号（Md5的值），如果版本号与上次相同，说明文件没有更新，不需要重新下载。
-```
+```javascript
 let fileMd5 = md5(string)
 response.setHeader('ETag', fileMd5)
 if(request.headers['If-None-Match'] === fileMd5){
