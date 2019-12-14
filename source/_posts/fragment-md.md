@@ -26,3 +26,49 @@ mapType.setOffset(new BMap.Size(330, 10))  //控件偏移
 
 map.addControl(mapType1);
 ```
+
+## element `previewSrcList` 开启预览大图的功能
+
+```html
+<el-image-viewer
+    v-if="showViewer"
+    style="width: 100%;height:600px;position: relative;"
+    :on-close="closeViewer"
+    :url-list="srcList" />
+
+
+<el-button @click="onPreview">查看图片</el-button>
+
+```
+
+```html
+<script>
+    import ElImageViewer from 'element-ui/packages/image/src/image-viewer'
+    export default{
+        name: 'preview',
+        data(){
+            return {
+                showViewer: false,
+                srcList: [
+                    'url1',
+                    'url2',
+                    'url3'
+                ]
+            }
+        },
+        components: {
+            ElImageViewer
+        },
+        methods: {
+            onPreview() {
+             this.showViewer = true
+            },
+            closeViewer() {
+             this.showViewer = false
+            },
+        }
+
+    }
+</script>
+
+```
