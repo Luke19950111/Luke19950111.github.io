@@ -72,3 +72,17 @@ map.addControl(mapType1);
 </script>
 
 ```
+
+## element Popover使用
+```html
+<img src="按钮图标.png" v-popover:popover1>
+<el-popover
+    placement="bottom-start"
+    ref="popover1"
+    width="225"
+    trigger="hover">
+
+    <!-- img要放在div里 -->
+    <div><img src="弹框里的图片.jpg" slot="reference"></div>
+</el-popover>
+```
