@@ -86,3 +86,15 @@ map.addControl(mapType1);
     <div><img src="弹框里的图片.jpg" slot="reference"></div>
 </el-popover>
 ```
+
+## vue 箭头函数使用注意
+不要在选项属性或回调上使用箭头函数，例如：
+```javascript
+created: () => console.log(this.a)
+```
+或
+```javascript
+vm.$watch('a', newValue => this.myMethod())
+```
+因为箭头函数并没有 `this`，`this` 会作为变量一直向上级词法作用域查找，直至找到为止。
+[vue文档](https://cn.vuejs.org/v2/guide/instance.html#%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
