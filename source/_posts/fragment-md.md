@@ -98,3 +98,25 @@ vm.$watch('a', newValue => this.myMethod())
 ```
 因为箭头函数并没有 `this`，`this` 会作为变量一直向上级词法作用域查找，直至找到为止。
 [vue文档](https://cn.vuejs.org/v2/guide/instance.html#%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
+
+
+## vue 模板语法插值使用javascript表达式
+vue中所有的数据绑定都支持javascript表达式：
+```javascript
+{{ number + 1 }}
+
+{{ ok ? 'YES' : 'NO' }}
+
+{{ message.split('').reverse().join('') }}
+
+<div v-bind:id="'list-' + id"></div>
+```
+每个绑定都只能包含单个表达式，所以下面的例子都**不会**生效：
+```
+<!-- 这是语句，不是表达式 -->
+{{ var a = 1 }}
+
+<!-- 流控制也不会生效，请使用三元表达式 -->
+{{ if (ok) { return message } }}
+```
+[vue文档](https://cn.vuejs.org/v2/guide/syntax.html#%E4%BD%BF%E7%94%A8-JavaScript-%E8%A1%A8%E8%BE%BE%E5%BC%8F)
