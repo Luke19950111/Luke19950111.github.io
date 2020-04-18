@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="一些碎片">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-18T02:23:18.077Z">
+<meta property="og:updated_time" content="2020-04-18T03:35:17.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fragments">
 <meta name="twitter:description" content="一些碎片">
@@ -413,6 +413,15 @@
 <li><p><code>&amp;</code><br>转为二进制运算，两个位同时为1得1，只要一个为0得0<br>例如：3&amp;4 3的二进制为 <code>011</code>，4的二进制为 <code>100</code>， <code>011 &amp;100</code> 结果为 <code>000</code> ，即0</p>
 </li>
 </ul>
+<h2 id="promise中reject和catch"><a href="#promise中reject和catch" class="headerlink" title="promise中reject和catch"></a>promise中reject和catch</h2><ul>
+<li><code>reject</code> 后的东西，一定会进入 <code>then</code> 中的第二个回调，如果 <code>then</code> 中没有写第二个回调，则进入 <code>catch</code></li>
+<li><code>resolve</code> 的东西，一定会进入 <code>then</code> 的第一个回调，肯定不会进入 <code>catch</code></li>
+<li><code>throw new Error</code> 和 <code>reject</code> 一样，但是他俩只有一个会发生</li>
+<li>网络异常会直接进入 <code>then</code> 的第二个回调，肯定不会进入 <code>catch</code></li>
+<li><code>reject</code> 函数的作用是，将 <code>Promise</code> 对象的状态从<strong>未完成</strong>变成<strong>失败</strong>（即从<code>pending</code>变为<code>reject</code>），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去</li>
+<li><code>then</code> 方法指定的回调函数，如果运行中抛出错误，也会被 <code>catch</code> 方法捕获 </li>
+</ul>
+<p><a href="https://www.cnblogs.com/xc9010/articles/9734992.html" target="_blank" rel="noopener">原文</a></p>
 
       
     </div>
@@ -659,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#百度地图控件偏移"><span class="nav-number">1.</span> <span class="nav-text">百度地图控件偏移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-previewSrcList-开启预览大图的功能"><span class="nav-number">2.</span> <span class="nav-text">element previewSrcList 开启预览大图的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-Popover使用"><span class="nav-number">3.</span> <span class="nav-text">element Popover使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-箭头函数使用注意"><span class="nav-number">4.</span> <span class="nav-text">vue 箭头函数使用注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-模板语法插值使用javascript表达式"><span class="nav-number">5.</span> <span class="nav-text">vue 模板语法插值使用javascript表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的逻辑运算符-amp-amp-、-，位运算符-，-amp"><span class="nav-number">6.</span> <span class="nav-text">JS中的逻辑运算符 &amp;&amp;、||，位运算符 |， &amp;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#百度地图控件偏移"><span class="nav-number">1.</span> <span class="nav-text">百度地图控件偏移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-previewSrcList-开启预览大图的功能"><span class="nav-number">2.</span> <span class="nav-text">element previewSrcList 开启预览大图的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-Popover使用"><span class="nav-number">3.</span> <span class="nav-text">element Popover使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-箭头函数使用注意"><span class="nav-number">4.</span> <span class="nav-text">vue 箭头函数使用注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-模板语法插值使用javascript表达式"><span class="nav-number">5.</span> <span class="nav-text">vue 模板语法插值使用javascript表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的逻辑运算符-amp-amp-、-，位运算符-，-amp"><span class="nav-number">6.</span> <span class="nav-text">JS中的逻辑运算符 &amp;&amp;、||，位运算符 |， &amp;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#promise中reject和catch"><span class="nav-number">7.</span> <span class="nav-text">promise中reject和catch</span></a></li></ol></div>
             
 
           </div>
@@ -711,7 +720,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共39.1k字</span>
+  <span class="post-count">博客全站共39.3k字</span>
 </div>
         
 <div class="busuanzi-count">
