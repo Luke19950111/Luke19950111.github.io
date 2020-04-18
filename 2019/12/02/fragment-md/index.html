@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="是刘快啊">
 <meta property="og:description" content="一些碎片">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-28T01:22:43.190Z">
+<meta property="og:updated_time" content="2020-04-18T02:23:18.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fragments">
 <meta name="twitter:description" content="一些碎片">
@@ -401,6 +401,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 这是语句，不是表达式 --&gt;</span><br><span class="line">&#123;&#123; var a = 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 流控制也不会生效，请使用三元表达式 --&gt;</span><br><span class="line">&#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://cn.vuejs.org/v2/guide/syntax.html#%E4%BD%BF%E7%94%A8-JavaScript-%E8%A1%A8%E8%BE%BE%E5%BC%8F" target="_blank" rel="noopener">vue文档</a></p>
+<h2 id="JS中的逻辑运算符-amp-amp-、-，位运算符-，-amp"><a href="#JS中的逻辑运算符-amp-amp-、-，位运算符-，-amp" class="headerlink" title="JS中的逻辑运算符 &amp;&amp;、||，位运算符 |， &amp;"></a>JS中的逻辑运算符 &amp;&amp;、||，位运算符 |， &amp;</h2><ul>
+<li><p>在js逻辑运算中， <code>0</code>、<code>&#39;&#39;</code>、<code>null</code>、<code>undefined</code>、<code>NaN</code>、<code>false</code>会判断为false，其他都是true。</p>
+</li>
+<li><p><code>||</code><br>只要 <code>||</code> 前面为false，不管 <code>||</code> 后面是true还是false，都返回 <code>||</code> 后面的值；<br>只要 <code>||</code> 前面为true，不管 <code>||</code> 后面是true还是false，都返回 <code>||</code> 前面的值。</p>
+</li>
+<li><p><code>&amp;&amp;</code><br>只要 <code>&amp;&amp;</code> 前面是false，不管 <code>&amp;&amp;</code>后面是true还是false，都返回 <code>&amp;&amp;</code> 前面的值；<br>只要 <code>&amp;&amp;</code> 前面是true，不管 <code>&amp;&amp;</code> 后面是true还是false，都返回 <code>&amp;&amp;</code> 后面的值。</p>
+</li>
+<li><p><code>|</code><br>转为二进制运算，两个位只要有一个为1，结果为1，否则为0<br>例如：3|4 3的二进制为 <code>011</code>，4的二进制为 <code>100</code>， <code>011 | 100</code> 结果为 <code>111</code> ，即7</p>
+</li>
+<li><p><code>&amp;</code><br>转为二进制运算，两个位同时为1得1，只要一个为0得0<br>例如：3&amp;4 3的二进制为 <code>011</code>，4的二进制为 <code>100</code>， <code>011 &amp;100</code> 结果为 <code>000</code> ，即0</p>
+</li>
+</ul>
 
       
     </div>
@@ -647,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#百度地图控件偏移"><span class="nav-number">1.</span> <span class="nav-text">百度地图控件偏移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-previewSrcList-开启预览大图的功能"><span class="nav-number">2.</span> <span class="nav-text">element previewSrcList 开启预览大图的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-Popover使用"><span class="nav-number">3.</span> <span class="nav-text">element Popover使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-箭头函数使用注意"><span class="nav-number">4.</span> <span class="nav-text">vue 箭头函数使用注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-模板语法插值使用javascript表达式"><span class="nav-number">5.</span> <span class="nav-text">vue 模板语法插值使用javascript表达式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#百度地图控件偏移"><span class="nav-number">1.</span> <span class="nav-text">百度地图控件偏移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-previewSrcList-开启预览大图的功能"><span class="nav-number">2.</span> <span class="nav-text">element previewSrcList 开启预览大图的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-Popover使用"><span class="nav-number">3.</span> <span class="nav-text">element Popover使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-箭头函数使用注意"><span class="nav-number">4.</span> <span class="nav-text">vue 箭头函数使用注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-模板语法插值使用javascript表达式"><span class="nav-number">5.</span> <span class="nav-text">vue 模板语法插值使用javascript表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的逻辑运算符-amp-amp-、-，位运算符-，-amp"><span class="nav-number">6.</span> <span class="nav-text">JS中的逻辑运算符 &amp;&amp;、||，位运算符 |， &amp;</span></a></li></ol></div>
             
 
           </div>
@@ -699,7 +711,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共38.9k字</span>
+  <span class="post-count">博客全站共39.1k字</span>
 </div>
         
 <div class="busuanzi-count">
