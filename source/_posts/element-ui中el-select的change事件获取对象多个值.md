@@ -38,3 +38,21 @@ onchange(val){
     console.log(obj.id)
 }
 ```
+
+
+## 补充
+
+给 `el-select` 加上 `value-key` 属性，值为数据源数组元素中**唯一键**
+例如数据源数组
+```js
+[
+    {id: 1, name: 'lk1', age: 18},
+    {id: 2, name: 'lk2', age: 19},
+    {id: 3, name: 'lk3', age: 20}
+]
+```
+那么可以设置：
+```html
+<el-select v-model="value" value-key="id" placeholder="请选择">
+```
+此时 `value` 绑定的值就是所选项整个对象。
