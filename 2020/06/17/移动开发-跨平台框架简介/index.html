@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="LK">
 <meta property="og:description" content="移动开发技术进化历程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-18T02:26:35.285Z">
+<meta property="og:updated_time" content="2020-06-20T02:12:20.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动开发-跨平台框架简介">
 <meta name="twitter:description" content="移动开发技术进化历程">
@@ -420,7 +420,7 @@
 <ul>
 <li>只关注状态（数据）转移，状态变化自动根据新的状态重新构建 UI</li>
 <li>框架接收到状态变化通知后，根据当前渲染树，结合最新状态改变，计算出树中变化的部分，然后只更新变化的部分</li>
-<li>第二部中，状态变化后 React 框架不会立即计算并渲染 DOM 树变化部分，会在 DOM 基础上建立一个虚拟 DOM 树，状态改动先会被同步到虚拟 DOM，最后批量同步到真实 DOM（浏览器中每一次 DOM 操作都可能引起浏览器的重绘或回流，频繁操作 DOM 会带来性能问题）</li>
+<li>第二点中，状态变化后 React 框架不会立即计算并渲染 DOM 树变化部分，会在 DOM 基础上建立一个虚拟 DOM 树，状态改动先会被同步到虚拟 DOM，最后批量同步到真实 DOM（浏览器中每一次 DOM 操作都可能引起浏览器的重绘或回流，频繁操作 DOM 会带来性能问题）</li>
 </ul>
 <h4 id="React-Native"><a href="#React-Native" class="headerlink" title="React Native"></a>React Native</h4><p>React 与 React Native：</p>
 <ul>
@@ -461,7 +461,7 @@
 <ul>
 <li>渲染时需要 JavaScript 和原生之间通信，通信频繁会导致卡顿</li>
 <li>JavaScript 为脚本语言，执行时需要<code>JIT(Just In Time)</code>，执行效率和<code>AOT(Ahead Of Time)</code>代码仍有差距</li>
-<li>渲染依赖原生控件，不同平台控件需要单独维护；控件收原生 UI 系统限制</li>
+<li>渲染依赖原生控件，不同平台控件需要单独维护；控件受原生 UI 系统限制</li>
 </ul>
 <h3 id="自绘-UI-原生"><a href="#自绘-UI-原生" class="headerlink" title="自绘 UI + 原生"></a>自绘 UI + 原生</h3><p>原理：在不同平台实现一个统一接口的渲染引擎来绘制 UI，不依赖系统原生控件，可以做到不同平台 UI 一致。自绘引擎解决的是 UI 的跨平台问题，如果涉及其他系统能力调用，还要涉及原生开发。</p>
 <p>优势：</p>
