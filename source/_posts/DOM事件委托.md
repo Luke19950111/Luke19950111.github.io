@@ -2,6 +2,7 @@
 title: DOM事件委托
 date: 2020-08-03 15:10:34
 tags: [DOM, 事件委托]
+categories: JavaScript
 ---
 
 <center>理解一下事件委托</center>
