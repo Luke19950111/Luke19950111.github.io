@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-kuai.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-kuai.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="内联元素宽高,块级元素宽高,建议行高,脱离文档流,margin合并,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CSS宽度与高度">
+<meta name="keywords" content="内联元素宽高,块级元素宽高,建议行高,脱离文档流,margin合并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css之宽度与高度">
+<meta property="og:url" content="http://yoursite.com/2018/03/16/css之宽度与高度/index.html">
+<meta property="og:site_name" content="LK">
+<meta property="og:description" content="CSS宽度与高度">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-eb475cec32b481ec.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-ebeab594202bcc36.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-12ed6231052813f9.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-57e53016f8eed19d.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-506d09bd2634fbd3.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-b22d953a9ca0d153.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-9c4b7c851f19f336.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-89849ff5bbc6d05c.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11014353-001a418f6f72fd44.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2023-02-09T08:45:33.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css之宽度与高度">
+<meta name="twitter:description" content="CSS宽度与高度">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/16/css之宽度与高度/">
+
+
+
+
+
+  <title>css之宽度与高度 | LK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Luke19950111" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">LK loves money.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/css之宽度与高度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lk大大">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css之宽度与高度</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-16T01:08:22+08:00">
+                2018-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>CSS宽度与高度</center>
+<a id="more"></a>
+
+<p>使用CSS进行布局与定位，就必须了解CSS中的宽度与高度。<br>在CSS中：<br><strong>1.内联元素的宽度由行高决定，宽度由内容、padding、border和margin决定；</strong><br><strong>2.块级元素的宽度自适应父元素，高度由其内部文档流元素的高度总和决定。</strong></p>
+<hr>
+<p>##内联元素之宽高</p>
+<p>###1.通过JS Bin调试观察<br>分别给div和span加一个红色、绿色的border，便于观察：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-d14019c3a419df46.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="border.JPG"><br>给span加一个100px的margin，可以看到span左右各增加了100px的margin，宽度增加200px；上下没有变化，高度不变：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-eb475cec32b481ec.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="margin.JPG"><br>给span增加一个100px的padding，可以看到span宽度增加200px，高度依然没有变化（红框没有变高）：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-ebeab594202bcc36.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="padding.JPG"><br>我们注意到两个span之间有一个空格，这是因为代码中两个span之间并不是没有东西的，而是有回车和空格，即下图中选中部分，显示为一个空格：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-12ed6231052813f9.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="space.JPG"><br>将span的border加到10px，可以弹道span的宽度增加了20px，行高依然没有改变：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-57e53016f8eed19d.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="border2.JPG"><br>给span设置width和height，宽度和高度没有任何变化：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-506d09bd2634fbd3.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="wh.JPG"><br>综上，内联元素宽度受padding和margin影响，高度不受其影响；内联元素不接受指定宽高。<br>内联元素高度由行高决定，宽度由内容、padding、border、margin决定。</p>
+<p>###2.字体与行高<br>我们给到文本的font-size就是行高吗？答案是否定的。这是因为font-size是字体的最高点到最低点的高度，不同的font-size有不同的<strong>建议行高</strong>。字体设计师在设计字体时，会考虑到如果这种字体要写两行，行与行之间要有空隙，于是设计了建议行高。例如，给定<code>font-size：20px；</code>，如果这种字体的建议行高为1.2倍，则行高为24px。如果要明确行高为20px，那么应该写上<code>line-height: 20px;</code>。
+line-height可以确定内联元素高度，line-height的值是多少像素，内联元素所占的高度就是多少。</p>
+<hr>
+<p>##块级元素之宽高</p>
+<p>###1.文档流（Normal Flow）<br>W3C规范中是没有<code>docuement flow</code>这个概念的，只有Normal Flow,即普通流，文档流是多数中文翻译者的翻译方式问题。<br>文档流中内联元素默认从左到右排列，宽度不够则自动换行；<br>文档流中块级元素从上到下排列，每个元素占一行。<br>一个子元素脱离文档流后计算父元素高度不再算它的高度，脱离文档流的方式：<br><code>float：left；</code><br><code>position：absolute；</code><br><code>position：fixed;</code><br>相对定位<code>position: relative;</code>不脱离文档流，不管位置怎样移动，父元素计算高度仍要算上它的高度。</p>
+<p>###2.margin合并<br>给父元素一个border，给子元素一个100px的margin，可以看到子元素的margin仍在父元素内：<img src="https://upload-images.jianshu.io/upload_images/11014353-b22d953a9ca0d153.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="son.JPG"><br>将父元素的border变为outline，发现子元素上下margin与父元素合并：<br><img src="https://upload-images.jianshu.io/upload_images/11014353-9c4b7c851f19f336.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dad.JPG"><br>如果父元素没有border，那么子元素的margin上下方向会与父元素margin合并。如果不想让margin合并，可以给父元素加上<code>border-top</code>和<code>border-bottom</code>(不一定是border，也可以是别的东西，如padding，只要可以挡着子元素margin就可以)。<br><em>在CSS中，即使只给到<code>border-top：0.1px；</code>，依然会出现一个1px的border-top。</em><br>其他阻止margin合并方法：<br>1.给父元素加上<code>overflow: hidden;</code>,一般不用这种方法，所有东西都不能超出，例如要加悬浮层会遇到问题；<br><img src="https://upload-images.jianshu.io/upload_images/11014353-89849ff5bbc6d05c.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="overflow.JPG"><br>2.内联元素也可以挡住，写个字，一般不用，没必要无故写个字。<br><img src="https://upload-images.jianshu.io/upload_images/11014353-001a418f6f72fd44.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dang.JPG"></p>
+<p>所以子元素的margin能否使父元素变高，取决于是否有东西挡着它。<br>一个div里还有div，这个div的高度就是里面div的<strong>高度+padding+border+(sometimes)margin</strong>。
+一个div里有span，把span的行高加起来就是div的高度。<br>综上，块级元素宽度自适应父元素，高度是由其内部文档流元素的高度总和决定的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/内联元素宽高/" rel="tag"><i class="fa fa-tag"></i> 内联元素宽高</a>
+          
+            <a href="/tags/块级元素宽高/" rel="tag"><i class="fa fa-tag"></i> 块级元素宽高</a>
+          
+            <a href="/tags/建议行高/" rel="tag"><i class="fa fa-tag"></i> 建议行高</a>
+          
+            <a href="/tags/脱离文档流/" rel="tag"><i class="fa fa-tag"></i> 脱离文档流</a>
+          
+            <a href="/tags/margin合并/" rel="tag"><i class="fa fa-tag"></i> margin合并</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/13/box-sizing-css/" rel="next" title="box-sizing -css">
+                <i class="fa fa-chevron-left"></i> box-sizing -css
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/23/数值-JavaScript标准参考教程（阮一峰）读书笔记/" rel="prev" title="数值-JavaScript标准参考教程（阮一峰）读书笔记">
+                数值-JavaScript标准参考教程（阮一峰）读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lk大大">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">lk大大</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">158</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luke19950111" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lukelovenoney@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/b293f4ffc5fc" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-edit"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3699074360/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/" title="What makes a good front end engineer" target="_blank">What makes a good front end engineer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/reader/ebook/7412854/" title="Three.js入门指南（张雯莉）" target="_blank">Three.js入门指南（张雯莉）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.cn/" title="npm中文文档" target="_blank">npm中文文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nodeapp.cn/" title="node.js中文" target="_blank">node.js中文</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://webpack.js.org/" title="webpack" target="_blank">webpack</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.vuejs.org/v2/guide/" title="vue文档" target="_blank">vue文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wangdoc.com/javascript/" title="JS参考教程（阮一峰）" target="_blank">JS参考教程（阮一峰）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://es6.ruanyifeng.com/" title="ES6教程（阮一峰）" target="_blank">ES6教程（阮一峰）</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lk大大</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+ -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.2k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

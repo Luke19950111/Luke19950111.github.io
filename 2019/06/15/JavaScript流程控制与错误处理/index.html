@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-kuai.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-kuai.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="promise,switch,throw,try...catch,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="if...else, switch, throw, try...catch, promise">
+<meta name="keywords" content="promise,switch,throw,try...catch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript流程控制与错误处理">
+<meta property="og:url" content="http://yoursite.com/2019/06/15/JavaScript流程控制与错误处理/index.html">
+<meta property="og:site_name" content="LK">
+<meta property="og:description" content="if...else, switch, throw, try...catch, promise">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2023-02-09T08:45:33.842Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript流程控制与错误处理">
+<meta name="twitter:description" content="if...else, switch, throw, try...catch, promise">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/15/JavaScript流程控制与错误处理/">
+
+
+
+
+
+  <title>JavaScript流程控制与错误处理 | LK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Luke19950111" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">LK loves money.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/JavaScript流程控制与错误处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lk大大">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript流程控制与错误处理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-15T11:31:38+08:00">
+                2019-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>if...else, switch, throw, try...catch, promise</center>
+<a id="more"></a>
+
+<h1 id="语句块"><a href="#语句块" class="headerlink" title="语句块"></a>语句块</h1><p>语句块由一对大括号界定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   statement_1;   </span><br><span class="line">   statement_2;</span><br><span class="line">   statement_3;</span><br><span class="line">   .</span><br><span class="line">   .</span><br><span class="line">   .</span><br><span class="line">   statement_n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>语句块通常用于流程控制，如<code>if</code>,<code>for</code>,<code>while</code>等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (x &lt; 10) &#123;</span><br><span class="line">  x++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里<code>x++</code>就是一个语句块。</p>
+<p><strong>重要：</strong>在es6之前，Javascript没有块作用域。在一个块中引入的变量的作用域是<strong>包含函数或脚本</strong>。
+es6，使用<code>let</code>和<code>const</code>的变量是块作用域的。</p>
+<h1 id="条件判断语句"><a href="#条件判断语句" class="headerlink" title="条件判断语句"></a>条件判断语句</h1><h2 id="if…else语句"><a href="#if…else语句" class="headerlink" title="if…else语句"></a>if…else语句</h2><p>逻辑条件为真，用<code>if</code>执行一个语句；逻辑条件为假，使用可选择的<code>else</code>从句执行语句。</p>
+<p>falsy values: </p>
+<ul>
+<li><code>false</code></li>
+<li><code>undefined</code></li>
+<li><code>none</code></li>
+<li><code>NaN</code></li>
+<li><code>0</code></li>
+<li>空字符串<code>&#39;&#39;</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (condition_1) &#123;</span><br><span class="line">  statement_1;</span><br><span class="line">&#125;else if (condition_2) &#123;</span><br><span class="line">  statement_2;</span><br><span class="line">&#125;else if (condition_n_1) &#123;</span><br><span class="line">  statement_n;</span><br><span class="line">&#125;else &#123;</span><br><span class="line">  statement_last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要混淆原始布尔值<code>true</code>和<code>false</code>与<code>Boolean</code>对象的真和假。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var b = new Boolean(false)</span><br><span class="line">if(b) //结果视为真</span><br><span class="line">if(b == true) //结果视为假</span><br></pre></td></tr></table></figure>
+
+<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><p>一个程序求一个表达式的值，尝试匹配表达式的值到一个<code>case</code>标签，如果匹配成功，这个程序执行相关语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">switch (expression) &#123;</span><br><span class="line">   case label_1:</span><br><span class="line">      statements_1</span><br><span class="line">      break;</span><br><span class="line">   case label_2:</span><br><span class="line">      statements_2</span><br><span class="line">      break;</span><br><span class="line">   ...</span><br><span class="line">   default:</span><br><span class="line">      statements_def</span><br><span class="line">      break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果没有匹配的<code>case</code>语句，找<code>default</code>语句；如果没有<code>default</code>语句，程序继续执行<code>switch</code>语句后面的语句。</p>
+<p><code>default</code>语句通常在switch语句最后面，不是必须。</p>
+<p><code>可选的break语句</code>与每个<code>case</code>语句相关联，保证匹配的语句执行完后跳出<code>switch</code>语句。<br>如果<code>break</code>语句被忽略，程序继续执行switch语句中的下一条语句。</p>
+<h1 id="异常处理语句"><a href="#异常处理语句" class="headerlink" title="异常处理语句"></a>异常处理语句</h1><p>用<code>throw</code>语句抛出一个错误，用<code>try...catch</code>语句捕获处理它。</p>
+<h2 id="throw语句"><a href="#throw语句" class="headerlink" title="throw语句"></a>throw语句</h2><p>使用<code>throw</code>语句抛出一个异常（抛出一个含有值得表达式）<br>可以抛出任意表达式而不是某种类型的表达式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">throw &quot;Error2&quot;;   // String type</span><br><span class="line">throw 42;         // Number type</span><br><span class="line">throw true;       // Boolean type</span><br><span class="line">throw &#123;toString: function() &#123; return &quot;I&apos;m an object!&quot;; &#125; &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="try…catch语句"><a href="#try…catch语句" class="headerlink" title="try…catch语句"></a>try…catch语句</h2><ul>
+<li><code>try...catch</code>语句标记一块待尝试的语句，并规定一个以上的响应应该有一个异常被抛出。</li>
+<li>如果抛出一个异常，<code>try...catch</code>语句就捕获它。</li>
+<li><code>try...catch</code>语句有<strong>一个</strong>包含一句或多条语句的<code>try代码块</code>。</li>
+<li><code>try...catch</code>语句有<strong>0个或多个</strong><code>catch代码块</code>。</li>
+<li><code>catch</code>代码块的语句会在<code>try</code>代码块中抛出异常时执行。</li>
+<li>如果<code>try</code>代码块中的语句（或者try 代码块中调用的方法）一旦抛出了异常，那么执行流程会立即进入<code>catch</code>代码块。</li>
+<li>如果<code>try</code>代码块没有抛出异常，<code>catch</code>代码块就会被跳过。</li>
+<li><code>finally</code>代码块总会紧跟在<code>try</code>和<code>catch</code>代码块之后执行，但会在<code>try</code>和<code>catch</code>代码块之后的其他代码之前执行。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function getMonthName(mo) &#123;</span><br><span class="line">  mo = mo - 1; // Adjust month number for array index (1 = Jan, 12 = Dec)</span><br><span class="line">  var months = [&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,</span><br><span class="line">                &quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;];</span><br><span class="line">  if (months[mo]) &#123;</span><br><span class="line">    return months[mo];</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    throw &quot;InvalidMonthNo&quot;; //throw keyword is used here</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">try &#123; // statements to try</span><br><span class="line">  monthName = getMonthName(myMonth); // function could throw exception</span><br><span class="line">&#125;</span><br><span class="line">catch (e) &#123;</span><br><span class="line">  monthName = &quot;unknown&quot;;</span><br><span class="line">  logMyErrors(e); // pass exception object to error handler -&gt; your own function</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="catch块"><a href="#catch块" class="headerlink" title="catch块"></a>catch块</h3><p>可以使用<code>catch</code>块处理所有<code>try</code>块中产生的异常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">catch (catchID) &#123;</span><br><span class="line">  statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>捕捉块指定了一个标识符（上述语句中的catchID）来存放抛出语句指定的值；</li>
+<li>可以用这个标识符来获取抛出的异常信息。</li>
+<li>在插入throw块时JavaScript创建这个标识符；</li>
+<li>标识符只存在于catch块的存续期间里；</li>
+<li>当catch块执行完成时，标识符不再可用。</li>
+</ul>
+<h3 id="finally块"><a href="#finally块" class="headerlink" title="finally块"></a>finally块</h3><ul>
+<li><code>finally</code>块包含了在try和catch块完成后、下面接着try…catch的语句之前执行的语句。</li>
+<li><code>finally</code>块无论是否抛出异常都会执行。如果抛出了一个异常，就算没有异常处理，finally块里的语句也会执行。</li>
+</ul>
+<p>如果<code>finally</code>块返回一个值，该值会是整个try-catch-finally流程的返回值，不管在try和catch块中语句返回了什么,也就是finally块返回值覆盖try/catch块返回值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function f() &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    console.log(0);</span><br><span class="line">    throw &quot;bogus&quot;;</span><br><span class="line">  &#125; catch(e) &#123;</span><br><span class="line">    console.log(1);</span><br><span class="line">    return true; // this return statement is suspended</span><br><span class="line">                 // until finally block has completed</span><br><span class="line">    console.log(2); // not reachable</span><br><span class="line">  &#125; finally &#123;</span><br><span class="line">    console.log(3);</span><br><span class="line">    return false; // overwrites the previous &quot;return&quot;</span><br><span class="line">    console.log(4); // not reachable</span><br><span class="line">  &#125;</span><br><span class="line">  // &quot;return false&quot; is executed now  </span><br><span class="line">  console.log(5); // not reachable</span><br><span class="line">&#125;</span><br><span class="line">f(); // console 0, 1, 3; returns false</span><br></pre></td></tr></table></figure>
+
+<p>用<code>finally</code>块覆盖返回值也适用于在catch块内抛出或重新抛出的异常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function f() &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    throw &apos;bogus&apos;;</span><br><span class="line">  &#125; catch(e) &#123;</span><br><span class="line">    console.log(&apos;caught inner &quot;bogus&quot;&apos;);</span><br><span class="line">    throw e; // this throw statement is suspended until </span><br><span class="line">             // finally block has completed</span><br><span class="line">  &#125; finally &#123;</span><br><span class="line">    return false; // overwrites the previous &quot;throw&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  // &quot;return false&quot; is executed now</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  f();</span><br><span class="line">&#125; catch(e) &#123;</span><br><span class="line">  // this is never reached because the throw inside</span><br><span class="line">  // the catch is overwritten</span><br><span class="line">  // by the return in finally</span><br><span class="line">  console.log(&apos;caught outer &quot;bogus&quot;&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// OUTPUT</span><br><span class="line">// caught inner &quot;bogus&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>从es6开始，JavaScript增加了对<code>Promise</code>对象的支持。对延时和异步操作流进行控制。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function imgLoad(url) &#123;</span><br><span class="line">  return new Promise(function(resolve, reject) &#123;</span><br><span class="line">    var request = new XMLHttpRequest();</span><br><span class="line">    request.open(&apos;GET&apos;, url);</span><br><span class="line">    request.responseType = &apos;blob&apos;;</span><br><span class="line">    request.onload = function() &#123;</span><br><span class="line">      if (request.status === 200) &#123;</span><br><span class="line">        resolve(request.response);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        reject(Error(&apos;Image didn\&apos;t load successfully; error code:&apos; </span><br><span class="line">                     + request.statusText));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    request.onerror = function() &#123;</span><br><span class="line">      reject(Error(&apos;There was a network error.&apos;));</span><br><span class="line">    &#125;;</span><br><span class="line">    request.send();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">MDN Promise</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" target="_blank" rel="noopener">MDN 流程控制与错误处理</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/promise/" rel="tag"><i class="fa fa-tag"></i> promise</a>
+          
+            <a href="/tags/switch/" rel="tag"><i class="fa fa-tag"></i> switch</a>
+          
+            <a href="/tags/throw/" rel="tag"><i class="fa fa-tag"></i> throw</a>
+          
+            <a href="/tags/try-catch/" rel="tag"><i class="fa fa-tag"></i> try...catch</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/14/transition/" rel="next" title="transition">
+                <i class="fa fa-chevron-left"></i> transition
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/17/vue实例事件/" rel="prev" title="vue实例事件">
+                vue实例事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lk大大">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">lk大大</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">158</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luke19950111" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lukelovenoney@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/b293f4ffc5fc" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-edit"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3699074360/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/" title="What makes a good front end engineer" target="_blank">What makes a good front end engineer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/reader/ebook/7412854/" title="Three.js入门指南（张雯莉）" target="_blank">Three.js入门指南（张雯莉）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.cn/" title="npm中文文档" target="_blank">npm中文文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nodeapp.cn/" title="node.js中文" target="_blank">node.js中文</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://webpack.js.org/" title="webpack" target="_blank">webpack</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.vuejs.org/v2/guide/" title="vue文档" target="_blank">vue文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wangdoc.com/javascript/" title="JS参考教程（阮一峰）" target="_blank">JS参考教程（阮一峰）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://es6.ruanyifeng.com/" title="ES6教程（阮一峰）" target="_blank">ES6教程（阮一峰）</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#语句块"><span class="nav-number">1.</span> <span class="nav-text">语句块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件判断语句"><span class="nav-number">2.</span> <span class="nav-text">条件判断语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if…else语句"><span class="nav-number">2.1.</span> <span class="nav-text">if…else语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch语句"><span class="nav-number">2.2.</span> <span class="nav-text">switch语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理语句"><span class="nav-number">3.</span> <span class="nav-text">异常处理语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#throw语句"><span class="nav-number">3.1.</span> <span class="nav-text">throw语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try…catch语句"><span class="nav-number">3.2.</span> <span class="nav-text">try…catch语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#catch块"><span class="nav-number">3.2.1.</span> <span class="nav-text">catch块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally块"><span class="nav-number">3.2.2.</span> <span class="nav-text">finally块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise"><span class="nav-number">4.</span> <span class="nav-text">Promise</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lk大大</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+ -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.2k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

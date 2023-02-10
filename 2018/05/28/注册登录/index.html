@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-kuai.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-kuai.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="注册,登录,cookies,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="cookies~">
+<meta name="keywords" content="注册,登录,cookies">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie注册登录">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/注册登录/index.html">
+<meta property="og:site_name" content="LK">
+<meta property="og:description" content="cookies~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2023-02-09T08:45:33.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie注册登录">
+<meta name="twitter:description" content="cookies~">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/28/注册登录/">
+
+
+
+
+
+  <title>Cookie注册登录 | LK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Luke19950111" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">LK loves money.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/注册登录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lk大大">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cookie注册登录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T13:56:28+08:00">
+                2018-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>cookies~</center>
+<a id="more"></a>
+
+<p>首先，写一个简单的注册页面sign_up.html（前端）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>邮箱<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"emali"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>确认密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"password_confirmation"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>把用户输入的内容放到一个哈希中（前端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> $form = $(<span class="string">'#signUpForm'</span>)</span><br><span class="line"><span class="keyword">let</span> hash = &#123;&#125;</span><br><span class="line">$form.on(<span class="string">'submit'</span>, (e) =&gt; &#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    <span class="keyword">let</span> need = [<span class="string">'email'</span>, <span class="string">'password'</span>, <span class="string">'password_confirmation'</span>]</span><br><span class="line">    need.forEach( <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> value = $form.find(<span class="string">`[name = <span class="subst">$&#123;name&#125;</span>]`</span>).val()</span><br><span class="line">        hash[name] = value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)  <span class="comment">//得到的hash为 &#123;email: "xx", password: "xx", password_confirmation: "xx"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>给server.js里添加一个路由，如果请求路径是/sign_up，就显示当前目录下的sign_up.html文件（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(path === <span class="string">'/sign_up'</span>)&#123;</span><br><span class="line">   <span class="keyword">let</span> string = fs.readFileSync(<span class="string">'./sign_up.html'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">   response.statusCode = <span class="number">200</span></span><br><span class="line">   response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/html;charset=utf-8'</span>)</span><br><span class="line">   response.write(string)</span><br><span class="line">   response.end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>node server 8080</code> 打开server，访问<code>http://localhost:8080/sign_up</code>就可以看到我们写的注册页面。<br>尝试发送一个Ajax post请求：<a href="https://www.jquery123.com/jQuery.post/" target="_blank" rel="noopener">jQuery.post()</a> （前端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">'/sign_up'</span>, hash)</span><br><span class="line">      .then( <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(response) <span class="comment">//得到一串符合html格式的字符串</span></span><br><span class="line">      &#125;, () =&gt; &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(‘error’)</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>打印出来一个html格式的字符串，因为server.js中写明了只要请求路径是/sign_up就表示请求成功，返回字符串。</p>
+<p>由于这是一个post请求，如果在路由里将请求方式的限制为get，则会打印出‘error’：（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(path === <span class="string">'/sign_up'</span> &amp;&amp; method === <span class="string">'GET'</span>)&#123;</span><br><span class="line">   <span class="keyword">let</span> string = fs.readFileSync(<span class="string">'./sign_up.html'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">   response.statusCode = <span class="number">200</span></span><br><span class="line">   response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/html;charset=utf-8'</span>)</span><br><span class="line">   response.write(string)</span><br><span class="line">   response.end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以要再添加一个请求方式为post的路由：（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">if</span>(path === <span class="string">'/sign_up'</span> &amp;&amp; method === <span class="string">'POST'</span>)&#123;</span><br><span class="line">    readBody(request).then( <span class="function">(<span class="params">body</span>) =&gt;</span> &#123;</span><br><span class="line">        response.statusCode = <span class="number">200</span></span><br><span class="line">        response.end()</span><br><span class="line">    &#125;)    </span><br><span class="line"> &#125; <span class="comment">//用户post到/sign_up， 服务器读取到请求的第四部分（Form Data），得到字符串'email=1&amp;password=2&amp;password_confirmation=3'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//由于请求的第四部分（Form Data）是分段上传的，Node.js无法直接读到其内容，封装以下函数：</span></span><br><span class="line"><span class="comment">//作用是获取请求第四部分数据，并返回一个Promise对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readBody</span>(<span class="params">request</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> body = []</span><br><span class="line">    request.on(<span class="string">'data'</span>, (chunk) =&gt; &#123;</span><br><span class="line">      body.push(chunk);</span><br><span class="line">    &#125;).on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">      body = Buffer.concat(body).toString();</span><br><span class="line">      resolve(body)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在用户向sign_up发送post请求，服务器得到的请求的第四部分是一个字符串<code>&#39;email=1&amp;password=2&amp;password_confirmation=3&#39;</code>，使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank" rel="noopener">split()</a>方法将其变成哈希：（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> strings = body.split(<span class="string">'&amp;'</span>) <span class="comment">// ['email=1', 'password=2', 'password_confirmation=3']</span></span><br><span class="line"><span class="keyword">let</span> hash = &#123;&#125;</span><br><span class="line">strings.forEach(<span class="function">(<span class="params">string</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> parts = string.split(<span class="string">'='</span>) <span class="comment">// ['email', '1']</span></span><br><span class="line">    <span class="keyword">let</span> key = parts[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">let</span> value = parts[<span class="number">1</span>]</span><br><span class="line">    hash[key] = (value) <span class="comment">// hash['email'] = '1'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>以上所做的事情总结起来就是：<br>客户端收集form表单内容到一个hash中，作为一个字符串传给服务端，<br>服务端以一个字符串的形式拿到表单内容，<br>再将其还原为一个hash。</p>
+<p>这就是前端向后台传数据的方式：前端把所有东西变成一个字符串传给后台，后台从字符串里按照所要的结构解析出来。</p>
+<p>现在服务器有了一个包含表单信息的hash，继续进行验证：（后台）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;email, password, password_confirmation&#125; = hash</span><br><span class="line"><span class="keyword">if</span>(email.indexOf(<span class="string">'@'</span>) === <span class="number">-1</span>)&#123; <span class="comment">//验证用户输入的邮箱中是否有@</span></span><br><span class="line">    response.statusCode = <span class="number">400</span></span><br><span class="line">    response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/json;charset=utf-8'</span>) <span class="comment">//jQuery只要发现响应中说了这是json就会自动JSON.parse()</span></span><br><span class="line">    response.write(<span class="string">`&#123;</span></span><br><span class="line"><span class="string">        "errors": &#123;</span></span><br><span class="line"><span class="string">            "email": "invalid"</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;`</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(password !== password_confirmation)&#123; <span class="comment">//验证两次输入的密码是否匹配</span></span><br><span class="line">    response.statusCode = <span class="number">400</span></span><br><span class="line">    response.write(<span class="string">'password not match'</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    response.statusCode = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（前端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">'/sign_up'</span>, hash)</span><br><span class="line">                .then( <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(response)</span><br><span class="line">                &#125;, (request) =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> &#123;errors&#125; = request.responseJSON</span><br><span class="line">                    <span class="keyword">if</span>(errors.email &amp;&amp; errors.email === <span class="string">'invalid'</span>)&#123;</span><br><span class="line">                        $form.find(<span class="string">'[name = "email"]'</span>).siblings(<span class="string">'.error'</span>)</span><br><span class="line">                            .text(<span class="string">'邮箱格式错误'</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>前端也可以在发起请求之前进行一些验证：（前端）<a href="https://www.jquery123.com/each/" target="_blank" rel="noopener">jQuery.each()</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$form.find(<span class="string">'.error'</span>).each( <span class="function">(<span class="params">index, span</span>) =&gt;</span> &#123;</span><br><span class="line">    $(span).text(<span class="string">''</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">if</span>(hash[<span class="string">'email'</span>] === <span class="string">''</span>)&#123;</span><br><span class="line">    $form.find(<span class="string">'[name = "email"]'</span>).siblings(<span class="string">'.error'</span>)</span><br><span class="line">        .text(<span class="string">'填邮箱呀同学'</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(hash[<span class="string">'password'</span>] === <span class="string">''</span>)&#123;</span><br><span class="line">    $form.find(<span class="string">'[name = "password"]'</span>).siblings(<span class="string">'.error'</span>)</span><br><span class="line">        .text(<span class="string">'设密码呀同学'</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(hash[<span class="string">'password_confirmation'</span>] === <span class="string">''</span>)&#123;</span><br><span class="line">    $form.find(<span class="string">'[name = "password_confirmation"]'</span>).siblings(<span class="string">'.error'</span>)</span><br><span class="line">        .text(<span class="string">'验密码呀同学'</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(hash[<span class="string">'password'</span>] !== hash[<span class="string">'password_confirmation'</span>])&#123;</span><br><span class="line">    $form.find(<span class="string">'[name = "password_confirmation"]'</span>).siblings(<span class="string">'.error'</span>)</span><br><span class="line">        .text(<span class="string">'密码不匹配'</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们实现的功能是邮箱、密码、验证密码必填，密码与验证密码相同（前端验证），邮箱中必须有‘@’（后端验证）。<br>由于前后端代码都是JS，所以后端的验证前端都能做到。但是前端可以不验，后端必须要验。例如用<code>curl</code>发请求的话，可以直接与服务器交流。所以不能依赖浏览器上的JS，必须确保后端是安全的。</p>
+<p>验证成功之后，服务器需要将得到的信息保存到数据库中。这里我们在当前目录下创建<code>db/users</code>文件作为数据库，初始化为一个空数组<code>[]</code>。（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> users = fs.readFileSync(<span class="string">'./db/users'</span>, <span class="string">'utf8'</span>)</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  users = <span class="built_in">JSON</span>.parse(users) <span class="comment">// 如果users不符合JSON语法就放弃它，把它变成空数组</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(exception)&#123;</span><br><span class="line">  users = []</span><br><span class="line">&#125;</span><br><span class="line">users.push(&#123;<span class="attr">email</span>: email, <span class="attr">password</span>: password&#125;)</span><br><span class="line"><span class="keyword">var</span> usersString = <span class="built_in">JSON</span>.stringify(users) <span class="comment">//对象不能直接存，将其变成字符串</span></span><br><span class="line">fs.writeFileSync(<span class="string">'./db/users'</span>, usersString)</span><br><span class="line">response.statusCode = <span class="number">200</span></span><br></pre></td></tr></table></figure>
+
+<p>现在有个问题，同一个邮箱可以多次注册。服务器可以在将信息存入数据库之前验证邮箱是否已注册：（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> users = fs.readFileSync(<span class="string">'./db/users'</span>, <span class="string">'utf8'</span>)</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    users = <span class="built_in">JSON</span>.parse(users) <span class="comment">// 如果users不符合JSON语法就放弃它，把它变成空数组</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (exception) &#123;</span><br><span class="line">    users = []</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> inUse = <span class="literal">false</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;users.length; i++)&#123;</span><br><span class="line">    <span class="keyword">let</span> user = users[i]</span><br><span class="line">    <span class="keyword">if</span>(user.email = email)&#123;</span><br><span class="line">        inUse = <span class="literal">true</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(inUse)&#123;</span><br><span class="line">    response.statusCode = <span class="number">400</span></span><br><span class="line">    response.write(<span class="string">'email in use'</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    users.push(&#123; <span class="attr">email</span>: email, <span class="attr">password</span>: password &#125;)</span><br><span class="line">    <span class="keyword">var</span> usersString = <span class="built_in">JSON</span>.stringify(users) <span class="comment">//对象不能直接存，将其变成字符串</span></span><br><span class="line">    fs.writeFileSync(<span class="string">'./db/users'</span>, usersString)</span><br><span class="line">    response.statusCode = <span class="number">200</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此注册过程完成。接着来做登录功能。<br>首先写一个登录页面sign_in.html：（前端）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"signInForm"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">label</span>&gt;</span>邮箱<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">label</span>&gt;</span>密码<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"error"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> $form = $(<span class="string">'#signInForm'</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> hash = &#123;&#125;</span></span><br><span class="line"><span class="javascript">        $form.on(<span class="string">'submit'</span>, (e) =&gt; &#123;</span></span><br><span class="line">            e.preventDefault()</span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> need = [<span class="string">'email'</span>, <span class="string">'password'</span>]</span></span><br><span class="line"><span class="javascript">            need.forEach( <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> value = $form.find(<span class="string">`[name = <span class="subst">$&#123;name&#125;</span>]`</span>).val()</span></span><br><span class="line">                hash[name] = value</span><br><span class="line">            &#125;)</span><br><span class="line"><span class="javascript">            $form.find(<span class="string">'.error'</span>).each( <span class="function">(<span class="params">index, span</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                $(span).text(<span class="string">''</span>)</span></span><br><span class="line">            &#125;)</span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(hash[<span class="string">'email'</span>] === <span class="string">''</span>)&#123;</span></span><br><span class="line"><span class="javascript">                $form.find(<span class="string">'[name = "email"]'</span>).siblings(<span class="string">'.error'</span>)</span></span><br><span class="line"><span class="javascript">                    .text(<span class="string">'填邮箱呀同学'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span></span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(hash[<span class="string">'password'</span>] === <span class="string">''</span>)&#123;</span></span><br><span class="line"><span class="javascript">                $form.find(<span class="string">'[name = "password"]'</span>).siblings(<span class="string">'.error'</span>)</span></span><br><span class="line"><span class="javascript">                    .text(<span class="string">'填密码呀同学'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span></span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">            $.post(<span class="string">'/sign_in'</span>, hash)</span></span><br><span class="line"><span class="javascript">                .then( <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(response)</span></span><br><span class="line">                &#125;, (request) =&gt; &#123;</span><br><span class="line"><span class="javascript">                    <span class="keyword">let</span> &#123;errors&#125; = request.responseJSON</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span>(errors.email &amp;&amp; errors.email === <span class="string">'invalid'</span>)&#123;</span></span><br><span class="line"><span class="javascript">                        $form.find(<span class="string">'[name = "email"]'</span>).siblings(<span class="string">'.error'</span>)</span></span><br><span class="line"><span class="javascript">                            .text(<span class="string">'邮箱格式错误'</span>)</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在服务器上给sign_in.html写一个路由：（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">'/sign_in'</span> &amp;&amp; method === <span class="string">'GET'</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> string = fs.readFileSync(<span class="string">'./sign_in.html'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">    response.statusCode = <span class="number">200</span></span><br><span class="line">    response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/html;charset=utf-8'</span>)</span><br><span class="line">    response.write(string)</span><br><span class="line">    response.end()</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (path === <span class="string">'/sign_in'</span> &amp;&amp; method === <span class="string">'POST'</span>) &#123;</span><br><span class="line">    readBody(request).then(<span class="function">(<span class="params">body</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> strings = body.split(<span class="string">'&amp;'</span>) <span class="comment">// ['email=1', 'password=2']</span></span><br><span class="line">        <span class="keyword">let</span> hash = &#123;&#125;</span><br><span class="line">        strings.forEach(<span class="function">(<span class="params">string</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> parts = string.split(<span class="string">'='</span>) <span class="comment">// ['email', '1']</span></span><br><span class="line">            <span class="keyword">let</span> key = parts[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">let</span> value = parts[<span class="number">1</span>]</span><br><span class="line">            hash[key] = <span class="built_in">decodeURIComponent</span>(value) <span class="comment">// hash['email'] = '1'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        </span><br><span class="line">        response.end()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>登录页面与注册页面相似，客户端将表单信息收集到一个哈希中，在发起请求时传一个字符串给后端；后端将得到的字符串解析为哈希。</p>
+<p>后端得到包含email和password的哈希后，与数据库进行对比（看数据库里有没有一样的email和password），认证用户：（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; email, password &#125; = hash</span><br><span class="line"><span class="keyword">var</span> users = fs.readFileSync(<span class="string">'./db/users'</span>, <span class="string">'utf8'</span>)</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    users = <span class="built_in">JSON</span>.parse(users) <span class="comment">// []</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (exception) &#123;</span><br><span class="line">    users = []</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> found</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; users.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (users[i].email === email &amp;&amp; users[i].password === password) &#123;</span><br><span class="line">        found = <span class="literal">true</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (found) &#123;</span><br><span class="line">    response.statusCode = <span class="number">200</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    response.statusCode = <span class="number">401</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>登录成功时跳转到首页：（前端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.post(<span class="string">'/sign_in'</span>, hash)</span><br><span class="line">                .then( <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="built_in">window</span>.location.href = <span class="string">'/'</span></span><br><span class="line">                &#125;, (request) =&gt; &#123;</span><br><span class="line">                    alert(<span class="string">'邮箱与密码不匹配'</span>)</span><br><span class="line">                &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>现在有一个问题：即使没有登录，用户也可以直接访问首页，与登录后看到的页面相同。<br>这里我们需要用到<strong>Cookies</strong>。<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie" target="_blank" rel="noopener">HTTP Set-Cookie</a><br>服务器在认证用户成功后，给返回的响应头中添加<code>Set-Cookie</code>：（后端）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (found) &#123;</span><br><span class="line">    response.setHeader(<span class="string">'Set-Cookie'</span>, <span class="string">`sign_in_email=<span class="subst">$&#123;email&#125;</span>`</span>)</span><br><span class="line">    response.statusCode = <span class="number">200</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>选中开发者工具的Preserve log，再次登录。<br>我们可以看到，在向sign_in发起请求时，得到的<strong>响应头</strong>中有一项<code>Set-Cookie: sign_in_email=1@luke.com</code>，而请求成功后接着对主页发起的请求的<strong>请求头</strong>中带着这个Cookie：<code>Cookie: sign_in_email=1@luke.com</code>。</p>
+<p>这就是Cookie的作用：服务器响应中给页面发送一个Cookie，之后同源发起的请求都带着这个Cookie作为识别。<br>理解：第一次进公园时售票员给你两天的票（Set-Cookie），票就是Cookie，两天内可以多次进入公园，每次都要带着票给售票员看。</p>
+<p>Cookie特点：</p>
+<ol>
+<li>服务器通过<code>Set-Cookie</code>响应头设置Cookie</li>
+<li>浏览器得到Cookie之后，每次请求都要带上Cookie</li>
+<li>服务器读取Cookie就知道登录用户的信息</li>
+</ol>
+<p>问题：</p>
+<ol>
+<li>我在Chrome登录得到了Cookie，用Safari访问，Safari会带上Cookie吗？<br>no</li>
+<li>Cookie存在哪？<br>Window存在C盘的一个文件里，其他系统也都存在硬盘的一个文件里。</li>
+<li>Cookie能作假吗？<br>可以。Chrome开发者工具Application-Cookies就可以改。所以Cookie是不安全的。<code>HttpOnly</code>可以限制。 </li>
+<li>Cookie有有效期吗：<br>默认有效期20分钟左右，由浏览器决定。后端可以强制设置有效期。</li>
+</ol>
+<p>现在我们让登录的用户在跳转到首页时可以看到自己的密码：（后台）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (path === <span class="string">'/'</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> string = fs.readFileSync(<span class="string">'./index.html'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//从cookies里拿到用户的email</span></span><br><span class="line">        <span class="keyword">let</span> cookies = request.headers.cookie.split(<span class="string">'; '</span>)   <span class="comment">// ['email=1@', 'a=1', 'b=2']</span></span><br><span class="line">        <span class="keyword">let</span> hash = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; cookies.length; i++) &#123;</span><br><span class="line">            <span class="keyword">let</span> parts = cookies[i].split(<span class="string">'='</span>)</span><br><span class="line">            <span class="keyword">let</span> key = parts[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">let</span> value = parts[<span class="number">1</span>]</span><br><span class="line">            hash[key] = value</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> email = hash.sign_in_email</span><br><span class="line">       </span><br><span class="line">        <span class="comment">//遍历数据库，找到与cookie里email匹配的用户信息</span></span><br><span class="line">        <span class="keyword">let</span> users = fs.readFileSync(<span class="string">'./db/users'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">        users = <span class="built_in">JSON</span>.parse(users)</span><br><span class="line">        <span class="keyword">let</span> foundUser</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; users.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (users[i].email === email) &#123;</span><br><span class="line">                foundUser = users[i]</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果找到用户信息，将用户的密码显示在页面中</span></span><br><span class="line">        <span class="keyword">if</span> (foundUser) &#123;</span><br><span class="line">            string = string.replace(<span class="string">'__password__'</span>, foundUser.password)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            string = string.replace(<span class="string">'__password__'</span>, <span class="string">'不知道'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        response.statusCode = <span class="number">200</span></span><br><span class="line">        response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/html;charset=utf-8'</span>)</span><br><span class="line">        response.write(string)</span><br><span class="line">        response.end()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>index.html：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你的密码是：'__password__'<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结一下流程：</p>
+<ol>
+<li>用户打开sign_up注册，向服务器发送post请求，发送email，password，password_confirmation；</li>
+<li>服务器验证通过，把用户信息写进数据库，并告诉用户注册成功；</li>
+<li>用户打开sign_in登录，发送post请求，发送email和password；</li>
+<li>服务器认证通过，Set-Cookie；</li>
+<li>用户带着Cookie打开首页，发送get请求；</li>
+<li>服务器读取Cookie，从Cookie中得到email，根据email从数据库找到匹配的用户信息写入页面；</li>
+<li>这样登录的用户进入首页时可以看到自己的信息；</li>
+<li>没有登录的访客进入首页看到不同的页面。</li>
+</ol>
+<p>完</p>
+<p><a href="https://github.com/Luke19950111/sign-in-demo" target="_blank" rel="noopener">完整代码</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/注册/" rel="tag"><i class="fa fa-tag"></i> 注册</a>
+          
+            <a href="/tags/登录/" rel="tag"><i class="fa fa-tag"></i> 登录</a>
+          
+            <a href="/tags/cookies/" rel="tag"><i class="fa fa-tag"></i> cookies</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/25/setInterval改写成setTimeout/" rel="next" title="setInterval改写成setTimeout">
+                <i class="fa fa-chevron-left"></i> setInterval改写成setTimeout
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/30/Session/" rel="prev" title="Session">
+                Session <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lk大大">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">lk大大</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">158</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luke19950111" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lukelovenoney@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/b293f4ffc5fc" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-edit"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3699074360/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/" title="What makes a good front end engineer" target="_blank">What makes a good front end engineer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/reader/ebook/7412854/" title="Three.js入门指南（张雯莉）" target="_blank">Three.js入门指南（张雯莉）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.cn/" title="npm中文文档" target="_blank">npm中文文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nodeapp.cn/" title="node.js中文" target="_blank">node.js中文</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://webpack.js.org/" title="webpack" target="_blank">webpack</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.vuejs.org/v2/guide/" title="vue文档" target="_blank">vue文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wangdoc.com/javascript/" title="JS参考教程（阮一峰）" target="_blank">JS参考教程（阮一峰）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://es6.ruanyifeng.com/" title="ES6教程（阮一峰）" target="_blank">ES6教程（阮一峰）</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lk大大</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+ -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.2k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>

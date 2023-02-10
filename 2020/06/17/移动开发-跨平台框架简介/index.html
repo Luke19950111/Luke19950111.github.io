@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-kuai.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-kuai.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="flutter,Android,ios,WebView,JsBridge,JIT,AOT,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="移动开发技术进化历程">
+<meta name="keywords" content="flutter,Android,ios,WebView,JsBridge,JIT,AOT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动开发-跨平台框架简介">
+<meta property="og:url" content="http://yoursite.com/2020/06/17/移动开发-跨平台框架简介/index.html">
+<meta property="og:site_name" content="LK">
+<meta property="og:description" content="移动开发技术进化历程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2023-02-09T08:45:33.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动开发-跨平台框架简介">
+<meta name="twitter:description" content="移动开发技术进化历程">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/06/17/移动开发-跨平台框架简介/">
+
+
+
+
+
+  <title>移动开发-跨平台框架简介 | LK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Luke19950111" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">LK loves money.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/17/移动开发-跨平台框架简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lk大大">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动开发-跨平台框架简介</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-17T17:00:27+08:00">
+                2020-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机常识/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机常识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>移动开发技术进化历程</center>
+<a id="more"></a>
+
+<p><a href="https://book.flutterchina.club/chapter1/mobile_development_intro.html" target="_blank" rel="noopener">原文 杜文（网名wendux）《Flutter实战》</a></p>
+<h2 id="原生开发"><a href="#原生开发" class="headerlink" title="原生开发"></a>原生开发</h2><p>移动平台指 Android、IOS 等系统。<br>原生应用程序指一个移动平台特有的应用，使用平台支持的开发工具和语言，直接调用系统提供的 SDK API。</p>
+<ul>
+<li>Android：<code>Java</code>或<code>Kotlin</code>语言直接调用 Android SDK 开发应用程序</li>
+<li>IOS：<code>Objective-C</code>或<code>Swift</code>语言直接调用 ios SDK 开发应用程序</li>
+</ul>
+<p>优势：</p>
+<ul>
+<li>可访问平台全部功能</li>
+<li>速度快、性能高、可实现复杂动画及绘制，用户体验好</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不同平台需要开发维护不同代码</li>
+<li>动态化（不发版也可以更新应用内容）弱，大多数情况有新功能更新必须发版</li>
+</ul>
+<p>纯原生开发面临开发成本和动态化两个问题，因此诞生了一些跨平台的动态化框架。</p>
+<h2 id="三类跨平台技术"><a href="#三类跨平台技术" class="headerlink" title="三类跨平台技术"></a>三类跨平台技术</h2><ul>
+<li>H5 + 原生（Cordova，Ionic，微信小程序）</li>
+<li>JavaScript 开发 + 原生渲染（React Native，Weex，快应用）</li>
+<li>自绘 UI + 原生（QT for mobile，Flutter）</li>
+</ul>
+<h3 id="H5-原生（Hybrid）"><a href="#H5-原生（Hybrid）" class="headerlink" title="H5 + 原生（Hybrid）"></a>H5 + 原生（Hybrid）</h3><p>原理：将 APP 一部分需要动态变动的内容通过 H5 实现，通过原生网页加载控件（WebView-Android，WKWebView-ios）来加载。</p>
+<ul>
+<li>H5 部分可随时改变不用发版，动态化</li>
+<li>H5 代码只需一次开发就可以在两个平台运行</li>
+<li>这种 h5+原生的开发模式称为<code>混合开发</code>，采用混合开发的 APP 称为<code>混合应用</code>或<code>Hybrid App</code>，如果应用大多数功能都是 H5 实现，称其为<code>Web App</code></li>
+</ul>
+<p>典型代表：Cordova、Ionic、微信小程序（小程序在 webviwe 中渲染，并非原生渲染）</p>
+<p>技术点：</p>
+<ul>
+<li>H5 代码运行在 WebView 中，WebView 实质上是浏览器内核，其 JavaScript 运行在一个权限受限的沙箱中，对大多数系统能力无法访问</li>
+<li>混合框架在原生代码中预先实现一些访问系统能力的 API，暴露给 WebView 以供 JavaScript 调用</li>
+<li>WebView 成为 JavaScript 与原生 API 之间通信的桥梁，将<strong>依赖于 WebView 的用于在 JavaScript 与原生之间通信并实现了某种消息传输协议的工具</strong>称为<code>WebView JavaScrip Bridge</code>，即<code>JsBridge</code>，它是混合开发框架的核心</li>
+</ul>
+<p>优缺点：优点是动态内容是 H5，web 技术栈，社区及资源丰富；缺点是性能不好，无法实现复杂用户界面或动画。</p>
+<h3 id="JavaScript-开发-原生渲染"><a href="#JavaScript-开发-原生渲染" class="headerlink" title="JavaScript 开发 + 原生渲染"></a>JavaScript 开发 + 原生渲染</h3><p>DOM 树与控件树：DOM 树和控件树是等价概念，前者用于 Web 开发中，后者用于原生开发中。</p>
+<p>响应式编程：</p>
+<ul>
+<li>只关注状态（数据）转移，状态变化自动根据新的状态重新构建 UI</li>
+<li>框架接收到状态变化通知后，根据当前渲染树，结合最新状态改变，计算出树中变化的部分，然后只更新变化的部分</li>
+<li>第二点中，状态变化后 React 框架不会立即计算并渲染 DOM 树变化部分，会在 DOM 基础上建立一个虚拟 DOM 树，状态改动先会被同步到虚拟 DOM，最后批量同步到真实 DOM（浏览器中每一次 DOM 操作都可能引起浏览器的重绘或回流，频繁操作 DOM 会带来性能问题）</li>
+</ul>
+<h4 id="React-Native"><a href="#React-Native" class="headerlink" title="React Native"></a>React Native</h4><p>React 与 React Native：</p>
+<ul>
+<li>React Native 是 React 在原生移动应用平台的衍生产物</li>
+<li>区别在于虚拟 DOM 映射对象，React 中虚拟 DOM 映射为<strong>浏览器 DOM 树</strong>，RN 中虚拟 DOM 通过<code>JavaScriptCore</code>映射为<strong>原生控件树</strong></li>
+</ul>
+<p>JavaScriptCore：</p>
+<ul>
+<li>是一个 JavaScript 解释器</li>
+<li>在 RN 中为 JavaScript 提供运行环境</li>
+<li>和 JsBridge 一样，是 JavaScript 和原生应用之间的通信桥梁</li>
+</ul>
+<p>RN 中将虚拟 DOM 映射为原生控件过程：</p>
+<ul>
+<li>布局消息传递：将虚拟 DOM 布局信息传递给原生</li>
+<li>原生根据布局信息渲染控件树</li>
+</ul>
+<p>优势：</p>
+<ul>
+<li>RN 使用了 Web 技术栈，只需维护一份代码</li>
+<li>原生控件渲染，性能比混合开发中 H5 好</li>
+</ul>
+<h4 id="Weex"><a href="#Weex" class="headerlink" title="Weex"></a>Weex</h4><p>Weex 是阿里巴巴发布的跨平台移动端开发框架，思想及原理和 React Native 类似。<br>不同在语法层面，Weex 支持 Vue 和 Rax，RN 只支持 JSX。</p>
+<h4 id="快应用"><a href="#快应用" class="headerlink" title="快应用"></a>快应用</h4><p>快应用是华为、小米、OPPO 等国内 9 大手机厂商制定的轻量级应用标准，采用 JavaScript 开发，原生控件渲染。</p>
+<p>与 React Native、Weex 区别：</p>
+<ul>
+<li>采用 JavaScript 开发，自身不支持 Vue 或 React 语法</li>
+<li>RN 和 Weex 的渲染/排版引擎集成在框架中，每个 APP 都要打包一份，安装包体积较大</li>
+<li>快应用渲染/排版引擎集成在 ROM 中，应用中无需打包，安装包体积小，快速分发</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>优势：</p>
+<ul>
+<li>Web 技术栈，社区庞大，上手快，成本低</li>
+<li>原生渲染，性能比 H5 好</li>
+<li>动态化较好</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>渲染时需要 JavaScript 和原生之间通信，通信频繁会导致卡顿</li>
+<li>JavaScript 为脚本语言，执行时需要<code>JIT(Just In Time)</code>，执行效率和<code>AOT(Ahead Of Time)</code>代码仍有差距</li>
+<li>渲染依赖原生控件，不同平台控件需要单独维护；控件受原生 UI 系统限制</li>
+</ul>
+<h3 id="自绘-UI-原生"><a href="#自绘-UI-原生" class="headerlink" title="自绘 UI + 原生"></a>自绘 UI + 原生</h3><p>原理：在不同平台实现一个统一接口的渲染引擎来绘制 UI，不依赖系统原生控件，可以做到不同平台 UI 一致。自绘引擎解决的是 UI 的跨平台问题，如果涉及其他系统能力调用，还要涉及原生开发。</p>
+<p>优势：</p>
+<ul>
+<li>性能高：自绘引擎直接调用系统 API 来绘制 UI，性能和原生控件接近</li>
+<li>灵活、组件库易维护、UI 外观一致性高</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>动态性不足：为保证 UI 绘制性能，一般采用 AOT 模式编译发布包，应用发布后不能像 JIT 作为开发语言的框架那样动态下发代码</li>
+</ul>
+<h4 id="QT"><a href="#QT" class="headerlink" title="QT"></a>QT</h4><p>QT 是自绘 UI + 原生设计思想的一个典型代表，但在移动端表现不佳</p>
+<ul>
+<li>使用 C++作为开发语言，效率低，UI 开发灵活性弱</li>
+<li>移动端发力晚，市场已被 Hybrid、RN 等其他动态框架占领</li>
+<li>社区小，生态不好</li>
+<li>官方推广不力</li>
+</ul>
+<h4 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h4><p>Flutter 不会步 QT 后尘</p>
+<ul>
+<li>生态：目前 Flutter 活跃用户高速增长，社区已经很庞大，文档、资源越来越丰富，开发中很多问题都可以在 github issue 和 Stackoverflow 中找到答案</li>
+<li>官方支持：Google 正大力推广 Flutter，版本发布频繁</li>
+<li>开发效率：Flutter 热重载提高开发效率</li>
+</ul>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>三种跨平台技术：</p>
+<table>
+<thead>
+<tr>
+<th>技术类型</th>
+<th>UI 渲染方式</th>
+<th>性能</th>
+<th>开发效率</th>
+<th>动态化</th>
+<th>框架代表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H5+原生</td>
+<td>WebView 渲染</td>
+<td>一般</td>
+<td>高</td>
+<td>支持</td>
+<td>Cordova、Ionic、微信小程序</td>
+</tr>
+<tr>
+<td>JavaScript+原生渲染</td>
+<td>原生控件渲染</td>
+<td>好</td>
+<td>中</td>
+<td>支持</td>
+<td>RN、Weex、快应用</td>
+</tr>
+<tr>
+<td>自绘 UI+原生</td>
+<td>调用系统 API 渲染</td>
+<td>好</td>
+<td>Flutter 高, QT 低</td>
+<td>默认不支持</td>
+<td>QT、Flutter</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/flutter/" rel="tag"><i class="fa fa-tag"></i> flutter</a>
+          
+            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          
+            <a href="/tags/ios/" rel="tag"><i class="fa fa-tag"></i> ios</a>
+          
+            <a href="/tags/WebView/" rel="tag"><i class="fa fa-tag"></i> WebView</a>
+          
+            <a href="/tags/JsBridge/" rel="tag"><i class="fa fa-tag"></i> JsBridge</a>
+          
+            <a href="/tags/JIT/" rel="tag"><i class="fa fa-tag"></i> JIT</a>
+          
+            <a href="/tags/AOT/" rel="tag"><i class="fa fa-tag"></i> AOT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/13/element-ui中el-select的change事件获取对象多个值/" rel="next" title="element-ui中el-select的change事件获取对象多个值">
+                <i class="fa fa-chevron-left"></i> element-ui中el-select的change事件获取对象多个值
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/03/DOM事件委托/" rel="prev" title="DOM事件委托">
+                DOM事件委托 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lk大大">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">lk大大</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">158</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luke19950111" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lukelovenoney@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/b293f4ffc5fc" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-edit"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3699074360/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/" title="What makes a good front end engineer" target="_blank">What makes a good front end engineer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/reader/ebook/7412854/" title="Three.js入门指南（张雯莉）" target="_blank">Three.js入门指南（张雯莉）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.cn/" title="npm中文文档" target="_blank">npm中文文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nodeapp.cn/" title="node.js中文" target="_blank">node.js中文</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://webpack.js.org/" title="webpack" target="_blank">webpack</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.vuejs.org/v2/guide/" title="vue文档" target="_blank">vue文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wangdoc.com/javascript/" title="JS参考教程（阮一峰）" target="_blank">JS参考教程（阮一峰）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://es6.ruanyifeng.com/" title="ES6教程（阮一峰）" target="_blank">ES6教程（阮一峰）</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生开发"><span class="nav-number">1.</span> <span class="nav-text">原生开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三类跨平台技术"><span class="nav-number">2.</span> <span class="nav-text">三类跨平台技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#H5-原生（Hybrid）"><span class="nav-number">2.1.</span> <span class="nav-text">H5 + 原生（Hybrid）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-开发-原生渲染"><span class="nav-number">2.2.</span> <span class="nav-text">JavaScript 开发 + 原生渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#React-Native"><span class="nav-number">2.2.1.</span> <span class="nav-text">React Native</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weex"><span class="nav-number">2.2.2.</span> <span class="nav-text">Weex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快应用"><span class="nav-number">2.2.3.</span> <span class="nav-text">快应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">2.2.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自绘-UI-原生"><span class="nav-number">2.3.</span> <span class="nav-text">自绘 UI + 原生</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#QT"><span class="nav-number">2.3.1.</span> <span class="nav-text">QT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flutter"><span class="nav-number">2.3.2.</span> <span class="nav-text">Flutter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-1"><span class="nav-number">2.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lk大大</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+ -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.2k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>
