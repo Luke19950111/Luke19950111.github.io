@@ -96,7 +96,9 @@
 <meta property="og:image" content="http://yoursite.com/2023/08/09/Vue%20响应式原理/%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8.png">
 <meta property="og:image" content="http://yoursite.com/2023/08/09/Vue%20响应式原理/%E6%94%B9%E5%86%99%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95.png">
 <meta property="og:image" content="http://yoursite.com/2023/08/09/Vue%20响应式原理/Dep.png">
-<meta property="og:updated_time" content="2023-08-10T01:49:17.294Z">
+<meta property="og:image" content="http://yoursite.com/2023/08/09/Vue%20响应式原理/vue3%E5%93%8D%E5%BA%94%E5%BC%8F.jpg">
+<meta property="og:image" content="http://yoursite.com/2023/08/09/Vue%20响应式原理/vue3%E5%93%8D%E5%BA%94%E5%BC%8F%E6%BA%90%E7%A0%81.jpg">
+<meta property="og:updated_time" content="2023-08-16T07:04:57.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 响应式原理">
 <meta name="twitter:image" content="http://yoursite.com/2023/08/09/Vue%20响应式原理/Dep.png">
@@ -437,13 +439,55 @@
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Watcher(obj, <span class="string">'a.b.c'</span>, (val, oval) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(val, <span class="string">'nval'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(oval, <span class="string">'oval'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h1 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h1><p>待更新…</p>
-<h1 id="Vue2-和-Vue3-响应式区别"><a href="#Vue2-和-Vue3-响应式区别" class="headerlink" title="Vue2 和 Vue3 响应式区别"></a>Vue2 和 Vue3 响应式区别</h1><ul>
+<h1 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h1><h2 id="主要工作流程"><a href="#主要工作流程" class="headerlink" title="主要工作流程"></a>主要工作流程</h2><ol>
+<li><strong>响应式简单理解就两步： <code>track</code> + <code>trigger</code>，中文含义为跟踪 +　触发</strong><ul>
+<li>跟踪（track）：也就是依赖收集，对于响应式数据，找到依赖于该数据的<strong>副作用函数</strong>，然后使用一个方便存储的结构存储对应关系</li>
+<li>触发（trigger）：当监听到响应式数据变化时，就在之前收集的存储桶里找到相关的副作用函数，然后执行</li>
+</ul>
+</li>
+<li><strong>为了自动触发，使用 Proxy 代理响应式对象 <code>ReactiveObject</code></strong><ul>
+<li>将 track 函数放入了 get，使用该数据时会自动触发 <code>track()</code></li>
+<li>将 trigger 函数放入了 set，使用该数据时会自动触发 <code>trigger()</code></li>
+</ul>
+</li>
+<li><strong>为了避免硬编码函数名，每次在 track 时都需要知道副作用函数的名字</strong><ul>
+<li>使用全局变量 <code>activeEffect</code> 来代替，及 track 函数每次收集 <code>activeEffect</code> 变量所指向的函数 （取 activeEffect 变量）</li>
+<li>然后通过 <code>ReactiveEffect</code> 注册传递过来的副作用函数，将 <code>activeEffect</code> 变量指向该副作用函数 （把当前副作用函数赋值给 activeEffect 变量）</li>
+</ul>
+</li>
+</ol>
+<p>下面介绍具体一点的工作链路。</p>
+<p><img src="vue3%E5%93%8D%E5%BA%94%E5%BC%8F.jpg" alt></p>
+<p><strong>工作过程：</strong></p>
+<ol start="0">
+<li>首先有一个响应式数据 <code>ReactiveObject{}</code> 和依赖于该数据的一个副作用函数 <code>Effect()</code></li>
+<li>将副作用函数传递到 <code>ReactiveEffect</code> 函数中</li>
+<li>注册该副作用函数，将 <code>activeEffect</code> 变量指向它</li>
+<li>执行该副作用函数</li>
+<li>由于该副作用函数依赖于响应式数据 <code>ReactiveObject</code>，并且已经为 <code>ReactiveObject</code> 设置了代理拦截操作 <code>get</code>，故在读取该值时会触发 <code>track</code> 函数</li>
+<li>track 函数找到 <code>activeEffect</code> 变量，此时指向的正是需要的 <code>Effect</code> 函数</li>
+<li>将属性值与副作用函数绑定关系并存储</li>
+<li><code>activeEffect = null</code> 方便后续调用</li>
+</ol>
+<p>当我们更新了响应式数据中断值后，由于已经为 <code>ReactiveObject</code> 设置了代理拦截操作 <code>set</code>，故会在我们设置该对象属性值时自动触发 <code>trigger</code> 函数</p>
+<ol start="8">
+<li>找到属性值依赖的副作用函数</li>
+<li>执行副作用函数完成自动更新</li>
+</ol>
+<h2 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h2><p>核心代码实现如下图：</p>
+<p><img src="vue3%E5%93%8D%E5%BA%94%E5%BC%8F%E6%BA%90%E7%A0%81.jpg" alt></p>
+<h1 id="Vue2-和-Vue3-响应式比较"><a href="#Vue2-和-Vue3-响应式比较" class="headerlink" title="Vue2 和 Vue3 响应式比较"></a>Vue2 和 Vue3 响应式比较</h1><ul>
 <li><code>vue2</code> 中采用 <code>defineProperty</code> 来劫持整个对象，然后进行深度遍历所有属性，给每个属性添加 <code>getter</code> 和 <code>setter</code>，实现响应式</li>
 <li><code>vue3</code> 采用 <code>proxy</code> 重写了响应式系统，因为 <code>proxy</code> 可以对整个对象进行监听，所以不需要深度遍历<ul>
 <li>可以动态监听属性的添加</li>
 <li>可以监听到数组的索引和数组 <code>length</code> 属性</li>
 <li>可以监听删除属性</li>
+</ul>
+</li>
+<li>vue2 和 vue3 的响应式实现也有类似之处<ul>
+<li>先将数据转换为响应式数据（分别用 <code>defineProperty</code> 和 <code>Proxy</code>）</li>
+<li>都在 get 中收集依赖，在 set 中触发依赖（依赖分别为 <strong>Watcher 实例</strong> 和<strong>副作用函数</strong>）</li>
+<li>依赖收集过程中都将需要的函数设置为一个全局变量（分别为 <code>Dep.target</code> 和 <code>activeEffect</code> 变量）</li>
 </ul>
 </li>
 </ul>
@@ -705,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue2"><span class="nav-number">1.</span> <span class="nav-text">Vue2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将对象属性转为响应式"><span class="nav-number">1.1.</span> <span class="nav-text">将对象属性转为响应式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的响应式处理"><span class="nav-number">1.2.</span> <span class="nav-text">数组的响应式处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Watcher类和Dep类"><span class="nav-number">1.3.</span> <span class="nav-text">Watcher类和Dep类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue3"><span class="nav-number">2.</span> <span class="nav-text">Vue3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue2-和-Vue3-响应式区别"><span class="nav-number">3.</span> <span class="nav-text">Vue2 和 Vue3 响应式区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue2"><span class="nav-number">1.</span> <span class="nav-text">Vue2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将对象属性转为响应式"><span class="nav-number">1.1.</span> <span class="nav-text">将对象属性转为响应式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的响应式处理"><span class="nav-number">1.2.</span> <span class="nav-text">数组的响应式处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Watcher类和Dep类"><span class="nav-number">1.3.</span> <span class="nav-text">Watcher类和Dep类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue3"><span class="nav-number">2.</span> <span class="nav-text">Vue3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要工作流程"><span class="nav-number">2.1.</span> <span class="nav-text">主要工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心代码"><span class="nav-number">2.2.</span> <span class="nav-text">核心代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue2-和-Vue3-响应式比较"><span class="nav-number">3.</span> <span class="nav-text">Vue2 和 Vue3 响应式比较</span></a></li></ol></div>
             
 
           </div>
@@ -757,7 +801,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共53.2k字</span>
+  <span class="post-count">博客全站共53.8k字</span>
 </div>
         
 <div class="busuanzi-count">
