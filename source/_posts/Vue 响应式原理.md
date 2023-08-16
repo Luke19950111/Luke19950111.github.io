@@ -374,12 +374,53 @@ new Watcher(obj, 'a.b.c', (val, oval) => {
 
 # Vue3
 
-待更新...
+## 主要工作流程
 
-# Vue2 和 Vue3 响应式区别
+1. **响应式简单理解就两步： `track` + `trigger`，中文含义为跟踪 +　触发**
+  - 跟踪（track）：也就是依赖收集，对于响应式数据，找到依赖于该数据的**副作用函数**，然后使用一个方便存储的结构存储对应关系
+  - 触发（trigger）：当监听到响应式数据变化时，就在之前收集的存储桶里找到相关的副作用函数，然后执行
+2. **为了自动触发，使用 Proxy 代理响应式对象 `ReactiveObject`**
+  - 将 track 函数放入了 get，使用该数据时会自动触发 `track()`
+  - 将 trigger 函数放入了 set，使用该数据时会自动触发 `trigger()`
+3. **为了避免硬编码函数名，每次在 track 时都需要知道副作用函数的名字**
+  - 使用全局变量 `activeEffect` 来代替，及 track 函数每次收集 `activeEffect` 变量所指向的函数 （取 activeEffect 变量）
+  - 然后通过 `ReactiveEffect` 注册传递过来的副作用函数，将 `activeEffect` 变量指向该副作用函数 （把当前副作用函数赋值给 activeEffect 变量）
+
+下面介绍具体一点的工作链路。
+
+![](vue3响应式.jpg)
+
+**工作过程：**
+
+0. 首先有一个响应式数据 `ReactiveObject{}` 和依赖于该数据的一个副作用函数 `Effect()`
+1. 将副作用函数传递到 `ReactiveEffect` 函数中
+2. 注册该副作用函数，将 `activeEffect` 变量指向它
+3. 执行该副作用函数
+4. 由于该副作用函数依赖于响应式数据 `ReactiveObject`，并且已经为 `ReactiveObject` 设置了代理拦截操作 `get`，故在读取该值时会触发 `track` 函数
+5. track 函数找到 `activeEffect` 变量，此时指向的正是需要的 `Effect` 函数
+6. 将属性值与副作用函数绑定关系并存储
+7. `activeEffect = null` 方便后续调用
+
+当我们更新了响应式数据中断值后，由于已经为 `ReactiveObject` 设置了代理拦截操作 `set`，故会在我们设置该对象属性值时自动触发 `trigger` 函数
+
+8. 找到属性值依赖的副作用函数
+9. 执行副作用函数完成自动更新
+
+## 核心代码
+
+核心代码实现如下图：
+
+![](vue3响应式源码.jpg)
+
+
+# Vue2 和 Vue3 响应式比较
 
 - `vue2` 中采用 `defineProperty` 来劫持整个对象，然后进行深度遍历所有属性，给每个属性添加 `getter` 和 `setter`，实现响应式
 - `vue3` 采用 `proxy` 重写了响应式系统，因为 `proxy` 可以对整个对象进行监听，所以不需要深度遍历
   - 可以动态监听属性的添加
   - 可以监听到数组的索引和数组 `length` 属性
   - 可以监听删除属性
+- vue2 和 vue3 的响应式实现也有类似之处
+  - 先将数据转换为响应式数据（分别用 `defineProperty` 和 `Proxy`）
+  - 都在 get 中收集依赖，在 set 中触发依赖（依赖分别为 **Watcher 实例** 和**副作用函数**）
+  - 依赖收集过程中都将需要的函数设置为一个全局变量（分别为 `Dep.target` 和 `activeEffect` 变量）
