@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-kuai.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-kuai.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AI,Agent,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="为已有前端项目搭建 AI Agent 的操作步骤">
+<meta name="keywords" content="AI,Agent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Agent 搭建">
+<meta property="og:url" content="http://yoursite.com/2026/03/11/AI-Agent-搭建/index.html">
+<meta property="og:site_name" content="LK">
+<meta property="og:description" content="为已有前端项目搭建 AI Agent 的操作步骤">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2026-03-11T09:00:09.565Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Agent 搭建">
+<meta name="twitter:description" content="为已有前端项目搭建 AI Agent 的操作步骤">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2026/03/11/AI-Agent-搭建/">
+
+
+
+
+
+  <title>AI Agent 搭建 | LK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Luke19950111" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">LK loves money.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2026/03/11/AI-Agent-搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lk大大">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">AI Agent 搭建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2026-03-11T16:55:17+08:00">
+                2026-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>为已有前端项目搭建 AI Agent 的操作步骤</center>
+
+<a id="more"></a>
+
+
+<h1 id="AI-Agent-详细介绍"><a href="#AI-Agent-详细介绍" class="headerlink" title="AI Agent 详细介绍"></a>AI Agent 详细介绍</h1><h2 id="一、AI-Agent-是什么"><a href="#一、AI-Agent-是什么" class="headerlink" title="一、AI Agent 是什么"></a>一、AI Agent 是什么</h2><p><strong>AI Agent（AI 智能体/代理）</strong> 是一种能够自主感知环境、做出决策并执行行动以达成特定目标的人工智能系统。与传统的”一问一答”式 AI 对话不同，Agent 具备以下核心特征：</p>
+<h3 id="1-核心组成"><a href="#1-核心组成" class="headerlink" title="1. 核心组成"></a>1. 核心组成</h3><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>大语言模型（LLM）</strong></td>
+<td>Agent 的”大脑”，负责理解、推理和决策。如 GPT-4、Claude、Gemini、DeepSeek 等</td>
+</tr>
+<tr>
+<td><strong>记忆系统（Memory）</strong></td>
+<td>短期记忆（当前对话上下文）和长期记忆（持久化知识库），使 Agent 能够在多轮交互中保持连贯</td>
+</tr>
+<tr>
+<td><strong>工具调用（Tools/Function Calling）</strong></td>
+<td>Agent 可以调用外部工具，如搜索引擎、数据库查询、API 调用、代码执行器、文件操作等</td>
+</tr>
+<tr>
+<td><strong>规划能力（Planning）</strong></td>
+<td>将复杂任务分解为子任务，制定执行计划，按步骤完成</td>
+</tr>
+<tr>
+<td><strong>行动执行（Action）</strong></td>
+<td>根据规划结果，实际执行操作并观察结果</td>
+</tr>
+<tr>
+<td><strong>反思/自我纠错（Reflection）</strong></td>
+<td>评估执行结果，发现错误时自动调整策略</td>
+</tr>
+</tbody></table>
+<h3 id="2-Agent-与普通-AI-对话的区别"><a href="#2-Agent-与普通-AI-对话的区别" class="headerlink" title="2. Agent 与普通 AI 对话的区别"></a>2. Agent 与普通 AI 对话的区别</h3><p><strong>普通 AI 对话</strong>（如 ChatGPT 基础模式）：用户提问 → 模型回答 → 结束。模型是被动的、无状态的、不能执行动作。</p>
+<p><strong>AI Agent</strong>：用户给出目标 → Agent 自主规划 → 调用工具执行 → 观察结果 → 继续推理 → 循环直到任务完成。Agent 是主动的、有状态的、能执行真实动作。</p>
+<h3 id="3-Agent-的工作循环（ReAct-模式）"><a href="#3-Agent-的工作循环（ReAct-模式）" class="headerlink" title="3. Agent 的工作循环（ReAct 模式）"></a>3. Agent 的工作循环（ReAct 模式）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">用户输入目标</span><br><span class="line">    ↓</span><br><span class="line">思考（Reasoning）：分析当前状态，决定下一步</span><br><span class="line">    ↓</span><br><span class="line">行动（Action）：调用某个工具</span><br><span class="line">    ↓</span><br><span class="line">观察（Observation）：获取工具返回的结果</span><br><span class="line">    ↓</span><br><span class="line">再次思考 → 行动 → 观察... （循环）</span><br><span class="line">    ↓</span><br><span class="line">输出最终结果</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-常见-Agent-架构模式"><a href="#4-常见-Agent-架构模式" class="headerlink" title="4. 常见 Agent 架构模式"></a>4. 常见 Agent 架构模式</h3><p><strong>单 Agent 模式</strong>：一个 Agent 独立完成所有任务。适合简单场景。</p>
+<p><strong>多 Agent 协作模式</strong>：多个专门化 Agent 协作完成复杂任务。例如：一个 Agent 负责搜索，一个负责代码编写，一个负责审查。典型框架有 CrewAI、AutoGen、LangGraph 等。</p>
+<p><strong>层级 Agent 模式</strong>：一个”管理者”Agent 负责任务分配，多个”工人”Agent 负责具体执行。</p>
+<h3 id="5-主流-Agent-框架"><a href="#5-主流-Agent-框架" class="headerlink" title="5. 主流 Agent 框架"></a>5. 主流 Agent 框架</h3><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LangChain / LangGraph</strong></td>
+<td>最流行的 Agent 开发框架，支持复杂的工作流编排</td>
+</tr>
+<tr>
+<td><strong>Vercel AI SDK</strong></td>
+<td>面向前端/全栈开发者，与 Next.js 深度集成</td>
+</tr>
+<tr>
+<td><strong>OpenAI Agents SDK</strong></td>
+<td>OpenAI 官方出品，支持 Handoff、Guardrails 等特性</td>
+</tr>
+<tr>
+<td><strong>CrewAI</strong></td>
+<td>多 Agent 协作框架，角色扮演模式</td>
+</tr>
+<tr>
+<td><strong>AutoGen (Microsoft)</strong></td>
+<td>微软的多 Agent 对话框架</td>
+</tr>
+<tr>
+<td><strong>Mastra</strong></td>
+<td>TypeScript 优先的 Agent 框架，适合前端开发者</td>
+</tr>
+<tr>
+<td><strong>Dify / Coze</strong></td>
+<td>低代码/无代码 Agent 构建平台</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、为已有前端项目搭建-AI-Agent-的操作步骤"><a href="#二、为已有前端项目搭建-AI-Agent-的操作步骤" class="headerlink" title="二、为已有前端项目搭建 AI Agent 的操作步骤"></a>二、为已有前端项目搭建 AI Agent 的操作步骤</h2><p>以一个典型的 <strong>React + Next.js 前端项目</strong> 为例，集成一个具备工具调用能力的 AI Agent，采用 <strong>Vercel AI SDK</strong>（目前前端生态中最成熟的方案之一）。</p>
+<h3 id="场景假设"><a href="#场景假设" class="headerlink" title="场景假设"></a>场景假设</h3><p>你有一个已有的前端项目，想为其添加一个 AI Agent 功能，例如：</p>
+<ul>
+<li>智能客服助手（能查询订单、搜索知识库）</li>
+<li>数据分析助手（能查数据库、生成图表）</li>
+<li>项目管理助手（能创建任务、查询进度）</li>
+</ul>
+<h3 id="步骤-1：选择技术栈和模型供应商"><a href="#步骤-1：选择技术栈和模型供应商" class="headerlink" title="步骤 1：选择技术栈和模型供应商"></a>步骤 1：选择技术栈和模型供应商</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">决策清单：</span><br><span class="line">├── LLM 供应商：OpenAI / Anthropic / 本地模型（Ollama）/ 国内模型（DeepSeek、通义千问）</span><br><span class="line">├── Agent 框架：Vercel AI SDK（推荐前端项目）/ LangChain.js</span><br><span class="line">├── 后端运行时：Next.js API Routes / Node.js Server / Edge Runtime</span><br><span class="line">└── 前端 UI：自定义 Chat UI / @ai-sdk/react 的 useChat hook</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-2：安装依赖"><a href="#步骤-2：安装依赖" class="headerlink" title="步骤 2：安装依赖"></a>步骤 2：安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 核心 AI SDK</span></span><br><span class="line">npm install ai @ai-sdk/openai</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果用 Anthropic（Claude）</span></span><br><span class="line">npm install @ai-sdk/anthropic</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果用 zod 做工具参数校验（推荐）</span></span><br><span class="line">npm install zod</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-3：配置环境变量"><a href="#步骤-3：配置环境变量" class="headerlink" title="步骤 3：配置环境变量"></a>步骤 3：配置环境变量</h3><p>在项目根目录的 <code>.env.local</code> 中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># OpenAI</span><br><span class="line">OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx</span><br><span class="line"></span><br><span class="line"># 或 Anthropic</span><br><span class="line">ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxxxxxx</span><br><span class="line"></span><br><span class="line"># 如果使用国内模型的 OpenAI 兼容接口</span><br><span class="line">OPENAI_BASE_URL=https://api.deepseek.com/v1</span><br><span class="line">OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-4：创建后端-Agent-API-路由"><a href="#步骤-4：创建后端-Agent-API-路由" class="headerlink" title="步骤 4：创建后端 Agent API 路由"></a>步骤 4：创建后端 Agent API 路由</h3><p>在 <code>app/api/agent/route.ts</code>（Next.js App Router）中：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; openai &#125; <span class="keyword">from</span> <span class="string">'@ai-sdk/openai'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; streamText, tool &#125; <span class="keyword">from</span> <span class="string">'ai'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; z &#125; <span class="keyword">from</span> <span class="string">'zod'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> maxDuration = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">POST</span>(<span class="params">req: Request</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; messages &#125; = <span class="keyword">await</span> req.json();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> result = streamText(&#123;</span><br><span class="line">    model: openai(<span class="string">'gpt-4o'</span>),</span><br><span class="line">    system: <span class="string">`你是一个智能助手。你可以使用工具来帮助用户完成任务。</span></span><br><span class="line"><span class="string">             在回答之前，先思考是否需要调用工具获取信息。`</span>,</span><br><span class="line">    messages,</span><br><span class="line">    tools: &#123;</span><br><span class="line">      <span class="comment">// 工具 1：查询天气</span></span><br><span class="line">      getWeather: tool(&#123;</span><br><span class="line">        description: <span class="string">'获取指定城市的天气信息'</span>,</span><br><span class="line">        parameters: z.object(&#123;</span><br><span class="line">          city: z.string().describe(<span class="string">'城市名称'</span>),</span><br><span class="line">        &#125;),</span><br><span class="line">        execute: <span class="keyword">async</span> (&#123; city &#125;) =&gt; &#123;</span><br><span class="line">          <span class="comment">// 实际项目中这里调用真实的天气 API</span></span><br><span class="line">          <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(</span><br><span class="line">            <span class="string">`https://api.weather.example.com?city=<span class="subst">$&#123;city&#125;</span>`</span></span><br><span class="line">          );</span><br><span class="line">          <span class="keyword">return</span> response.json();</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;),</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 工具 2：查询数据库</span></span><br><span class="line">      queryDatabase: tool(&#123;</span><br><span class="line">        description: <span class="string">'查询业务数据库获取信息'</span>,</span><br><span class="line">        parameters: z.object(&#123;</span><br><span class="line">          query: z.string().describe(<span class="string">'SQL 查询语句'</span>),</span><br><span class="line">        &#125;),</span><br><span class="line">        execute: <span class="keyword">async</span> (&#123; query &#125;) =&gt; &#123;</span><br><span class="line">          <span class="comment">// 调用你的数据库查询服务</span></span><br><span class="line">          <span class="comment">// 注意：生产环境应做 SQL 注入防护</span></span><br><span class="line">          <span class="keyword">const</span> result = <span class="keyword">await</span> dbClient.query(query);</span><br><span class="line">          <span class="keyword">return</span> result;</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;),</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 工具 3：搜索知识库</span></span><br><span class="line">      searchKnowledge: tool(&#123;</span><br><span class="line">        description: <span class="string">'在知识库中搜索相关文档'</span>,</span><br><span class="line">        parameters: z.object(&#123;</span><br><span class="line">          keyword: z.string().describe(<span class="string">'搜索关键词'</span>),</span><br><span class="line">          limit: z.number().optional().default(<span class="number">5</span>).describe(<span class="string">'返回结果数量'</span>),</span><br><span class="line">        &#125;),</span><br><span class="line">        execute: <span class="keyword">async</span> (&#123; keyword, limit &#125;) =&gt; &#123;</span><br><span class="line">          <span class="comment">// 调用向量数据库或全文搜索</span></span><br><span class="line">          <span class="keyword">const</span> results = <span class="keyword">await</span> vectorDB.search(keyword, limit);</span><br><span class="line">          <span class="keyword">return</span> results;</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;),</span><br><span class="line">    &#125;,</span><br><span class="line">    maxSteps: <span class="number">5</span>, <span class="comment">// 允许 Agent 最多执行 5 轮工具调用循环</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result.toDataStreamResponse();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键概念说明：</strong></p>
+<ul>
+<li><code>tools</code> 定义了 Agent 可以使用的工具集合，每个工具有描述、参数 schema 和执行函数</li>
+<li><code>maxSteps</code> 控制 Agent 的推理-行动循环次数，防止无限循环</li>
+<li><code>streamText</code> 以流式方式返回响应，用户可以看到实时生成过程</li>
+<li>Agent 会自主决定何时调用哪个工具，调用后将结果纳入上下文继续推理</li>
+</ul>
+<h3 id="步骤-5：创建前端-Chat-UI"><a href="#步骤-5：创建前端-Chat-UI" class="headerlink" title="步骤 5：创建前端 Chat UI"></a>步骤 5：创建前端 Chat UI</h3><p>在 <code>app/agent/page.tsx</code> 中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&apos;use client&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; useChat &#125; from &apos;@ai-sdk/react&apos;;</span><br><span class="line"></span><br><span class="line">export default function AgentPage() &#123;</span><br><span class="line">  const &#123; messages, input, handleInputChange, handleSubmit, isLoading &#125; =</span><br><span class="line">    useChat(&#123;</span><br><span class="line">      api: &apos;/api/agent&apos;,</span><br><span class="line">      maxSteps: 5, // 前端也需要设置，以自动处理多步工具调用</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;mx-auto max-w-2xl p-4&quot;&gt;</span><br><span class="line">      &lt;h1 className=&quot;mb-4 text-2xl font-bold&quot;&gt;AI 智能助手&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">      &lt;div className=&quot;mb-4 space-y-4&quot;&gt;</span><br><span class="line">        &#123;messages.map((message) =&gt; (</span><br><span class="line">          &lt;div</span><br><span class="line">            key=&#123;message.id&#125;</span><br><span class="line">            className=&#123;`rounded-lg p-3 $&#123;</span><br><span class="line">              message.role === &apos;user&apos;</span><br><span class="line">                ? &apos;ml-auto max-w-[80%] bg-blue-500 text-white&apos;</span><br><span class="line">                : &apos;mr-auto max-w-[80%] bg-gray-100&apos;</span><br><span class="line">            &#125;`&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            &#123;/* 显示文本内容 */&#125;</span><br><span class="line">            &#123;message.content &amp;&amp; &lt;p&gt;&#123;message.content&#125;&lt;/p&gt;&#125;</span><br><span class="line"></span><br><span class="line">            &#123;/* 显示工具调用过程（可选，用于调试/透明度） */&#125;</span><br><span class="line">            &#123;message.toolInvocations?.map((tool, i) =&gt; (</span><br><span class="line">              &lt;div key=&#123;i&#125; className=&quot;mt-2 rounded bg-yellow-50 p-2 text-sm&quot;&gt;</span><br><span class="line">                &lt;span className=&quot;font-mono text-yellow-700&quot;&gt;</span><br><span class="line">                  调用工具: &#123;tool.toolName&#125;</span><br><span class="line">                &lt;/span&gt;</span><br><span class="line">                &#123;tool.state === &apos;result&apos; &amp;&amp; (</span><br><span class="line">                  &lt;pre className=&quot;mt-1 text-xs text-gray-600&quot;&gt;</span><br><span class="line">                    &#123;JSON.stringify(tool.result, null, 2)&#125;</span><br><span class="line">                  &lt;/pre&gt;</span><br><span class="line">                )&#125;</span><br><span class="line">              &lt;/div&gt;</span><br><span class="line">            ))&#125;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        ))&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">      &lt;form onSubmit=&#123;handleSubmit&#125; className=&quot;flex gap-2&quot;&gt;</span><br><span class="line">        &lt;input</span><br><span class="line">          value=&#123;input&#125;</span><br><span class="line">          onChange=&#123;handleInputChange&#125;</span><br><span class="line">          placeholder=&quot;问我任何问题...&quot;</span><br><span class="line">          className=&quot;flex-1 rounded-lg border p-3&quot;</span><br><span class="line">          disabled=&#123;isLoading&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;button</span><br><span class="line">          type=&quot;submit&quot;</span><br><span class="line">          disabled=&#123;isLoading&#125;</span><br><span class="line">          className=&quot;rounded-lg bg-blue-500 px-6 py-3 text-white disabled:opacity-50&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          &#123;isLoading ? &apos;思考中...&apos; : &apos;发送&apos;&#125;</span><br><span class="line">        &lt;/button&gt;</span><br><span class="line">      &lt;/form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-6：增强-Agent-能力（进阶）"><a href="#步骤-6：增强-Agent-能力（进阶）" class="headerlink" title="步骤 6：增强 Agent 能力（进阶）"></a>步骤 6：增强 Agent 能力（进阶）</h3><p><strong>6a. 添加记忆/上下文持久化：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用数据库持久化对话历史</span></span><br><span class="line"><span class="keyword">import</span> &#123; saveMessages, loadMessages &#125; <span class="keyword">from</span> <span class="string">'@/lib/chat-store'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">POST</span>(<span class="params">req: Request</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; messages, sessionId &#125; = <span class="keyword">await</span> req.json();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 加载历史消息</span></span><br><span class="line">  <span class="keyword">const</span> history = <span class="keyword">await</span> loadMessages(sessionId);</span><br><span class="line">  <span class="keyword">const</span> allMessages = [...history, ...messages];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> result = streamText(&#123;</span><br><span class="line">    model: openai(<span class="string">'gpt-4o'</span>),</span><br><span class="line">    messages: allMessages,</span><br><span class="line">    tools: &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">    onFinish: <span class="keyword">async</span> (&#123; text &#125;) =&gt; &#123;</span><br><span class="line">      <span class="comment">// 持久化新消息</span></span><br><span class="line">      <span class="keyword">await</span> saveMessages(sessionId, messages);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result.toDataStreamResponse();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6b. 添加 RAG（检索增强生成）：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将用户上传的文档转为向量存储</span></span><br><span class="line"><span class="keyword">import</span> &#123; embed &#125; <span class="keyword">from</span> <span class="string">'ai'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; openai &#125; <span class="keyword">from</span> <span class="string">'@ai-sdk/openai'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">indexDocument</span>(<span class="params">text: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; embedding &#125; = <span class="keyword">await</span> embed(&#123;</span><br><span class="line">    model: openai.embedding(<span class="string">'text-embedding-3-small'</span>),</span><br><span class="line">    value: text,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">await</span> vectorStore.insert(&#123; text, embedding &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6c. 添加安全防护（Guardrails）：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = streamText(&#123;</span><br><span class="line">  model: openai(<span class="string">'gpt-4o'</span>),</span><br><span class="line">  messages,</span><br><span class="line">  tools: &#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">  <span class="comment">// 输入防护：过滤不当请求</span></span><br><span class="line">  experimental_prepareStep: <span class="keyword">async</span> (&#123; messages &#125;) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> lastMessage = messages[messages.length - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (containsSensitiveContent(lastMessage.content)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'请求包含不允许的内容'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-7：测试和部署"><a href="#步骤-7：测试和部署" class="headerlink" title="步骤 7：测试和部署"></a>步骤 7：测试和部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地开发测试</span></span><br><span class="line">npm run dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署到 Vercel（如果使用 Next.js）</span></span><br><span class="line">vercel deploy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或构建后部署到你的服务器</span></span><br><span class="line">npm run build</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+<h3 id="整体架构图"><a href="#整体架构图" class="headerlink" title="整体架构图"></a>整体架构图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────┐</span><br><span class="line">│                  前端 (React)                │</span><br><span class="line">│  ┌─────────────────────────────────────┐    │</span><br><span class="line">│  │   useChat() Hook                     │    │</span><br><span class="line">│  │   - 管理消息状态                      │    │</span><br><span class="line">│  │   - 处理流式响应                      │    │</span><br><span class="line">│  │   - 自动处理多步工具调用               │    │</span><br><span class="line">│  └──────────────┬──────────────────────┘    │</span><br><span class="line">└─────────────────┼───────────────────────────┘</span><br><span class="line">                  │ POST /api/agent</span><br><span class="line">                  ▼</span><br><span class="line">┌─────────────────────────────────────────────┐</span><br><span class="line">│              后端 API Route                  │</span><br><span class="line">│  ┌─────────────────────────────────────┐    │</span><br><span class="line">│  │   streamText() + tools              │    │</span><br><span class="line">│  │                                      │    │</span><br><span class="line">│  │   思考 → 调用工具 → 观察 → 再思考    │    │</span><br><span class="line">│  │         (Agent Loop)                 │    │</span><br><span class="line">│  └──┬──────────┬──────────┬────────────┘    │</span><br><span class="line">└─────┼──────────┼──────────┼─────────────────┘</span><br><span class="line">      │          │          │</span><br><span class="line">      ▼          ▼          ▼</span><br><span class="line">  ┌───────┐ ┌────────┐ ┌──────────┐</span><br><span class="line">  │ LLM   │ │ 数据库  │ │ 外部 API │</span><br><span class="line">  │ API   │ │ 查询   │ │ 调用     │</span><br><span class="line">  └───────┘ └────────┘ └──────────┘</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>搭建 AI Agent 的核心要素就是三点：</p>
+<ol>
+<li><strong>一个 LLM 作为大脑</strong> — 负责理解意图、推理决策</li>
+<li><strong>一组 Tools 作为双手</strong> — 让 Agent 能够与外部世界交互</li>
+<li><strong>一个循环机制作为行为模式</strong> — 思考 → 行动 → 观察 → 再思考</li>
+</ol>
+<p>Vercel AI SDK 把这三者封装得很好，对前端开发者非常友好。如果你的项目不是 Next.js，也可以用 LangChain.js 搭配任意后端框架（Express、Fastify 等）实现类似的效果。如果不想写代码，Dify、Coze 等平台提供了可视化搭建 Agent 的能力，搭建好后通过 API 集成到你的前端项目中即可。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+          
+            <a href="/tags/Agent/" rel="tag"><i class="fa fa-tag"></i> Agent</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2026/03/11/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lk大大">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">lk大大</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">92</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">192</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luke19950111" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lukelovenoney@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/b293f4ffc5fc" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-edit"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3699074360/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/" title="What makes a good front end engineer" target="_blank">What makes a good front end engineer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/reader/ebook/7412854/" title="Three.js入门指南（张雯莉）" target="_blank">Three.js入门指南（张雯莉）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.cn/" title="npm中文文档" target="_blank">npm中文文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nodeapp.cn/" title="node.js中文" target="_blank">node.js中文</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://webpack.js.org/" title="webpack" target="_blank">webpack</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.vuejs.org/v2/guide/" title="vue文档" target="_blank">vue文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wangdoc.com/javascript/" title="JS参考教程（阮一峰）" target="_blank">JS参考教程（阮一峰）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://es6.ruanyifeng.com/" title="ES6教程（阮一峰）" target="_blank">ES6教程（阮一峰）</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AI-Agent-详细介绍"><span class="nav-number">1.</span> <span class="nav-text">AI Agent 详细介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、AI-Agent-是什么"><span class="nav-number">1.1.</span> <span class="nav-text">一、AI Agent 是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-核心组成"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 核心组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Agent-与普通-AI-对话的区别"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Agent 与普通 AI 对话的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Agent-的工作循环（ReAct-模式）"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. Agent 的工作循环（ReAct 模式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-常见-Agent-架构模式"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 常见 Agent 架构模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-主流-Agent-框架"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 主流 Agent 框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、为已有前端项目搭建-AI-Agent-的操作步骤"><span class="nav-number">1.2.</span> <span class="nav-text">二、为已有前端项目搭建 AI Agent 的操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#场景假设"><span class="nav-number">1.2.1.</span> <span class="nav-text">场景假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-1：选择技术栈和模型供应商"><span class="nav-number">1.2.2.</span> <span class="nav-text">步骤 1：选择技术栈和模型供应商</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-2：安装依赖"><span class="nav-number">1.2.3.</span> <span class="nav-text">步骤 2：安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-3：配置环境变量"><span class="nav-number">1.2.4.</span> <span class="nav-text">步骤 3：配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-4：创建后端-Agent-API-路由"><span class="nav-number">1.2.5.</span> <span class="nav-text">步骤 4：创建后端 Agent API 路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-5：创建前端-Chat-UI"><span class="nav-number">1.2.6.</span> <span class="nav-text">步骤 5：创建前端 Chat UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-6：增强-Agent-能力（进阶）"><span class="nav-number">1.2.7.</span> <span class="nav-text">步骤 6：增强 Agent 能力（进阶）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤-7：测试和部署"><span class="nav-number">1.2.8.</span> <span class="nav-text">步骤 7：测试和部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整体架构图"><span class="nav-number">1.2.9.</span> <span class="nav-text">整体架构图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lk大大</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+ -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共61k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>
