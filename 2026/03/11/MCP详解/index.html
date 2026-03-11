@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-kuai.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-kuai.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AI,MCP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="AI,MCP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCP详解">
+<meta property="og:url" content="http://yoursite.com/2026/03/11/MCP详解/index.html">
+<meta property="og:site_name" content="LK">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2026/03/11/MCP详解/MCP.png">
+<meta property="og:updated_time" content="2026-03-11T10:34:10.649Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MCP详解">
+<meta name="twitter:image" content="http://yoursite.com/2026/03/11/MCP详解/MCP.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2026/03/11/MCP详解/">
+
+
+
+
+
+  <title>MCP详解 | LK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/Luke19950111" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">LK loves money.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-navigation">
+          <a href="/navigation/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-globe"></i> <br>
+            
+            导航
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2026/03/11/MCP详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lk大大">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MCP详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2026-03-11T18:29:11+08:00">
+                2026-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2026/03/11/MCP详解/MCP.png" title="MCP（Model Context Protocol，模型上下文协议）">
+
+<a id="more"></a>
+
+
+<h2 id="一、MCP-是什么"><a href="#一、MCP-是什么" class="headerlink" title="一、MCP 是什么"></a>一、MCP 是什么</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p><strong>MCP（Model Context Protocol，模型上下文协议）</strong> 是 Anthropic 于 2024 年 11 月发布的一项<strong>开放标准协议</strong>。它定义了 AI 应用（如 Cursor、Claude Desktop、Windsurf 等）与外部数据源/工具之间的标准化通信方式。</p>
+<p>一句话概括：<strong>MCP 是 AI 世界的 USB-C 接口</strong>。</p>
+<h3 id="2-MCP-解决了什么问题"><a href="#2-MCP-解决了什么问题" class="headerlink" title="2. MCP 解决了什么问题"></a>2. MCP 解决了什么问题</h3><p>在 MCP 出现之前，每个 AI 应用想要访问外部数据（数据库、文件系统、API 等），都需要单独写集成代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">没有 MCP 的世界：</span><br><span class="line"></span><br><span class="line">Cursor   ──自定义代码──→ PostgreSQL</span><br><span class="line">Cursor   ──自定义代码──→ GitHub API</span><br><span class="line">Cursor   ──自定义代码──→ Slack API</span><br><span class="line">Claude   ──另一套代码──→ PostgreSQL</span><br><span class="line">Claude   ──另一套代码──→ GitHub API</span><br><span class="line">Windsurf ──又一套代码──→ PostgreSQL</span><br><span class="line"></span><br><span class="line">= M 个应用 × N 个数据源 = M×N 种集成</span><br></pre></td></tr></table></figure>
+
+<p>MCP 出现后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">有 MCP 的世界：</span><br><span class="line"></span><br><span class="line">Cursor   ─┐                  ┌─→ PostgreSQL MCP Server</span><br><span class="line">Claude   ─┤── MCP 协议 ──→  ├─→ GitHub MCP Server</span><br><span class="line">Windsurf ─┘                  └─→ Slack MCP Server</span><br><span class="line"></span><br><span class="line">= M + N 种集成（每个应用实现一次 MCP Client，每个数据源实现一次 MCP Server）</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-核心架构"><a href="#3-核心架构" class="headerlink" title="3. 核心架构"></a>3. 核心架构</h3><p>MCP 采用<strong>客户端-服务器架构</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────────────────────────────────────────────┐</span><br><span class="line">│                    宿主应用 (Host)                     │</span><br><span class="line">│              如 Cursor IDE、Claude Desktop            │</span><br><span class="line">│                                                       │</span><br><span class="line">│  ┌─────────────────────────────────────────────────┐  │</span><br><span class="line">│  │               MCP Client（客户端）               │  │</span><br><span class="line">│  │         内嵌在宿主应用中，管理与 Server 的连接     │  │</span><br><span class="line">│  └────────┬──────────────┬──────────────┬──────────┘  │</span><br><span class="line">└───────────┼──────────────┼──────────────┼─────────────┘</span><br><span class="line">            │              │              │</span><br><span class="line">        MCP 协议       MCP 协议       MCP 协议</span><br><span class="line">      (JSON-RPC 2.0) (JSON-RPC 2.0) (JSON-RPC 2.0)</span><br><span class="line">            │              │              │</span><br><span class="line">            ▼              ▼              ▼</span><br><span class="line">     ┌────────────┐ ┌────────────┐ ┌────────────┐</span><br><span class="line">     │ MCP Server │ │ MCP Server │ │ MCP Server │</span><br><span class="line">     │ PostgreSQL │ │   GitHub   │ │ 文件系统    │</span><br><span class="line">     └──────┬─────┘ └─────┬──────┘ └─────┬──────┘</span><br><span class="line">            │              │              │</span><br><span class="line">            ▼              ▼              ▼</span><br><span class="line">       PostgreSQL     GitHub API      本地文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-MCP-的三大核心能力"><a href="#4-MCP-的三大核心能力" class="headerlink" title="4. MCP 的三大核心能力"></a>4. MCP 的三大核心能力</h3><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>类比</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Tools（工具）</strong></td>
+<td>POST 请求</td>
+<td>可执行的操作。AI 可以调用，会产生副作用。如：执行 SQL 查询、创建 GitHub Issue、发送消息</td>
+</tr>
+<tr>
+<td><strong>Resources（资源）</strong></td>
+<td>GET 请求</td>
+<td>只读数据。AI 可以读取但不会修改。如：数据库表结构、配置文件内容、API 文档</td>
+</tr>
+<tr>
+<td><strong>Prompts（提示模板）</strong></td>
+<td>函数模板</td>
+<td>预定义的 Prompt 模板。如：代码审查模板、SQL 生成模板</td>
+</tr>
+</tbody></table>
+<h3 id="5-MCP-的通信方式"><a href="#5-MCP-的通信方式" class="headerlink" title="5. MCP 的通信方式"></a>5. MCP 的通信方式</h3><p>MCP 使用 <strong>JSON-RPC 2.0</strong> 协议进行通信，支持两种传输方式：</p>
+<p><strong>stdio（标准输入输出）</strong>：MCP Server 作为本地子进程运行，Client 通过 stdin/stdout 与其通信。适合本地工具（如 Cursor 中使用的方式）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cursor (Client) ──stdin/stdout──→ MCP Server 进程</span><br></pre></td></tr></table></figure>
+
+<p><strong>HTTP + SSE（Server-Sent Events）</strong>：MCP Server 作为独立 HTTP 服务运行，Client 通过网络与其通信。适合远程服务、多用户共享场景。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Client ──HTTP POST──→ MCP Server (远程)</span><br><span class="line">Client ←──SSE────── MCP Server (远程)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-MCP-Server-的工作原理"><a href="#6-MCP-Server-的工作原理" class="headerlink" title="6. MCP Server 的工作原理"></a>6. MCP Server 的工作原理</h3><p>一个 MCP Server 本质上就是一个程序，它：</p>
+<ol>
+<li><strong>启动后声明自己提供了哪些 Tools、Resources、Prompts</strong>（通过 <code>initialize</code> 握手）</li>
+<li><strong>等待 Client 的请求</strong>（通过 JSON-RPC）</li>
+<li><strong>执行请求并返回结果</strong></li>
+</ol>
+<p>例如一个 PostgreSQL MCP Server 启动后会告诉 Client：”我有一个 <code>query</code> 工具，接受一个 SQL 字符串参数，可以查询数据库。” 当 AI 决定要查数据库时，Client 就通过 MCP 协议调用这个 <code>query</code> 工具。</p>
+<hr>
+<h2 id="二、以-Supabase-PostgreSQL-为例的完整实践"><a href="#二、以-Supabase-PostgreSQL-为例的完整实践" class="headerlink" title="二、以 Supabase/PostgreSQL 为例的完整实践"></a>二、以 Supabase/PostgreSQL 为例的完整实践</h2><h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>你有一个前端项目，使用 Supabase 作为后端数据库。你希望在 Cursor 中让 AI Agent 能够直接查询你的 Supabase 数据库——例如查看表结构、查询数据、帮你写 SQL。</p>
+<h3 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h3><p>有两种常用的 MCP Server 可以连接 PostgreSQL/Supabase：</p>
+<table>
+<thead>
+<tr>
+<th>MCP Server</th>
+<th>来源</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>@supabase/mcp-server-supabase</code></td>
+<td>Supabase 官方</td>
+<td>专为 Supabase 设计，支持表管理、Edge Functions、Auth 等 Supabase 特有功能</td>
+</tr>
+<tr>
+<td><code>@modelcontextprotocol/server-postgres</code></td>
+<td>MCP 官方</td>
+<td>通用 PostgreSQL 连接器，纯 SQL 操作，更轻量</td>
+</tr>
+</tbody></table>
+<p>下面分别介绍。</p>
+<hr>
+<h3 id="方案-A：使用-Supabase-官方-MCP-Server"><a href="#方案-A：使用-Supabase-官方-MCP-Server" class="headerlink" title="方案 A：使用 Supabase 官方 MCP Server"></a>方案 A：使用 Supabase 官方 MCP Server</h3><h4 id="步骤-1：获取-Supabase-凭证"><a href="#步骤-1：获取-Supabase-凭证" class="headerlink" title="步骤 1：获取 Supabase 凭证"></a>步骤 1：获取 Supabase 凭证</h4><p>你需要两样东西：</p>
+<ul>
+<li><strong>Supabase Access Token</strong>：在 <a href="https://supabase.com/dashboard/account/tokens" target="_blank" rel="noopener">https://supabase.com/dashboard/account/tokens</a> 创建一个 Personal Access Token</li>
+<li><strong>Project ID</strong>：你的 Supabase 项目 ID，在项目 Settings → General 中可以找到，格式如 <code>abcdefghijklmnop</code></li>
+</ul>
+<h4 id="步骤-2：在-Cursor-中配置-MCP-Server"><a href="#步骤-2：在-Cursor-中配置-MCP-Server" class="headerlink" title="步骤 2：在 Cursor 中配置 MCP Server"></a>步骤 2：在 Cursor 中配置 MCP Server</h4><p>打开 Cursor 的 Settings → MCP，点击 “Add new MCP Server”，或者直接编辑项目根目录下的 <code>.cursor/mcp.json</code> 文件（全局配置则在 <code>~/.cursor/mcp.json</code>）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"mcpServers"</span>: &#123;</span><br><span class="line">    <span class="attr">"supabase"</span>: &#123;</span><br><span class="line">      <span class="attr">"command"</span>: <span class="string">"npx"</span>,</span><br><span class="line">      <span class="attr">"args"</span>: [</span><br><span class="line">        <span class="string">"-y"</span>,</span><br><span class="line">        <span class="string">"@supabase/mcp-server-supabase@latest"</span>,</span><br><span class="line">        <span class="string">"--access-token"</span>,</span><br><span class="line">        <span class="string">"&lt;你的 Supabase Access Token&gt;"</span>,</span><br><span class="line">        <span class="string">"--project-ref"</span>,</span><br><span class="line">        <span class="string">"&lt;你的 Project ID&gt;"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段配置告诉 Cursor：</p>
+<ul>
+<li>启动一个名为 <code>supabase</code> 的 MCP Server</li>
+<li>通过 <code>npx</code> 运行 <code>@supabase/mcp-server-supabase</code> 这个 npm 包</li>
+<li>传入访问令牌和项目 ID 作为参数</li>
+<li>通信方式默认是 stdio（不用显式指定）</li>
+</ul>
+<h4 id="步骤-3：重启-Cursor"><a href="#步骤-3：重启-Cursor" class="headerlink" title="步骤 3：重启 Cursor"></a>步骤 3：重启 Cursor</h4><p>配置保存后重启 Cursor（或重新加载窗口），Cursor 会自动启动这个 MCP Server 进程并与之建立连接。</p>
+<h4 id="步骤-4：验证连接"><a href="#步骤-4：验证连接" class="headerlink" title="步骤 4：验证连接"></a>步骤 4：验证连接</h4><p>在 Cursor Settings → MCP 页面，你应该能看到 <code>supabase</code> Server 的状态为绿色（已连接），并列出它提供的所有 Tools。</p>
+<h4 id="可用工具一览"><a href="#可用工具一览" class="headerlink" title="可用工具一览"></a>可用工具一览</h4><p>Supabase 官方 MCP Server 提供了非常丰富的工具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">数据库操作：</span><br><span class="line">├── list_tables          列出所有表</span><br><span class="line">├── list_extensions      列出已安装的扩展</span><br><span class="line">├── list_migrations      列出迁移历史</span><br><span class="line">├── apply_migration      应用新的迁移（DDL）</span><br><span class="line">├── execute_sql          执行任意 SQL（读写皆可）</span><br><span class="line">├── get_table_definition 获取表的完整定义（列、约束、索引等）</span><br><span class="line"></span><br><span class="line">项目管理：</span><br><span class="line">├── get_project_url      获取项目的 API URL</span><br><span class="line">├── get_anon_key         获取匿名 API Key</span><br><span class="line">├── list_projects        列出所有 Supabase 项目</span><br><span class="line"></span><br><span class="line">Auth 管理：</span><br><span class="line">├── list_auth_users      列出认证用户</span><br><span class="line"></span><br><span class="line">Edge Functions：</span><br><span class="line">├── list_edge_functions  列出边缘函数</span><br><span class="line">├── deploy_edge_function 部署边缘函数</span><br><span class="line"></span><br><span class="line">日志：</span><br><span class="line">├── get_logs             查看项目日志</span><br><span class="line"></span><br><span class="line">存储：</span><br><span class="line">├── list_storage_buckets 列出存储桶</span><br><span class="line"></span><br><span class="line">分支（Pro 功能）：</span><br><span class="line">├── create_branch        创建数据库分支</span><br><span class="line">├── list_branches        列出分支</span><br><span class="line">├── ...</span><br></pre></td></tr></table></figure>
+
+<h4 id="步骤-5：在-Cursor-中使用"><a href="#步骤-5：在-Cursor-中使用" class="headerlink" title="步骤 5：在 Cursor 中使用"></a>步骤 5：在 Cursor 中使用</h4><p>配置完成后，你就可以在 Cursor 的 Agent 模式中直接对话：</p>
+<blockquote>
+<p><strong>你</strong>：查看一下我的 Supabase 数据库中有哪些表</p>
+<p><strong>Cursor AI</strong>：（自动调用 <code>list_tables</code> 工具）你的数据库中有以下表：users, projects, analytics_events, …</p>
+<p><strong>你</strong>：查询 analytics_events 表中最近 7 天的数据，按 event_type 分组统计</p>
+<p><strong>Cursor AI</strong>：（自动调用 <code>execute_sql</code> 工具，执行 <code>SELECT event_type, COUNT(*) FROM analytics_events WHERE created_at &gt; NOW() - INTERVAL &#39;7 days&#39; GROUP BY event_type</code>）结果如下…</p>
+</blockquote>
+<p>AI 会<strong>自主决定</strong>何时调用哪个工具，这就是 MCP + Agent 的魅力。</p>
+<hr>
+<h3 id="方案-B：使用通用-PostgreSQL-MCP-Server"><a href="#方案-B：使用通用-PostgreSQL-MCP-Server" class="headerlink" title="方案 B：使用通用 PostgreSQL MCP Server"></a>方案 B：使用通用 PostgreSQL MCP Server</h3><p>如果你只需要纯 SQL 查询能力，或者想连接的是非 Supabase 的 PostgreSQL 数据库：</p>
+<h4 id="步骤-1：获取数据库连接字符串"><a href="#步骤-1：获取数据库连接字符串" class="headerlink" title="步骤 1：获取数据库连接字符串"></a>步骤 1：获取数据库连接字符串</h4><p>Supabase 的 PostgreSQL 连接字符串在：项目 Dashboard → Settings → Database → Connection string → URI</p>
+<p>格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres</span><br></pre></td></tr></table></figure>
+
+<h4 id="步骤-2：配置-MCP-Server"><a href="#步骤-2：配置-MCP-Server" class="headerlink" title="步骤 2：配置 MCP Server"></a>步骤 2：配置 MCP Server</h4><p>在 <code>.cursor/mcp.json</code> 中：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"mcpServers"</span>: &#123;</span><br><span class="line">    <span class="attr">"supabase-db"</span>: &#123;</span><br><span class="line">      <span class="attr">"command"</span>: <span class="string">"npx"</span>,</span><br><span class="line">      <span class="attr">"args"</span>: [</span><br><span class="line">        <span class="string">"-y"</span>,</span><br><span class="line">        <span class="string">"@modelcontextprotocol/server-postgres"</span>,</span><br><span class="line">        <span class="string">"postgresql://postgres.xxxx:password@aws-0-region.pooler.supabase.com:6543/postgres"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个 Server 更轻量，通常提供以下工具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">├── query     执行只读 SQL 查询（SELECT）</span><br><span class="line">├── list_tables  列出所有表</span><br><span class="line">└── describe_table  查看表结构</span><br></pre></td></tr></table></figure>
+
+<p>注意这个 Server 默认<strong>只允许只读查询</strong>，比 Supabase 官方版更安全。</p>
+<hr>
+<h3 id="两种方案对比"><a href="#两种方案对比" class="headerlink" title="两种方案对比"></a>两种方案对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Supabase 官方 MCP</th>
+<th>通用 PostgreSQL MCP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>安装</td>
+<td><code>@supabase/mcp-server-supabase</code></td>
+<td><code>@modelcontextprotocol/server-postgres</code></td>
+</tr>
+<tr>
+<td>认证方式</td>
+<td>Access Token + Project Ref</td>
+<td>数据库连接字符串</td>
+</tr>
+<tr>
+<td>工具数量</td>
+<td>20+ 个（含 Auth、Storage、Edge Functions 等）</td>
+<td>2-3 个（纯 SQL 操作）</td>
+</tr>
+<tr>
+<td>写操作</td>
+<td>支持（DDL + DML）</td>
+<td>默认只读</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>深度 Supabase 集成</td>
+<td>只需查询数据库</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>需妥善保管 Access Token</td>
+<td>需妥善保管连接字符串</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、MCP-的底层通信细节"><a href="#三、MCP-的底层通信细节" class="headerlink" title="三、MCP 的底层通信细节"></a>三、MCP 的底层通信细节</h2><p>为了让你更深入理解，下面展示一次完整的 MCP 调用在底层是如何发生的：</p>
+<h3 id="1-初始化握手"><a href="#1-初始化握手" class="headerlink" title="1. 初始化握手"></a>1. 初始化握手</h3><p>Cursor 启动 MCP Server 后，先发送初始化请求：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client → Server</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"jsonrpc"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"initialize"</span>,</span><br><span class="line">  <span class="attr">"params"</span>: &#123;</span><br><span class="line">    <span class="attr">"protocolVersion"</span>: <span class="string">"2024-11-05"</span>,</span><br><span class="line">    <span class="attr">"capabilities"</span>: &#123; <span class="attr">"tools"</span>: &#123;&#125; &#125;,</span><br><span class="line">    <span class="attr">"clientInfo"</span>: &#123; <span class="attr">"name"</span>: <span class="string">"cursor"</span>, <span class="attr">"version"</span>: <span class="string">"0.45.0"</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Server → Client</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"jsonrpc"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"result"</span>: &#123;</span><br><span class="line">    <span class="attr">"protocolVersion"</span>: <span class="string">"2024-11-05"</span>,</span><br><span class="line">    <span class="attr">"capabilities"</span>: &#123; <span class="attr">"tools"</span>: &#123; <span class="attr">"listChanged"</span>: <span class="literal">true</span> &#125; &#125;,</span><br><span class="line">    <span class="attr">"serverInfo"</span>: &#123; <span class="attr">"name"</span>: <span class="string">"supabase-mcp"</span>, <span class="attr">"version"</span>: <span class="string">"1.0.0"</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-发现可用工具"><a href="#2-发现可用工具" class="headerlink" title="2. 发现可用工具"></a>2. 发现可用工具</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client → Server</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"jsonrpc"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"tools/list"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Server → Client</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"jsonrpc"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">"result"</span>: &#123;</span><br><span class="line">    <span class="attr">"tools"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"execute_sql"</span>,</span><br><span class="line">        <span class="attr">"description"</span>: <span class="string">"Execute a SQL query against the Supabase database"</span>,</span><br><span class="line">        <span class="attr">"inputSchema"</span>: &#123;</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"object"</span>,</span><br><span class="line">          <span class="attr">"properties"</span>: &#123;</span><br><span class="line">            <span class="attr">"query"</span>: &#123;</span><br><span class="line">              <span class="attr">"type"</span>: <span class="string">"string"</span>,</span><br><span class="line">              <span class="attr">"description"</span>: <span class="string">"The SQL query to execute"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">"required"</span>: [<span class="string">"query"</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这些工具信息会被注入到 LLM 的上下文中，让 AI 知道有哪些工具可用。</p>
+<h3 id="3-调用工具"><a href="#3-调用工具" class="headerlink" title="3. 调用工具"></a>3. 调用工具</h3><p>当 AI 决定要查询数据库时：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Client → Server</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"jsonrpc"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">"method"</span>: <span class="string">"tools/call"</span>,</span><br><span class="line">  <span class="attr">"params"</span>: &#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"execute_sql"</span>,</span><br><span class="line">    <span class="attr">"arguments"</span>: &#123;</span><br><span class="line">      <span class="attr">"query"</span>: <span class="string">"SELECT count(*) FROM users WHERE created_at &gt; '2025-01-01'"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Server → Client</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"jsonrpc"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">"result"</span>: &#123;</span><br><span class="line">    <span class="attr">"content"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"text"</span>,</span><br><span class="line">        <span class="attr">"text"</span>: <span class="string">"[&#123;\"count\": 1523&#125;]"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Server 执行 SQL，将结果返回给 Client，Client 再把结果送回 LLM，LLM 据此生成自然语言回答。</p>
+<h3 id="完整流转图"><a href="#完整流转图" class="headerlink" title="完整流转图"></a>完整流转图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">用户在 Cursor 中提问：&quot;数据库中有多少用户？&quot;</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">Cursor 将问题 + 可用工具列表 发给 LLM</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">LLM 决定调用 execute_sql 工具，输出：</span><br><span class="line">  &#123;&quot;tool&quot;: &quot;execute_sql&quot;, &quot;args&quot;: &#123;&quot;query&quot;: &quot;SELECT count(*) FROM users&quot;&#125;&#125;</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">Cursor（MCP Client）通过 MCP 协议调用 Server</span><br><span class="line">    │  JSON-RPC via stdio</span><br><span class="line">    ▼</span><br><span class="line">MCP Server 连接 PostgreSQL，执行 SQL</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">MCP Server 返回结果：[&#123;&quot;count&quot;: 4231&#125;]</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">Cursor 将结果送回 LLM</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">LLM 生成最终回答：&quot;您的数据库中目前有 4,231 个用户。&quot;</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">用户看到回答</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、安全注意事项"><a href="#四、安全注意事项" class="headerlink" title="四、安全注意事项"></a>四、安全注意事项</h2><ol>
+<li><p><strong>永远不要将 Access Token 或数据库连接字符串提交到 Git</strong>。将 <code>.cursor/mcp.json</code> 加入 <code>.gitignore</code>，或使用环境变量方案</p>
+</li>
+<li><p><strong>最小权限原则</strong>：如果只需要读取数据，使用只读的数据库角色连接；Supabase 的 Access Token 可以创建有限权限的</p>
+</li>
+<li><p><strong>生产数据库谨慎操作</strong>：MCP 让 AI 可以直接执行 SQL，如果是生产数据库，建议使用只读连接或连接到只读副本</p>
+</li>
+<li><p><strong>环境变量方案</strong>（推荐）：</p>
+</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"mcpServers"</span>: &#123;</span><br><span class="line">    <span class="attr">"supabase"</span>: &#123;</span><br><span class="line">      <span class="attr">"command"</span>: <span class="string">"npx"</span>,</span><br><span class="line">      <span class="attr">"args"</span>: [</span><br><span class="line">        <span class="string">"-y"</span>,</span><br><span class="line">        <span class="string">"@supabase/mcp-server-supabase@latest"</span>,</span><br><span class="line">        <span class="string">"--access-token"</span>,</span><br><span class="line">        <span class="string">"$&#123;SUPABASE_ACCESS_TOKEN&#125;"</span>,</span><br><span class="line">        <span class="string">"--project-ref"</span>,</span><br><span class="line">        <span class="string">"$&#123;SUPABASE_PROJECT_REF&#125;"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在系统环境变量中设置 <code>SUPABASE_ACCESS_TOKEN</code> 和 <code>SUPABASE_PROJECT_REF</code>，而非硬编码在配置文件中。</p>
+<hr>
+<h2 id="五、MCP-生态现状"><a href="#五、MCP-生态现状" class="headerlink" title="五、MCP 生态现状"></a>五、MCP 生态现状</h2><p>目前已经有大量现成的 MCP Server 可以直接使用：</p>
+<table>
+<thead>
+<tr>
+<th>MCP Server</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>server-postgres</code></td>
+<td>PostgreSQL 查询</td>
+</tr>
+<tr>
+<td><code>server-sqlite</code></td>
+<td>SQLite 查询</td>
+</tr>
+<tr>
+<td><code>server-filesystem</code></td>
+<td>文件系统读写</td>
+</tr>
+<tr>
+<td><code>server-github</code></td>
+<td>GitHub 操作（Issue、PR、搜索）</td>
+</tr>
+<tr>
+<td><code>server-slack</code></td>
+<td>Slack 消息收发</td>
+</tr>
+<tr>
+<td><code>server-puppeteer</code></td>
+<td>浏览器自动化</td>
+</tr>
+<tr>
+<td><code>server-fetch</code></td>
+<td>HTTP 请求</td>
+</tr>
+<tr>
+<td><code>server-memory</code></td>
+<td>AI 长期记忆存储</td>
+</tr>
+<tr>
+<td><code>server-brave-search</code></td>
+<td>Brave 搜索引擎</td>
+</tr>
+<tr>
+<td><code>server-google-maps</code></td>
+<td>Google 地图</td>
+</tr>
+<tr>
+<td><code>@supabase/mcp-server-supabase</code></td>
+<td>Supabase 全功能</td>
+</tr>
+<tr>
+<td><code>@upstash/mcp-server</code></td>
+<td>Redis/Kafka 操作</td>
+</tr>
+</tbody></table>
+<p>社区还在快速增长中。你也可以自己编写 MCP Server——本质上就是一个实现了 MCP 协议的 Node.js/Python 程序。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+          
+            <a href="/tags/MCP/" rel="tag"><i class="fa fa-tag"></i> MCP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2026/03/11/RAG介绍/" rel="next" title="RAG介绍">
+                <i class="fa fa-chevron-left"></i> RAG介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="lk大大">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">lk大大</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">196</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luke19950111" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lukelovenoney@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/b293f4ffc5fc" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-edit"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3699074360/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://humanwhocodes.com/blog/2007/08/15/what-makes-a-good-front-end-engineer/" title="What makes a good front end engineer" target="_blank">What makes a good front end engineer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://read.douban.com/reader/ebook/7412854/" title="Three.js入门指南（张雯莉）" target="_blank">Three.js入门指南（张雯莉）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.npmjs.cn/" title="npm中文文档" target="_blank">npm中文文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nodeapp.cn/" title="node.js中文" target="_blank">node.js中文</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://webpack.js.org/" title="webpack" target="_blank">webpack</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.vuejs.org/v2/guide/" title="vue文档" target="_blank">vue文档</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wangdoc.com/javascript/" title="JS参考教程（阮一峰）" target="_blank">JS参考教程（阮一峰）</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://es6.ruanyifeng.com/" title="ES6教程（阮一峰）" target="_blank">ES6教程（阮一峰）</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、MCP-是什么"><span class="nav-number">1.</span> <span class="nav-text">一、MCP 是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定义"><span class="nav-number">1.1.</span> <span class="nav-text">1. 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-MCP-解决了什么问题"><span class="nav-number">1.2.</span> <span class="nav-text">2. MCP 解决了什么问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-核心架构"><span class="nav-number">1.3.</span> <span class="nav-text">3. 核心架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-MCP-的三大核心能力"><span class="nav-number">1.4.</span> <span class="nav-text">4. MCP 的三大核心能力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-MCP-的通信方式"><span class="nav-number">1.5.</span> <span class="nav-text">5. MCP 的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-MCP-Server-的工作原理"><span class="nav-number">1.6.</span> <span class="nav-text">6. MCP Server 的工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、以-Supabase-PostgreSQL-为例的完整实践"><span class="nav-number">2.</span> <span class="nav-text">二、以 Supabase/PostgreSQL 为例的完整实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#场景"><span class="nav-number">2.1.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案选择"><span class="nav-number">2.2.</span> <span class="nav-text">方案选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-A：使用-Supabase-官方-MCP-Server"><span class="nav-number">2.3.</span> <span class="nav-text">方案 A：使用 Supabase 官方 MCP Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-1：获取-Supabase-凭证"><span class="nav-number">2.3.1.</span> <span class="nav-text">步骤 1：获取 Supabase 凭证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-2：在-Cursor-中配置-MCP-Server"><span class="nav-number">2.3.2.</span> <span class="nav-text">步骤 2：在 Cursor 中配置 MCP Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-3：重启-Cursor"><span class="nav-number">2.3.3.</span> <span class="nav-text">步骤 3：重启 Cursor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-4：验证连接"><span class="nav-number">2.3.4.</span> <span class="nav-text">步骤 4：验证连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可用工具一览"><span class="nav-number">2.3.5.</span> <span class="nav-text">可用工具一览</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-5：在-Cursor-中使用"><span class="nav-number">2.3.6.</span> <span class="nav-text">步骤 5：在 Cursor 中使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-B：使用通用-PostgreSQL-MCP-Server"><span class="nav-number">2.4.</span> <span class="nav-text">方案 B：使用通用 PostgreSQL MCP Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-1：获取数据库连接字符串"><span class="nav-number">2.4.1.</span> <span class="nav-text">步骤 1：获取数据库连接字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-2：配置-MCP-Server"><span class="nav-number">2.4.2.</span> <span class="nav-text">步骤 2：配置 MCP Server</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方案对比"><span class="nav-number">2.5.</span> <span class="nav-text">两种方案对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、MCP-的底层通信细节"><span class="nav-number">3.</span> <span class="nav-text">三、MCP 的底层通信细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化握手"><span class="nav-number">3.1.</span> <span class="nav-text">1. 初始化握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-发现可用工具"><span class="nav-number">3.2.</span> <span class="nav-text">2. 发现可用工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-调用工具"><span class="nav-number">3.3.</span> <span class="nav-text">3. 调用工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整流转图"><span class="nav-number">3.4.</span> <span class="nav-text">完整流转图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、安全注意事项"><span class="nav-number">4.</span> <span class="nav-text">四、安全注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、MCP-生态现状"><span class="nav-number">5.</span> <span class="nav-text">五、MCP 生态现状</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lk大大</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+ -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共73.2k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击跳字 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>
