@@ -92,11 +92,11 @@
 <meta property="og:url" content="http://yoursite.com/2024/03/01/Nuxt3项目中数据请求封装/index.html">
 <meta property="og:site_name" content="LK">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2024/03/01/Nuxt3项目中数据请求封装/useFetch.png">
+<meta property="og:image" content="http://yoursite.com/blog/2024/03/01/Nuxt3项目中数据请求封装/useFetch.png">
 <meta property="og:updated_time" content="2026-03-11T08:11:38.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nuxt3项目中数据请求封装">
-<meta name="twitter:image" content="http://yoursite.com/2024/03/01/Nuxt3项目中数据请求封装/useFetch.png">
+<meta name="twitter:image" content="http://yoursite.com/blog/2024/03/01/Nuxt3项目中数据请求封装/useFetch.png">
 
 
 
@@ -375,11 +375,11 @@
       
 
       
-        <img src="/2024/03/01/Nuxt3项目中数据请求封装/useFetch.png" title="useFetch">
+        <img src="/blog/2024/03/01/Nuxt3项目中数据请求封装/useFetch.png" title="useFetch">
 <a id="more"></a>
 
 <p>前端项目中通常需要大量 http 请求获取数据，对 http 请求做封装，主要是根据所使用的请求库预设一些公用的配置，添加请求和响应拦截，添加公共参数，提供方便调用的请求函数。</p>
-<p>之前已经写过一篇对 axios 的封装。<a href="https://luke19950111.github.io/2023/05/25/Axios%E5%B0%81%E8%A3%85/" target="_blank" rel="noopener">Axios 封装</a></p>
+<p>之前已经写过一篇对 axios 的封装。<a href="https://luke19950111.github.io/2023/05/25/Axios%E5%B0%81%E8%A3%85/">Axios 封装</a></p>
 <p>最近新项目使用 Nuxt3 搭建，Nuxt3 提供了两个组合函数 <code>useFetch</code>、<code>useAsyncData</code> 和一个内置库 <code>$fetch</code> 来请求数据，实际上背后使用的是 <code>ofetch</code> 库。本文使用 <code>useFetch</code> 对请求做简单封装。</p>
 <h2 id="组合函数位置"><a href="#组合函数位置" class="headerlink" title="组合函数位置"></a>组合函数位置</h2><p>Nuxt3 <code>composables</code>目录下的 Vue 可组合项会自动导入到应用程序中，所以在该目录下创建 useHttp.js 文件导出请求函数即可。<br>为方便使用，我习惯针对每种请求 Method 单独定义函数，放在一个对象中导出；<br>异步请求返回 promise，在业务代码中再处理返回结果，这里使用 async 函数。<br>导出结构如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// useHttp.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useHttp = &#123;</span><br><span class="line">  <span class="keyword">get</span>: async () =&gt; &#123;&#125;,</span><br><span class="line">  post: <span class="keyword">async</span> () =&gt; &#123;&#125;,</span><br><span class="line">  put: <span class="keyword">async</span> () =&gt; &#123;&#125;,</span><br><span class="line">  <span class="keyword">delete</span>: <span class="keyword">async</span> () =&gt; &#123;&#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
