@@ -5,7 +5,7 @@ tags: [AI, Agent]
 categories: AI
 ---
 
-{% asset_img cover.png 为已有前端项目搭建 AI Agent 的操作步骤 %}
+{% asset_img cover.jpg 为已有前端项目搭建 AI Agent 的操作步骤 %}
 
 <!--more-->
 

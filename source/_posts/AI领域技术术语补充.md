@@ -5,7 +5,7 @@ tags: [AI, Agent, prompt, token, RAG]
 categories: AI
 ---
 
-{% asset_img prompt.png 这些概念覆盖了从模型底层原理、推理部署、Prompt 设计、Agent 架构、数据处理、安全治理到前端集成的完整 AI 技术栈。掌握这些术语后，阅读任何 AI Agent 相关的文档和教程都不会遇到理解障碍。 %}
+{% asset_img prompt.jpg 这些概念覆盖了从模型底层原理、推理部署、Prompt 设计、Agent 架构、数据处理、安全治理到前端集成的完整 AI 技术栈。掌握这些术语后，阅读任何 AI Agent 相关的文档和教程都不会遇到理解障碍。 %}
 
 <!--more-->
 

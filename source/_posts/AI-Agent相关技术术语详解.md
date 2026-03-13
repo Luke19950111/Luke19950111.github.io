@@ -5,7 +5,7 @@ tags: [AI, Agent]
 categories: AI
 ---
 
-{% asset_img LLM.png 介绍一些AI Agent相关技术概念 %}
+{% asset_img LLM.jpg 介绍一些AI Agent相关技术概念 %}
 
 <!--more-->
 

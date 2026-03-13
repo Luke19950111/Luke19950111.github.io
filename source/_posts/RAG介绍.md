@@ -5,7 +5,7 @@ tags: [AI, RAG]
 categories: AI
 ---
 
-{% asset_img RAG.png RAG（Retrieval-Augmented Generation，检索增强生成） %}
+{% asset_img RAG.jpg RAG（Retrieval-Augmented Generation，检索增强生成） %}
 
 <!--more-->
 

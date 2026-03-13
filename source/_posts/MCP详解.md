@@ -5,7 +5,7 @@ tags: [AI, MCP]
 categories: AI
 ---
 
-{% asset_img MCP.png MCP（Model Context Protocol，模型上下文协议）%}
+{% asset_img MCP.jpg MCP（Model Context Protocol，模型上下文协议）%}
 
 <!--more-->
 
